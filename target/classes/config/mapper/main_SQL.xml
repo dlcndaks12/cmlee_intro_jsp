@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainDAO">
+
+    <insert id="insertLocation">
+    	INSERT INTO LOCATION (lat
+    						 ,lon
+    						 ,reg_date
+    						 ,id)
+    				  VALUES (#{lat}
+    				  		 ,#{lon}
+    				  		 ,NOW()
+    				  		 ,#{id})
+    </insert>
+    
+    <select id="getLocation" parameterType="hashmap" resultType="hashmap">
+    	SELECT *
+    	FROM LOCATION
+    	WHERE id = #{id}
+    	ORDER BY idx desc limit 1
+    </select>
+    
+</mapper>
