@@ -81,6 +81,36 @@
     </body>
     
     <script>
+    	function refreshRank() {
+    		$.ajax({
+	            url : '/tetris/getScore.do',
+	            type : 'post',
+	            dataType : 'json',
+	            success : function(data) {
+	              	var list = data.list;
+              		var $con = $('.ranking > ul');
+              			$con.empty();
+	              	
+	              	for(var i=0; i<list.length; i++) {
+	              		var id = list[i].id;
+	              		var score = list[i].score;
+	              		var item = new StringBuffer();
+	              			item.append('<li>');
+	              			item.append('	<span class="num">'+(i+1)+'.</span>');
+	              			item.append('	<span class="name">'+id+'</span>');
+	              			item.append('	<span class="rscore">'+score+' 점</span>');
+	              			item.append('</li>');
+	              		$con.append(item.toString());
+	              	}
+	            },
+	            error: function () {
+	                alert("웹페이지에 문제가 발생 하였습니다.");
+	                location.reload();
+	                return false;
+	            }
+	        });
+    	}
+    
     	$('.save-wrap .btn').on('click', function(e) {
     		var id = $('#id').val();
     		var score = $('.gameover .score .num').text();
@@ -97,6 +127,8 @@
 	              	if(data.result > 0) {
 	              		$('.save-wrap').removeClass('active');
 	              		$('.gameover .save').hide();
+	              		
+	              		refreshRank();
 	              	}
 	            },
 	            error: function () {

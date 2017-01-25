@@ -165,15 +165,15 @@
 	
 	            <a href="#">
 	                <div class="photo">
-	                    <img src="resources/images/ryan.gif" alt="">
+	                    <img src="resources/images/profile.jpg" alt="">
 	                </div>
-	                <div class="name">Profile</div>
-	            </a>
+	                <div class="name">프로필</div> 
+	            </a> 
 	        </div>
 	
 	        <ul class="card-container">
 	            <li>
-	                <a href="#" data-popup="skylife">
+	                <a target="_blank" href="http://www.skylife.co.kr">
 	                    <span class="thumb"><img src="resources/images/skylife.jpg" alt=""></span>
 	                    <span class="desc">
 	                    SkyLife 웹서비스 개편구축
@@ -189,7 +189,7 @@
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="hankook">
+	                <a target="_blank" href="javascript: alert('준비중입니다.');">
 	                    <span class="thumb"><img src="resources/images/hankook.jpg" alt=""></span>
 	                    <span class="desc">
 	                    한국타이어 디지털워크플레이스 DWP 구축
@@ -197,91 +197,107 @@
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="creative">
+	                <a target="_blank" href="https://www.creativekorea.or.kr/main/townIntro">
 	                    <span class="thumb"><img src="resources/images/creative.jpg" alt=""></span>
-	                    <span class="desc">
-	                    창조경제타운 서비스 구축
-	                </span>
+		                <span class="desc">
+		                   	 창조경제타운 서비스 구축
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="scienceall">
+	                <a target="_blank" href="http://www.scienceall.com/intro/">
 	                    <span class="thumb"><img src="resources/images/scienceall.jpg" alt=""></span>
-	                    <span class="desc">
-	                    사이언스올 웹사이트 운영 및 활성화 사업
-	                </span>
+		                    <span class="desc">
+		                    사이언스올 웹사이트 운영 및 활성화 사업
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="3ting">
+	                <a target="_blank" href="http://www.3ting.co.kr">
 	                    <span class="thumb"><img src="resources/images/3ting.jpg" alt=""></span>
-	                    <span class="desc">
-	                    3D 프린팅 출력서비스 오픈 및 3Ting 웹사이트 신규 구축
-	                </span>
+		                <span class="desc">
+		                    3D 프린팅 출력서비스 오픈 및 3Ting 웹사이트 신규 구축
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="africa">
+	                <a target="_blank" href="http://www.africacenter.kr/main/index.do">
 	                    <span class="thumb"><img src="resources/images/afreeca.jpg" alt=""></span>
 	                    <span class="desc">
-	                    아프리카 미래전략센터 구축, 유지보수
-	                </span>
+	                    	아프리카 미래전략센터 운영, 구축
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="kogas">
+	                <a target="_blank" href="http://www.kogas.or.kr">
 	                    <span class="thumb"><img src="resources/images/kogas.jpg" alt=""></span>
 	                    <span class="desc">
-	                    한국가스공사 홈페이지 개선
-	                </span>
+	                    	한국가스공사 홈페이지 개선
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="training">
+	                <div>
 	                    <span class="thumb"><img src="resources/images/training.jpg" alt=""></span>
-	                    <span class="desc">
-	                    교육정보통합시스템 구축 사업
-	                </span>
-	                </a>
+		                <span class="desc">
+		                    	교육정보통합시스템 구축 사업
+		                </span>
+	                </div>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="bitmaru">
+	                <a target="_blank" href="http://www.bitmaru.kr">
 	                    <span class="thumb"><img src="resources/images/bitmaru.jpg" alt=""></span>
 	                    <span class="desc">
-	                    빛마루 유통시스템 및 홈페이지 운용관리 위탁용역
-	                </span>
+	                    	빛마루 유통시스템 및 홈페이지 운용관리 위탁용역
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="coscoi-m">
+	                <a target="_blank" href="http://m.coscoi.net/">
 	                    <span class="thumb"><img src="resources/images/coscoi.png" alt=""></span>
 	                    <span class="desc">
-	                    코스코이 모바일 개발
-	                </span>
+	                    	코스코이 모바일 웹개발
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="kicox">
+	                <a target="_blank" href="http://www.kicox.or.kr/index.do">
 	                    <span class="thumb"><img src="resources/images/kicox.jpg" alt=""></span>
-	                    <span class="desc">
-	                    한국산업단지공단 홈페이지 구축
-	                </span>
+		                    <span class="desc">
+		                    한국산업단지공단 홈페이지 구축
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="jdc">
+	                <a target="_blank" href="http://jdcenter.co.kr/main/index.do">
 	                    <span class="thumb"><img src="resources/images/jdc.jpg" alt=""></span>
 	                    <span class="desc">
-	                    JDC 기관 홈페이지 유지보수 및 관리운영 용역
-	                </span>
+	                    	JDC 기관 홈페이지 유지보수 및 관리운영 용역
+		                </span>
 	                </a>
 	            </li>
 	            <li>
-	                <a href="#" data-popup="3ting-m">
+	                <a target="_blank" href="http://www.3ting.co.kr">
 	                    <span class="thumb"><img src="resources/images/3ting-m.jpg" alt=""></span>
 	                    <span class="desc">
-	                    IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&D사업
-	                </span>
+	                    	IITP 2차년도 모바일 기반 3D프린팅 콘텐츠 생성 저작 출력기술 R&amp;D사업
+		                </span>
+	                </a>
+	            </li>
+	            <li>
+	                <div>
+	                    <span class="thumb"><img src="resources/images/god-tower.png" alt=""></span>
+	                    <span class="desc">
+	                    	모바일게임 신의탑  프로모션 페이지
+		                </span>
+	                </div>
+	            </li>
+	            <li>
+	                <a target="_blank" href="projects/lai/view/main/main.html">
+	                    <span class="thumb"><img src="resources/images/lai.jpg" alt=""></span>
+	                    <span class="desc">
+	                    	스마트헬스케어 Lai 소개페이지
+		                </span>
 	                </a>
 	            </li>
 	        </ul>

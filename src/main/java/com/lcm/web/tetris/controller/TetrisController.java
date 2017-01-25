@@ -41,4 +41,15 @@ public class TetrisController {
 		
 		return "jsonView";
 	}
+	
+	@RequestMapping(value = "/tetris/getScore.do")
+	public String getScore(@RequestParam HashMap<String, Object> param
+							 ,Model model) {
+		
+		ArrayList<Tetris> list = tetrisService.getScore();
+		
+		model.addAttribute("list", list);
+		
+		return "jsonView";
+	}
 }
