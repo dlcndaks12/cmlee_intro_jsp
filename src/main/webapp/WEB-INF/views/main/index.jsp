@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>lcm</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         
         <%@ include file="/WEB-INF/include/include-js.jsp" %>
         
@@ -51,6 +51,21 @@
 	
 	            $('.pop-detail .btn-close').on('click', function(e) {
 	                $(this).closest('.pop-detail').removeClass('active');
+	                e.preventDefault();
+	            });
+
+	            $('#container').on('scroll', function(e) {
+	                var sTop = $(this).scrollTop();
+
+	                if(sTop > 100) {
+	                    $('.btn-top').addClass('active');
+	                }else{
+	                    $('.btn-top').removeClass('active');
+	                }
+	            });
+
+	            $('.btn-top').on('click', function(e) {
+	                $('#container').stop().animate({scrollTop:0}, '500', 'swing');
 	                e.preventDefault();
 	            });
 	        });
@@ -504,5 +519,7 @@
 	        <a href="#" class="btn-close">닫기</a>
 	    </div>
 	</div>
+	
+	<a href="#" class="btn-top">Top</a>
     </body>
 </html>
