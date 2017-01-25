@@ -23,12 +23,7 @@ public class MainController {
 	public String main(@RequestParam HashMap<String, Object> param
 							,ModelMap model) {
 		
-		param.put("id", "almond");
-		HashMap<String, Object> location = mainService.getLocation(param);
-		
-		model.addAttribute("location", location);
-		
-		return "main/main";
+		return "main/index";
 	}
 	
 	@RequestMapping(value = "/insertLocation.do")
