@@ -37,9 +37,9 @@
 	            <div class="ranking">
 	                <div class="title">Ranking</div>
 	                <ul>
-	                	<c:forEach items="${list}" var="item">
+	                	<c:forEach items="${list}" var="item" varStatus="status">
 		                    <li>
-		                        <span class="num">1.</span>
+		                        <span class="num">${status.index+1}</span>
 		                        <span class="name">${item.id}</span>
 		                        <span class="rscore">${item.score} 점</span>
 		                    </li>
@@ -83,8 +83,8 @@
     <script>
     	function refreshRank() {
     		$.ajax({
-	            url : '/tetris/getScore.do',
-	            type : 'post',
+	            url : '/tetris/score.do',
+	            type : 'get',
 	            dataType : 'json',
 	            success : function(data) {
 	              	var list = data.list;
@@ -116,7 +116,7 @@
     		var score = $('.gameover .score .num').text();
     		
     		$.ajax({
-	            url : '/tetris/insertScore.do',
+	            url : '/tetris/score.do',
 	            type : 'post',
 	            dataType : 'json',
 	            data : {

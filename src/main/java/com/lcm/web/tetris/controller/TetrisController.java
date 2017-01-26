@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.lcm.web.tetris.service.TetrisService;
 import com.lcm.web.tetris.vo.Tetris;
@@ -31,7 +32,7 @@ public class TetrisController {
 		return "tetris/index";
 	}
 	
-	@RequestMapping(value = "/tetris/insertScore.do")
+	@RequestMapping(value = "/tetris/score.do", method = RequestMethod.POST)
 	public String insertScore(@RequestParam HashMap<String, Object> param
 							 ,Model model) {
 
@@ -42,7 +43,7 @@ public class TetrisController {
 		return "jsonView";
 	}
 	
-	@RequestMapping(value = "/tetris/getScore.do")
+	@RequestMapping(value = "/tetris/score.do", method = RequestMethod.GET)
 	public String getScore(@RequestParam HashMap<String, Object> param
 							 ,Model model) {
 		
