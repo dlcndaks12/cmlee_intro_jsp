@@ -107,28 +107,28 @@
 	                        <div class="section">
 	                            <div class="sub-title">퍼블리싱 프로젝트</div>
 	                            <ul class="project-list">
-	                                <li><a target="_blank" href="http://www.skylife.co.kr">스카이라이프 리뉴얼</a></li>
-	                                <li><a target="_blank" href="#">한국타이어 DWP 구축</a></li>
-	                                <li><a target="_blank" href="https://www.creativekorea.or.kr">창조경제타운 홈페이지 구축</a></li>
-	                                <li><a target="_blank" href="http://www.kogas.or.kr">한국가스공사 홈페이지 메인화면 개선</a></li>
-	                                <li><a target="_blank" href="http://www.kogas.or.kr">가스기술연구원 홈페이지 구축</a></li>
-	                                <li><a target="_blank" href="http://www.scienceall.com">사이언스올(과학콘텐츠센터)구축 활성화</a></li>
-	                                <li><a target="_blank" href="http://3ting.co.kr">3ting 홈페이지 구축</a></li>
-	                                <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-	                                <li><a target="_blank" href="http://jdcenter.co.kr/main/index.do">JDC 기관 홈페이지 유지보수 및 관리운영 용역</a></li>
-	                                <li><a target="_blank" href="#">인사혁신처 교육정보통합시스템 구축</a></li>
-	                                <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 구축</a></li>
-	                                <li><a target="_blank" href="http://www.kicox.or.kr/index.do">한국산업단지공단 홈페이지 구축</a></li>
+	                                <li>스카이라이프 리뉴얼</li>
+	                                <li>한국타이어 DWP 구축</li>
+	                                <li>창조경제타운 홈페이지 구축</li>
+	                                <li>한국가스공사 홈페이지 메인화면 개선</li>
+	                                <li>가스기술연구원 홈페이지 구축</li>
+	                                <li>사이언스올(과학콘텐츠센터)구축 활성화</li>
+	                                <li>3ting 홈페이지 구축</li>
+	                                <li>빛마루 홈페이지 운용 관리 위탁 용역</li>
+	                                <li>JDC 기관 홈페이지 유지보수 및 관리운영 용역</li>
+	                                <li>인사혁신처 교육정보통합시스템 구축</li>
+	                                <li>아프리카미래전략센터 홈페이지 구축</li>
+	                                <li>한국산업단지공단 홈페이지 구축</li>
 	                            </ul>
 	                        </div>
 	
 	                        <div class="section">
 	                            <div class="sub-title">개발 프로젝트</div>
 	                            <ul class="project-list">
-	                                <li><a target="_blank" href="http://m.coscoi.net">코스코이 모바일 개발</a></li>
-	                                <li><a target="_blank" href="http://www.bitmaru.kr">빛마루 홈페이지 운용 관리 위탁 용역</a></li>
-	                                <li><a target="_blank" href="http://www.africacenter.kr">아프리카미래전략센터 홈페이지 운영</a></li>
-	                                <li><a target="_blank" href="#">사내 cms 개발</a></li>
+	                                <li>코스코이 모바일 개발</li>
+	                                <li>빛마루 홈페이지 운용 관리 위탁 용역</li>
+	                                <li>아프리카미래전략센터 홈페이지 운영</li>
+	                                <li>사내 cms 개발</li>
 	                            </ul>
 	                        </div>
 	
@@ -137,7 +137,7 @@
 	                            <ul class="info-list">
 	                                <li>
 	                                    <div class="key">HTML</div>
-	                                    <div class="value">웹표준, 웹접근성, HTML5, 크로스브라우징, 하이브리드앱</div>
+	                                    <div class="value">반응형, 웹표준, 웹접근성, HTML5, 크로스브라우징, 하이브리드앱</div>
 	                                </li>
 	                                <li>
 	                                    <div class="key">CSS</div>
@@ -145,7 +145,7 @@
 	                                </li>
 	                                <li>
 	                                    <div class="key">SCRIPT</div>
-	                                    <div class="value">Jquery, Ajax, 동적구현, Animation, Closure</div>
+	                                    <div class="value">Jquery, Ajax, OOP, Closure</div>
 	                                </li>
 	                                <li>
 	                                    <div class="key">BUILD</div>
@@ -153,7 +153,7 @@
 	                                </li>
 	                                <li>
 	                                    <div class="key">JAVA</div>
-	                                    <div class="value">Spring 프레임워크, Strategy, Adapter, Template, Factory 디자인패턴</div>
+	                                    <div class="value">Spring 프레임워크, 디자인패턴, Mybatis</div>
 	                                </li>
 	                                <li>
 	                                    <div class="key">JSP</div>
@@ -278,8 +278,8 @@
 	            <li>
 	                <a target="_blank" href="http://www.kicox.or.kr/index.do">
 	                    <span class="thumb"><img src="resources/images/kicox.jpg" alt=""></span>
-		                    <span class="desc">
-		                    한국산업단지공단 홈페이지 구축
+	                    <span class="desc">
+	                    	한국산업단지공단 홈페이지 및 컨텐츠 관리개선
 		                </span>
 	                </a>
 	            </li>
@@ -312,6 +312,14 @@
 	                    <span class="thumb"><img src="resources/images/lai.jpg" alt=""></span>
 	                    <span class="desc">
 	                    	스마트헬스케어 Lai 소개페이지
+		                </span>
+	                </a>
+	            </li>
+	            <li>
+	                <a target="_blank" href="javascript:alert('준비중입니다.')">
+	                    <span class="thumb"><img src="resources/images/tombs.jpg" alt=""></span>
+	                    <span class="desc">
+	                    	2016년 조선왕릉디지털백과
 		                </span>
 	                </a>
 	            </li>

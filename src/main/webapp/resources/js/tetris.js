@@ -253,5 +253,4 @@ $(document).on("click", ".start-area a, .btn.replay", function() {
 
 $(document).on("click", ".btn.save", function() {
     $(".save-wrap").addClass("active");
-    console.log(id);
 });

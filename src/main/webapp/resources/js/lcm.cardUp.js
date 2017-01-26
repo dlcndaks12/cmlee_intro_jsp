@@ -122,8 +122,6 @@
                     transform = "translate(0px, 0px)";
                 }
 
-                console.log(grid);
-
                 $(this).css({
                     position: position,
                     top: "0",
