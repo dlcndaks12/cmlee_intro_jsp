@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m write-form-header-m">
+    <div class="inner-m">
+        <div class="back"><a><img src="../../assets/images/common/btn-back.svg" alt=""></a></div>
+        <div class="dwp-page-title">
+            예약하기
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <div class="dwp-contents conference-book-m">
+        <!-- 회의실 검색결과 -->
+        <div class="srch-room-result">
+            <ul class="room-list">
+                <li>
+                    <div class="title">한국타이어-품질기획팀(역삼측)</div>
+                    <div class="row">
+                        <div class="key">수용인원</div>
+                        <div class="value">
+                            100
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">장비현황</div>
+                        <div class="value">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-beam-projecter.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-conference-call.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-notebook.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-white-board.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-desk.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-onlinemeeting.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">승인여부</div>
+                        <div class="value">
+                            불필요
+                        </div>
+                    </div>
+                    <div class="aligner" data-top="xs">
+                        <div class="dwp-btn expended"><span>예약</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">한국타이어-Book Cafe Think Room</div>
+                    <div class="row">
+                        <div class="key">수용인원</div>
+                        <div class="value">
+                            6
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">장비현황</div>
+                        <div class="value">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-notebook.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-white-board.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-desk.svg" alt="">
+                            <img class="icon-conference" src="../../assets/images/conference/icon-onlinemeeting.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">승인여부</div>
+                        <div class="value">
+                            불필요
+                        </div>
+                    </div>
+                    <div class="aligner" data-top="xs">
+                        <div class="dwp-btn expended"><span>예약</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /회의실 검색결과 -->
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+
+<!-- 상세화면 푸터 -->
+<!--<div class="dwp-footer-m dwp-detail-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/breadcrumbs-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-mark.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-link.svg" alt=""></a></div>
+        &lt;!&ndash; option-btn에 active클래스가 추가되면 하위 메뉴들이 나타납니다 &ndash;&gt;
+        <div class="util-btn option-btn">
+            <a><img src="../../assets/images/common/icon-more.svg" alt=""></a>
+            <div class="util-btn-option">
+                <a><img src="../../assets/images/common/icon-modify.svg" alt=""></a>
+                <a><img src="../../assets/images/common/icon-trash-m.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "수신확인 내역",
+                width: 736,
+
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-mail-reception-dialog">
+            <div class="aligner" data-type="table" data-align="middle">
+                <div class="left">
+                    <div class="count-title">총<span class="point-color">4</span>건</div>
+                </div>
+                <div class="right">
+                    <div class="dwp-btn icon-type confirm"><span><img src="../../assets/images/common/icon-mail-cancel-all.svg" alt="">전체 발신취소</span></div>
+                </div>
+            </div>
+
+            <div class="dwp-table">
+                <table>
+                    <colgroup>
+                        <col style="width: 40%">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>받는사람</th>
+                        <th>상태</th>
+                        <th>수신일(회수)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="auth">mailaddress@gmail.com</div>
+                        </td>
+                        <td>
+                            <div class="read"><img src="../../assets/images/common/icon-mail.svg" alt="">읽지않음</div>
+                        </td>
+                        <td>
+                            <div class="dwp-btn icon-type"><span><img src="../../assets/images/common/icon-mail-cancel.svg" alt="">개별 발신취소</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="auth">김영우 / 대리 / DWP 구축 TFT팀</div>
+                        </td>
+                        <td>
+                            <div class="read open"><img src="../../assets/images/common/icon-mail-on.svg" alt="">읽음</div>
+                        </td>
+                        <td>
+                            2016.09.29 17:35:14
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="auth">김영우 / 대리 / DWP 구축 TFT팀</div>
+                        </td>
+                        <td>
+                            <div class="read"><img src="../../assets/images/common/icon-return-comp.svg" alt="">회수완료</div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script src="../../assets/lib/simple-color-picker/jquery.colorPicker.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var approval_consent_list = [];
+            $.ajax({
+                url:"../../assets/js/dynatree/namepicker-default-json.json",
+                success:function(data){
+                    approval_consent_list = data;
+                }
+            });
+
+
+            /* 북마크 첨부 팝업 */
+            $(".btn-bookmark").on("click", function () {
+                $("body").bookmark({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 포틀릿 설정 팝업 */
+            $(".portlet-setting-btn").on("click", function () {
+                $("body").portlet_setting({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 전자결재 문서첨부완료함 팝업 */
+            $(".add-doc-btn").on("click", function () {
+                $("body").add_doc({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 포틀릿 설정 팝업 */
+            $(".add-doc-bookmark-btn").on("click", function () {
+                $("body").add_doc_bookmark({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 신고하기 팝업 */
+            $(".btn-criminate").on("click", function () {
+                $("body").criminate({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 북마크 공유 팝업 */
+            $(".btn-bookmark-share").on("click", function () {
+                $("body").bookmark_share({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 네임피커 사용자 + 부서 지정 팝업 */
+            $(".workflow-btn").on("click", function () {
+                $("body").workflow({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    treeAjax:{
+                        url:"../../assets/js/dynatree/sampjson2.json"
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 메일 네임피커 팝업 */
+            $(".mail-namepicker-btn").on("click", function () {
+                $("body").mail_namepicker({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    treeAjax:{
+                        url:"../../assets/js/dynatree/sampjson2.json"
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 간략 일정등록 팝업 */
+            $(".schedule-simple-write-btn").on("click", function () {
+                $("body").schedule_simple_write({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    treeAjax:{
+                        url:"../../assets/js/dynatree/sampjson2.json"
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 비지니스 카드 팝업
+             * position: $.reposition($(this)) 필수 고정옵션
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-bizcard").on("click", function () {
+                $("body").bizcard({
+                    position:$.reposition($(this)), //포지션 잡을 기준영역
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * view page setting dialog
+             * position: $.reposition($(this)) 필수 고정옵션
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            var a;
+
+            $(".view-setting-btn").on("click",function(){
+                a = $("body").setting({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+
+                console.log(a);
+
+                setTimeout(function() {
+                    console.log('sss');
+                }, 2000);
+            });
+
+            /*
+             * excel-datepicker dialog
+             * position: $.reposition($(this)) 필수 고정옵션
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-excel-datepicker").on("click",function(){
+                $("body").excel_datepicker({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 조회자상세 dialog
+             * position: $.reposition($(this)) 필수 고정옵션
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-viewers").on("click",function(){
+                $("body").viewers({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:function(){
+                    }
+                });
+            });
+
+            /*
+             * 첨부파일상세 dialog
+             * position: $.reposition($(this)) 필수 고정옵션
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-files").on("click",function(){
+                $("body").files({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 메세지 토스트 dialog
+             * message: 콘텐츠 내용 강조표시는 <em>태그로 감싸야함
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-toast1").on("click",function(){
+                $("body").msg_toast({
+                    message:'전지현님이 <em>결제를 요청하셨습니다.</em>',
+                    img:"../../assets/images/dummy/mail-img1.png",
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 알림 토스트 dialog
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".btn-toast2").on("click",function(){
+                $("body").alert_toast({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * GNB 메일/결재/통합알리미 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-form-btn").on("click",function(){
+                $("body").gnb_form({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 사용자 profile 팝업 */
+            $(".profile-btn").on("click",function(){
+                $("body").profile({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* App icon 팝업 */
+            $(".app-icon-btn").on("click",function(){
+                $("body").app_icon({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 양식가이드
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+
+            $(".form-guide-btn").on("click",function(){
+                $("body").form_guide({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 권한위임
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+
+            $(".entrust-btn").on("click",function(){
+                $("body").entrust({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 권한위임
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".change-log-btn").on("click",function(){
+                $("body").change_log({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 결재선 불러오기
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-open-btn").on("click",function(){
+                $("body").approval_open({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 결재선저장
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-save-btn").on("click",function(){
+                $("body").approval_save({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 결재
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-consent-btn").on("click",function(){
+                $("body").approval_consent({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 합의 요청/부결
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-consent-offer-btn").on("click",function(){
+                $("body").approval_consent_offer({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 결재정보
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-info-btn").on("click",function(){
+                $("body").approval_info({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 메일 이동
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".mail-move-btn").on("click",function(){
+                $("body").mail_move({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * GNB 통합알리미 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-activity-stream-btn").on("click",function(){
+                $("body").gnb_activity_stream({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * GNB 결재대기 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-approval-wait-btn").on("click",function(){
+                $("body").gnb_approval_wait({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * GNB 결재미결 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-approval-yet-btn").on("click",function(){
+                $("body").gnb_approval_yet({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * GNB 신규메일
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-mail-btn").on("click",function(){
+                $("body").gnb_mail({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 분류관리
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-classify-manage-btn").on("click",function(){
+                $("body").approval_classify_manage({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 전자결재 분류추가
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".approval-classify-add-btn").on("click",function(){
+                $("body").approval_classify_add({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 일정 반복 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".schedule-repeat-btn").on("click",function(){
+                $("body").schedule_repeat({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 회의실 월간 예약현황 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".conference-detail-btn").on("click",function(){
+                $("body").conference_detail({
+                    title:"[반복] 10:30~12:00",
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 앱정보 상세 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".app-detail-btn").on("click",function(){
+                $("body").app_detail({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 네임피커
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".apag-namepicker-btn").on("click",function(){
+                $("body").apag_namepicker({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    treeAjax:{
+                        url:"../../assets/js/dynatree/sampjson2.json"
+                    },
+                    saveApproval:function(){
+                        $(document).on("click","#apag-namepicker .approval-save",function(){
+                            $("body").approval_save({
+                                position:$.reposition($(this)),
+                                ajaxOpts:{
+                                    url:$(this).attr("url")
+                                },
+                                doSomething:call
+                            });
+                        });
+                    },
+                    loadApproval:function(){
+                        $(document).on("click","#apag-namepicker .approval-load",function(){
+                            $("body").approval_open({
+                                position:$.reposition($(this)),
+                                ajaxOpts:{
+                                    url:$(this).attr("url")
+                                },
+                                doSomething:call
+                            });
+                        });
+                    },
+                    approval_consent_list:approval_consent_list,
+                    doSomething:call
+                });
+            });
+
+
+            /*
+             * 네임피커
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".apag-namepicker-tabs-btn").on("click",function(){
+                $("body").apag_namepicker({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    treeAjax:{
+                        url:"../../assets/js/dynatree/sampjson2.json"
+                    },
+                    saveApproval:function(){
+                        $(document).on("click","#apag-namepicker .approval-save",function(){
+                            $("body").approval_save({
+                                position:$.reposition($(this)),
+                                ajaxOpts:{
+                                    url:$(this).attr("url")
+                                },
+                                doSomething:call
+                            });
+                        });
+                    },
+                    loadApproval:function(){
+                        $(document).on("click","#apag-namepicker .approval-load",function(){
+                            $("body").approval_open({
+                                position:$.reposition($(this)),
+                                ajaxOpts:{
+                                    url:$(this).attr("url")
+                                },
+                                doSomething:call
+                            });
+                        });
+                    },
+                    approval_consent_list:approval_consent_list,
+                    doSomething:call
+                });
+            });
+
+
+            /*
+             * 권한공유자/일정관리 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".schedule-other-add-btn").on("click",function(){
+                $("body").schedule_other_add({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * VPR/CoP 선택 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".schedule-vpr-cop-btn").on("click",function(){
+                $("body").schedule_vpr_cop({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+            /*
+             * 라이브폴 답변 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".vpr-livepoll-answer-btn").on("click",function(){
+                $("body").vpr_livepoll_answer({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * 문서이동 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".work-docmove-btn").on("click",function(){
+                $("body").work_docmove({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * 포스트(POST) 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".thumb-select-btn").on("click",function(){
+                $("body").thumb_select({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 앱 담당자 조회 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".app-manager-btn").on("click",function(){
+                $("body").app_manager({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+            /*
+             * 메모 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".memopad-btn").on("click",function(){
+                $("body").memopad({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * 파일 미리보기 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".file-preview-btn").on("click",function(){
+                $("body").file_preview({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 환경설정 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".gnb-setting-btn").on("click",function(){
+                $("body").gnb_setting({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 설문조사 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".research-question-btn").on("click",function(){
+                $("body").research_question({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 기존 설문지 불러오기 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".research-load-btn").on("click",function(){
+                $("body").research_load({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * 라이브폴 결과 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".vpr-livepoll-result-btn").on("click",function(){
+                $("body").vpr_livepoll_result({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+
+            /*
+             * 포스트(post)팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".vpr-post-btn").on("click",function(){
+                $("body").vpr_post({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 메일 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".mail-reception-btn").on("click",function(){
+                $("body").mail_reception({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 메일 발송 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".mail-test-btn").on("click",function(){
+                $("body").mail_test({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 메일 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".mail-rule-btn").on("click",function(){
+                $("body").mail_rule({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 부서원 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".emp-list-btn").on("click",function(){
+                $("body").emp_list({
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 권한공유자/일정관리 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".schedule-other-add-btn").on("click",function(){
+                $("body").schedule_other_add({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 키메세지 미리보기 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".keymessage-preview-btn").on("click",function(){
+                $("body").keymessage_preview({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 개인추가 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".user-address-add-btn").on("click",function(){
+                $("body").user_address_add({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 그룹추가 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".group-address-add-btn").on("click",function(){
+                $("body").group_address_add({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /*
+             * 사원찾기 팝업
+             * ajaxOpts: 팝업 내부 content 용 ajax option
+             * doSomething: callback function
+             *
+             */
+            $(".emp-search-btn").on("click",function(){
+                $("body").emp_search({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            $(".schedule-clear-btn").on("click",function(){
+                $("body").schedule_clear({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+
+            $(".user-address-btn").on("click",function(){
+                $("body").user_address({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 사진등록 팝업 */
+            $(".photo-change-btn").on("click",function(){
+                $("body").photo_change({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 앱스토어 기간설정 팝업 */
+            $(".app-date-btn").on("click",function(){
+                $("body").app_date({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 드롭다운 */
+            $(".dropdown-dialog-btn").on("click", function () {
+                $("body").dropdown_option({
+                    position:$.reposition($(this)), //포지션 잡을 기준영역
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+
+            /* 설문조사 응답 */
+            $(".research-answer-btn").on("click", function () {
+                $("body").research_answer({
+                    position:$.reposition($(this)),
+                    ajaxOpts:{
+                        url:$(this).attr("url")
+                    },
+                    doSomething:call
+                });
+            });
+        });
+
+
+        /* 팝업 호출 콜백함수 */
+        var call = function() {
+            console.log("popup-open!");
+        }
+
+    </script>
+</head>
+<body>
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  >  기업커뮤니케이션  >  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  >  기업커뮤니케이션  >  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  >  기업커뮤니케이션  >  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="dwp-container">
+    <!-- LNB 영역 -->
+    <div class="dwp-nav">
+
+        <a href="#" class="dwp-trigger">메뉴 열기</a>
+        <div class="dwp-lnb-wrap">
+            <div class="dwp-menu-head">
+                <div class="dwp-menu-title">1Depth Title</div>
+                <button class="dwp-nav-btn"><img src="../../assets/images/common/icon-lnb-btn.svg" alt=""/>글쓰기</button>
+            </div>
+            <div class="dwp-lnb">
+                <div class="dwp-lnb-depth2">
+
+                    <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                    <div class="dwp-lnb-item selected">
+                        <a href="#" class="dwp-link">타이틀 1</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item selected">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 2</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 3</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 4</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contents 영역 -->
+    <div class="dwp-contents">
+        <div class="dwp-wrapping">
+            <div class="dwp-page-heading">
+                <div class="dwp-page-title">
+                    Page Title
+                </div>
+                <div class="dwp-breadcrumbs">
+                    <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"/></span>
+                    <span class="dwp-item">menu1</span>
+                    <span class="dwp-item">menu1-1</span>
+                </div>
+            </div>
+
+            <div class="dwp-page-body">
+                <div class="dwp-body-wrap write-form">
+                    <div class="dwp-contents-body">
+
+                        <!-- 내용 -->
+                        <div class="dwp-contents-article">
+
+                            <div class="aligner" data-top="xl">
+                                <div class="left" style="text-align: left; font-size: 20px;">
+                                    <div style="font-weight: bold; font-size: 22px;">Dialog 가이드</div>
+                                    <br>
+                                    Size (Width값)<br>
+                                    - 324px<br>
+                                    - 420px<br>
+                                    - 736px <span style="color: #f00;">(* 항상 modal입니다.)</span>
+                                </div>
+                            </div>
+
+                            <!-- 공통 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">공통팝업</div>
+                            </div>
+
+                            <div class="aligner" data-top="xl">
+                                <div class="left">
+                                    <div class="dwp-btn">
+                                        <span class="dropdown-dialog-btn" url="sample/dropdown-dialog.html">드롭다운</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="xl">
+                                <div class="left">
+                                    <div class="dwp-btn icon">
+                                        <button type="button" class="view-setting-btn" url="sample/view-setting-dialog.html">
+                                            <img src="../../assets/images/common/icon-setting.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="xl">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="btn-bookmark" url="sample/bookmark-dialog.html">북마크 첨부 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="btn-criminate" url="sample/criminate-dialog.html">신고하기 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="btn-bizcard" url="sample/biz-card-dialog.html">비즈카드 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="btn-bizcard" url="sample/biz-card-dialog2.html">비즈카드 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="btn-bookmark-share" url="sample/bookmark-share-dialog.html">북마크공유 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="btn-excel-datepicker" url="sample/excel-datepicker-dialog.html">엑셀다운로드 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="btn-viewers" url="sample/viewers-dialog.html">조회자상세 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="btn-files" url="sample/files-dialog.html">첨부상세 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="btn-toast1" url="sample/msg-toast.html">메세지 토스트 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="btn-toast2" url="sample/alert-toast.html">알림 토스트 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="workflow-btn" url="sample/workflow-dialog.html">네임피커 사용자 + 부서 지정</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="gnb-setting-btn" url="sample/gnb-setting-dialog.html">환경설정</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="profile-btn" url="sample/profile-dialog.html">사용자 profile 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="app-icon-btn" url="sample/app-icon-dialog.html">App 아이콘 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="gnb-activity-stream-btn" url="sample/gnb-activity-stream-dialog.html">GNB 통합알리미 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="gnb-approval-wait-btn" url="sample/gnb-approval-wait-dialog.html">GNB 결재대기 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="gnb-approval-yet-btn" url="sample/gnb-approval-yet-dialog.html">GNB 결재미결 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="gnb-mail-btn" url="sample/gnb-mail-dialog.html">GNB 신규메일 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="portlet-setting-btn" url="sample/portlet-setting-dialog.html" >포틀릿 설정 팝업</button></div>
+                                </div>
+                            </div>
+
+
+                            <!-- 전자결재 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">전자결재</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="entrust-btn" url="sample/entrust-dialog.html">전자결재 권한위임</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="change-log-btn" url="sample/change-log-dialog.html">전자결재 변경이력</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="form-guide-btn" url="sample/form-guide-dialog.html">전자결재 양식가이드</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="approval-open-btn" url="sample/approval-open-dialog.html">전자결재 결재선불러오기</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="approval-save-btn" url="sample/approval-save-dialog.html">전자결재 결재선 저장</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="approval-consent-btn" url="sample/approval-consent-dialog.html">전자결재 결재</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="approval-consent-offer-btn" url="sample/approval-consent-offer-dialog.html">전자결재 합의요청/부결</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="approval-info-btn" url="sample/approval-info-dialog.html">전자결재 결재정보</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="add-doc-btn" url="sample/add-doc-dialog.html" >전자결재 문서첨부완료함</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="add-doc-bookmark-btn" url="sample/add-doc-bookmark-dialog.html">전자결재 문서첨부 북마크문서</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="approval-classify-manage-btn" url="sample/approval-classify-manage-dialog.html" >전자결재 분류관리</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="approval-classify-add-btn" url="sample/approval-classify-add-dialog.html" >전자결재 분류추가</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="apag-namepicker-btn" url="sample/approval-namepicker.html">결재선 네임피커</button></div>
+                                </div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="apag-namepicker-tabs-btn" url="sample/approval-namepicker-tabs.html">결재선 네임피커-탭추가</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 메일 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">메일</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="mail-move-btn" url="sample/mail-move-dialog.html">메일 이동</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="mail-namepicker-btn" url="sample/mail-namepicker-dialog.html">수신인 지정</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="mail-reception-btn" url="sample/mail-reception-dialog.html">발신취소/수신확인 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="mail-rule-btn" url="sample/mail-rule-dialog.html">규칙설정 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="mail-test-btn" url="sample/">메일발송 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 통합일정 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">통합일정</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="schedule-clear-btn" url="sample/schedule-clear-dialog.html">오래된 일정정리 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="schedule-simple-write-btn" url="sample/schedule-simple-write-dialog.html">간략 일정등록 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="schedule-repeat-btn" url="sample/schedule-repeat-dialog.html">일정 반복 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="schedule-vpr-cop-btn" url="sample/schedule-vpr-cop-dialog.html">VPR/CoP 선택팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="schedule-other-add-btn" url="sample/schedule-other-add-dialog.html">권한공유자/일정관리 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 회의실 예약 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">회의실 예약</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="conference-detail-btn" url="sample/conference-detail-dialog.html" >회의실 월간 예약현황 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 앱스토어 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">앱스토어</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="app-date-btn" url="sample/app-date-dialog.html">기간조회 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="app-detail-btn" url="sample/app-detail-dialog.html">앱정보 상세팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="app-manager-btn" url="sample/app-manager-dialog.html">앱 담당자 조회 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- VPR -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">VPR</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="vpr-post-btn" url="sample/vpr-post-dialog.html">포스트(Post) 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="vpr-livepoll-answer-btn" url="sample/vpr-livepoll-answer-dialog.html">라이브폴 답변팝업</button></div>
+                                </div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="vpr-livepoll-result-btn" url="sample/vpr-livepoll-result-dialog.html">라이브폴 결과팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 업무게시 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">업무게시</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="work-docmove-btn" url="sample/work-docmove-dialog.html">문서이동 팝업</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 설문조사 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">설문조사</div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="research-answer-btn" url="sample/research-answer-dialog.html">설문응답 팝업</button></div>
+                                </div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="research-load-btn" url="sample/research-load-dialog.html">기존 설문지 불러오기 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="research-question-btn" url="sample/research-question-form-dialog.html">질문추가</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 개인주소록 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">개인주소록</div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="user-address-add-btn" url="sample/user-address-add-dialog.html">개인추가</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="group-address-add-btn" url="sample/group-address-add-dialog.html">그룹추가</button></div>
+                                </div>
+                            </div>
+
+                            <!-- 사내담당자 검색 -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">사내담당자 검색</div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="emp-search-btn" url="sample/emp-search-dialog.html">사원찾기</button></div>
+                                </div>
+                            </div>
+
+                            <!-- ETC -->
+                            <div class="aligner" data-top="xl">
+                                <div class="left">ETC</div>
+                            </div>
+
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="thumb-select-btn" url="sample/thumb-select-dialog.html">썸네일 선택 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="memopad-btn" url="sample/memopad-dialog.html">메모 팝업</button></div>
+                                </div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="file-preview-btn" url="sample/file-preview-dialog.html">파일 미리보기 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="emp-list-btn" url="sample/emp-list-dialog.html">부서원 팝업</button></div>
+                                </div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="keymessage-preview-btn" url="sample/keymessage-preview-dialog.html">키 메세지 미리보기 팝업</button></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button" class="photo-change-btn" url="sample/photo-change-dialog.html">사진등록 팝업</button></div>
+                                </div>
+                            </div>
+                            <div class="aligner" data-top="lg">
+
+                                <div class="left">
+                                    <div class="dwp-btn"><button type="button" class="user-address-btn" url="sample/vpr-livepoll-answer-dialog.html">개인주소록 유저 정보 팝업</button></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 미리보기 영역 -->
+                        <div class="dwp-contents-preview">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>

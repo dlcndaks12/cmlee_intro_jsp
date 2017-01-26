@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "결재선 불러오기",
+                width: 420,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-approval-open-dialog">
+            <div class="approval-list">
+                <div class="list-head">
+                    <div class="category">유형</div>
+                    <div class="subject">결재선명</div>
+                </div>
+                <div class="list-area">
+                    <div class="list">
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">부서</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">부서</div>
+                            <div class="subject">결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">부서</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                        <div class="item">
+                            <div class="category">개인</div>
+                            <div class="subject">결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.결재선명입니다.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aligner" data-top="md">
+                <div class="center">
+                    <div class="dwp-grouping">
+                        <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                        <div class="dwp-btn cancel"><button type="button">취소</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

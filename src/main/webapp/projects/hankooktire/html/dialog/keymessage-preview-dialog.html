@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "key message 미리보기",
+                width: 1240,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                modal: true,
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+
+            /* visual 영역 */
+            $('.dwp-main-visual .slider').slick({
+                centerMode: true,
+                variableWidth: true,
+                arrows: true,
+                slideToShow: 1,
+                infinite: true,
+                focusOnSelect: true,
+                autoplay: true
+            });
+
+            /* key message 변환 */
+            $('.dwp-main-visual .slider').on('reInit beforeChange', function(event, slick, currentSlide, nextSlide){
+                var color = $(slick.$slides.get(nextSlide)).find("img").attr("class");
+                var cate = $(slick.$slides.get(nextSlide)).attr("data-cate");
+                var msg = $(slick.$slides.get(nextSlide)).attr("data-msg");
+
+
+                $(".dwp-main-visual .txt-area .category").html(cate);
+                $(".dwp-main-visual .txt-area .subject").html(msg);
+                $(".dwp-main-visual .txt-area").removeClass("light dark");
+                $(".dwp-main-visual .txt-area").addClass(color);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-keymessage-preview-dialog">
+            <div class="dwp-main-portal">
+                <div class="dwp-main-visual">
+
+                    <div class="inner">
+                        <div class="slider">
+                            <div class="slider-item ceo" data-cate="경영진 메시지" data-msg="일하는 방식의 혁신" ><img src="../../assets/images/dummy/img-ceo.jpg" alt="" class="dark"/></div>
+                            <div class="slider-item ceo" data-cate="경영진 메시지" data-msg="We must do it"><img src="../../assets/images/dummy/img-ceo2.jpg" alt="" class="dark"/></div>
+                            <div class="slider-item strategy" data-cate="Brand" data-msg="레알 마드리드 <br> 글로벌 마케팅 파트너십"><img src="../../assets/images/dummy/img-strategy2.jpg" alt="" class="light"/></div>
+                            <div class="slider-item strategy" data-cate="Technology" data-msg="세계 최고 드리프트 대회<br>'2016 포뮬라 드리프트' 1위 질주"><img src="../../assets/images/dummy/img-strategy.jpg" alt="" class="light"/></div>
+                            <div class="slider-item strategy" data-cate="Strategic Globalization" data-msg="미주지역 본부 이전"><img src="../../assets/images/dummy/img-strategy.jpg" alt="" class="light"/></div>
+                            <div class="slider-item culture" data-cate="Proactive Culture" data-msg="Proactive Workstyle"><img src="../../assets/images/dummy/img-proactiveculture.jpg" alt="" class="light"/></div>
+                            <div class="slider-item culture" data-cate="Proactive Culture" data-msg="Top Tier 브랜드를 향한 75년의 성공 스토리"><img src="../../assets/images/dummy/img-proactiveculture3.jpg" alt="" class="light"/></div>
+                            <!--<div class="slider-item culture" data-cate="Proactive Culture" data-msg="새로운 생각을 실현하게 하고 <br> 일하는 방식을 혁신하는 힘, <br> Proactive Culture"><img src="../../assets/images/dummy/img-proactiveculture2.jpg" alt="" class="light"/></div>-->
+                        </div>
+
+                        <div class="txt-area">
+                            <div class="category">경영진 메시지</div>
+                            <div class="subject">일하는 방식의 혁신</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                        <span class="lines">
+                            <span class="line1"></span>
+                            <span class="line2"></span>
+                            <span class="line3"></span>
+                            <span class="line4"></span>
+                        </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="slider-tabs">
+                            <div class="slider-tab tab-ceo-message">
+                                <a data-type="ceo">
+                                    <div class="txt">경영진 메시지</div>
+                                    <div class="shortcut">
+                                        <div class="icon"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider-tab tab-strategy">
+                                <a data-type="strategy">
+                                    <div class="txt">Strategy</div>
+                                    <div class="shortcut">
+                                        <div class="icon"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="slider-tab tab-proactive-culture">
+                                <a data-type="culture">
+                                    <div class="txt">Proactive Culture</div>
+                                    <div class="shortcut">
+                                        <div class="icon"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="main-visual-toggler">
+                            <a>메인 비주얼 여닫기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aligner" data-top="md">
+                <div class="center">
+                    <div class="dwp-grouping">
+                        <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

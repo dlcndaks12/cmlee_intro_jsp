@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        @font-face {
+            font-family: "NotoSans";
+            src: url('../../assets/fonts/NotoSansKR-Light.woff2') format('woff2'), url('../../assets/fonts/NotoSansKR-Light.woff') format('woff');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: "NotoSans";
+            src: url('../../assets/fonts/NotoSansKR-Regular.woff2') format('woff2'), url('../../assets/fonts/NotoSansKR-Regular.woff') format('woff');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: "HankookEn";
+            src: url('../../assets/fonts/HankookTTFLight.eot?1470292148');
+            src: url('../../assets/fonts/HankookTTFLight.eot?&1470292148#iefix') format('embedded-opentype'), url('../../assets/fonts/HankookTTFLight.woff2') format('woff2'), url('../../assets/fonts/HankookTTFLight.woff') format('woff');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: "HankookEn";
+            src: url('../../assets/fonts/HankookTTFRegular.eot');
+            src: url('../../assets/fonts/HankookTTFRegular.eot') format('embedded-opentype'), url('../../assets/fonts/HankookTTFRegular.woff2') format('woff2'), url('../../assets/fonts/HankookTTFRegular.woff') format('woff');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: "HankookKr";
+            src: url('../../assets/fonts/HankookKRTTFRegular.eot');
+            src: url('../../assets/fonts/HankookKRTTFRegular.eot') format('embedded-opentype'), url('../../assets/fonts/HankookKRTTFRegular.woff2') format('woff2'), url('../../assets/fonts/HankookKRTTFRegular.woff') format('woff');
+            font-weight: 400;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+        img {
+            border:0;
+            vertical-align:middle;
+        }
+        em {
+            font-style: normal;
+        }
+        table {
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show;
+            width: 100%;
+        }
+        body {
+            height: 100%;
+            background-color: #fff;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+            font-family: "NotoSans", Arial, Tahoma, sans-serif;
+            -webkit-text-size-adjust: none;
+        }
+        .dwp-download-center {
+            padding: 55px 15px 60px;
+            text-align: center;
+        }
+        .dwp-download-center .logo img {
+            height: 31px;
+        }
+        .dwp-download-center .title {
+            margin-top: 40px;
+            color: #333;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .dwp-download-center .desc {
+            margin-top: 17px;
+            color: #999;
+            font-size: 13px;
+        }
+        .dwp-download-center .desc span {
+            color: #666;
+        }
+        .dwp-download-center .download-list {
+            margin-top: 38px;
+            font-size: 0;
+        }
+        .dwp-download-center .download-list > li {
+            display: inline-block;
+            width: 140px;
+            height: 140px;
+            padding-top: 40px;
+            background-color: #eee;
+        }
+        .dwp-download-center .download-list > li + li {
+            margin-left: 10px;
+        }
+        .dwp-download-center .download-list > li a {
+            display: block;
+            text-decoration: none;
+        }
+        .dwp-download-center .download-list > li .icon img {
+            width: 25px;
+        }
+        .dwp-download-center .download-list > li .txt {
+            margin-top: 13px;
+            color: #666;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .dwp-download-center .download-list > li .txt span {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dwp-download-center">
+    <div class="logo"><img src="../../assets/images/common/logo.svg" alt=""></div>
+    <div class="title">모바일 버전 DWP-M</div>
+    <div class="desc">
+        <span>한국타이어  DWP-M 다운로드 페이지</span>입니다.<br />
+        해당기종에 따라 다운로드 받으세요.
+    </div>
+    <div class="desc">
+        &lt;DWP-M&gt; download page.<br />
+        Please download depending on your OS.
+    </div>
+    <ul class="download-list">
+        <li>
+            <a href="#">
+                <div class="icon"><img src="../../assets/images/download-center/icon-iphone.png" alt=""></div>
+                <div class="txt">for <span>iOS</span></div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="icon"><img src="../../assets/images/download-center/icon-android.png" alt=""></div>
+                <div class="txt">for <span>Android</span></div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m write-form-header-m">
+    <div class="inner-m">
+        <div class="back"><a><img src="../../assets/images/common/btn-back.svg" alt=""></a></div>
+        <div class="dwp-page-title">
+            예약하기
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <div class="dwp-contents conference-book-m">
+        <!-- 회의실 검색 -->
+        <div class="srch-room">
+            <div class="dwp-section">
+                <div class="subject">사업장</div>
+                <div class="dwp-selectbox expended">
+                    <select>
+                        <option value="">한국타이어</option>
+                    </select>
+                </div>
+                <div class="dwp-selectbox expended">
+                    <select>
+                        <option value="">본사</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dwp-section">
+                <div class="subject">시작일시</div>
+                <div class="dwp-grouping">
+                    <div>
+                        <div class="dwp-calendar-form">
+                            <div class="dwp-input">
+                                <input type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dwp-selectbox xs">
+                            <select>
+                                <option value="">00</option>
+                                <option value="">00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dwp-selectbox xs">
+                            <select>
+                                <option value="">00</option>
+                                <option value="">00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dwp-section">
+                <div class="subject">종료일시</div>
+                <div class="dwp-grouping">
+                    <div>
+                        <div class="dwp-calendar-form">
+                            <div class="dwp-input">
+                                <input type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dwp-selectbox xs">
+                            <select>
+                                <option value="">00</option>
+                                <option value="">00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dwp-selectbox xs">
+                            <select>
+                                <option value="">00</option>
+                                <option value="">00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dwp-section">
+                <div class="subject">장비선택</div>
+                <div class="dwp-selection-group vertical">
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>화상회의</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>컨퍼런스콜</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>빔프로젝트(대형모니터)</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>PC</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>화이트보드</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>책상</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="aligner" data-top="md">
+                <div class="dwp-grouping expended fixed">
+                    <div>
+                        <div class="dwp-btn expended"><span>검색</span></div>
+                    </div>
+                    <div>
+                        <div class="dwp-btn expended"><span>초기화</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /회의실 검색 -->
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+
+<!-- 상세화면 푸터 -->
+<!--<div class="dwp-footer-m dwp-detail-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/breadcrumbs-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-mark.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-link.svg" alt=""></a></div>
+        &lt;!&ndash; option-btn에 active클래스가 추가되면 하위 메뉴들이 나타납니다 &ndash;&gt;
+        <div class="util-btn option-btn">
+            <a><img src="../../assets/images/common/icon-more.svg" alt=""></a>
+            <div class="util-btn-option">
+                <a><img src="../../assets/images/common/icon-modify.svg" alt=""></a>
+                <a><img src="../../assets/images/common/icon-trash-m.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+</body>
+</html>

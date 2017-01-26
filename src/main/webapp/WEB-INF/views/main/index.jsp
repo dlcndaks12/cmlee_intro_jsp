@@ -204,7 +204,7 @@
 	                </a>
 	            </li>
 	            <li>
-	                <a target="_blank" href="javascript: alert('준비중입니다.');">
+	                <a target="_blank" href="projects/hankooktire/html/portal/index.html">
 	                    <span class="thumb"><img src="resources/images/hankook.jpg" alt=""></span>
 	                    <span class="desc">
 	                    한국타이어 디지털워크플레이스 DWP 구축

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+
+        $(function(){
+            var exampleData = [];
+           $(".example .dwp-btn .confirm-btn").on("click",function(){
+               var name = $(".example select option:selected").text();
+               var code = $(".example select").val();
+               var text = $(this).parent("div").prev().children("input").val();
+               exampleData.push({name: name, code: code, text: text});
+               var displayItem = "<div class='dwp-language-item'>";
+               displayItem += '<span>' + name + ':' + text + '</span>';
+               displayItem += '<a class="btn-del"><img src="../../assets/images/common/icon-close.svg" alt=""></a>';
+               displayItem += "</div>";
+               $(".dwp-lang-wrap").append(displayItem);
+               /*$(".example-data").val(JSON.stringify(exampleData));*/
+               makeLanguageText();
+               $(this).parent("div").prev().children("input").val("");
+           });
+
+            $(document).on("click",".example .btn-del",function(){
+                var index = $('.example .dwp-language-item').index($(this).closest('.example .dwp-language-item'));
+                $(this).closest("div").remove();
+                if(exampleData.length==1){
+                    exampleData = [];
+                }else{
+                    exampleData.splice(index,1);
+                }
+                console.log(exampleData);
+                /*$(".example-data").val(JSON.stringify(exampleData));*/
+                makeLanguageText();
+            });
+
+            function makeLanguageText(){
+                var languageText = "";
+                for(var i=0;i<exampleData.length;i++){
+                    if(i ==0){
+                        languageText += exampleData[i].code + ":" + exampleData[i].text ;
+                    }else{
+                        languageText += "," + exampleData[i].code + ":" + exampleData[i].text ;
+                    }
+                }
+                $(".example-data").val(languageText);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="example" style="padding: 150px;">
+        <div>
+
+            <div class="dwp-selectbox md">
+                <select>
+                    <option value="ko">한국</option>
+                    <option value="en">영어</option>
+                    <option value="in">인도</option>
+                    <option value="zh">중국</option>
+                    <option value="hu">헝가리</option>
+                </select>
+            </div>
+            <div class="dwp-input">
+                <input type="text">
+            </div>
+            <div class="dwp-btn">
+                <button class="confirm-btn">확인</button>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div class="dwp-lang-wrap">
+
+        </div>
+
+
+        <br />
+        <hr />
+        <br />
+        <div class="dwp-input expended">
+            <input type="text" size="200" class="example-data">
+        </div>
+    </div>
+</body>
+</html>

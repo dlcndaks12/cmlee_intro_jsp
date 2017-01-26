@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="dwp-container">
+    <!-- LNB 영역 -->
+    <div class="dwp-nav">
+        <a href="#" class="dwp-trigger">메뉴 열기</a>
+        <div class="dwp-lnb-wrap">
+            <div class="dwp-menu-head">
+                <div class="dwp-menu-title">1Depth Title</div>
+                <button class="dwp-nav-btn"><img src="../../assets/images/common/icon-lnb-btn.svg" alt=""/>글쓰기</button>
+            </div>
+            <div class="dwp-lnb">
+                <div class="dwp-lnb-depth2">
+
+                    <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                    <div class="dwp-lnb-item selected">
+                        <a href="#" class="dwp-link">타이틀 1</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item selected">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 2</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 3</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 4</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contents 영역 -->
+    <div class="dwp-contents">
+        <div class="dwp-wrapping">
+            <div class="dwp-page-heading">
+                <div class="dwp-page-title">
+                    Page Title
+                </div>
+                <div class="dwp-breadcrumbs">
+                    <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"/></span>
+                    <span class="dwp-item">마이페이지</span>
+                    <span class="dwp-item">공지사항</span>
+                </div>
+
+                <div class="aligner" data-top="xs">
+                    <div class="left">
+                        <div class="dwp-btn-group">
+                            <div class="dwp-btn"><button type="button">결재선</button></div>
+                            <div class="dwp-btn"><button type="button" class="btn-open-consent">결재</button></div>
+                            <div class="dwp-btn"><button type="button">합의요청</button></div>
+                            <div class="dwp-btn"><button type="button">임시저장</button></div>
+                            <div class="dwp-btn"><button type="button">양식가이드</button></div>
+                            <div class="dwp-btn"><button type="button">목록</button></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-print.svg" alt=""></button></div>
+                        <div class="dwp-btn dwp-btn-toggle">
+                            <button type="button"><img src="../../assets/images/common/toggle-bg.png" alt=""><span>접기</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dwp-page-body">
+                <!-- 내용영역 -->
+                <div class="dwp-body-wrap approval-write">
+                    <div class="dwp-contents-body">
+
+                        <!-- 내용 -->
+                        <div class="dwp-contents-article">
+
+                            <div class="dwp-section">
+                                <div class="dwp-table dwp-form-table tiny-type">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width: 15%">
+                                            <col style="width: 35%">
+                                            <col style="width: 15%">
+                                            <col style="width: 35%">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th>공유자</th>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="dwp-center">
+                                                    <a class="doc-download dwp-bold">생산기능직사원OJT양식.docx 다운로드</a><br>
+                                                    * 첨부 : OJT 양식 작성 스캔본
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>성명</th>
+                                            <th>사번</th>
+                                            <th>소속</th>
+                                            <th>직급</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>교육명</th>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                            <th>OJT강사</th>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>교육기간</th>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                            <th>OJT교육시간</th>
+                                            <td>
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>피교육자</th>
+                                            <td colspan="3">
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>특이사항</th>
+                                            <td colspan="3">
+                                                <div class="dwp-input expended"><input type="text"></div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- 문서첨부 -->
+                            <div class="dwp-section">
+                                <div class="aligner" data-top="xs" data-bottom="sm">
+                                    <div class="left button">
+                                        <div class="dwp-btn"><button type="button">문서첨부</button></div>
+                                        <div class="dwp-btn"><button type="button">삭제</button></div>
+                                    </div>
+                                </div>
+                                <div class="dwp-table-file check-group">
+                                    <div class="dwp-table-head">
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell">
+                                                <div class="dwp-checkbox textless">
+                                                    <label>
+                                                        <input type="checkbox" class="dwp-check-all"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-cell">문서종류</div>
+                                            <div class="dwp-cell">문서번호</div>
+                                            <div class="dwp-cell">제목</div>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-table-body">
+                                        <div class="dwp-row"></div>
+                                        <div class="dwp-row"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 파일첨부 -->
+                            <div class="dwp-section">
+                                <div class="aligner" data-bottom="sm">
+                                    <div class="left button">
+                                        <div class="dwp-btn"><button type="button">파일첨부</button></div>
+                                        <div class="dwp-btn"><button type="button">삭제</button></div>
+                                        <div class="dwp-btn"><button type="button">큰아이콘</button></div>
+                                        <div class="dwp-btn"><button type="button">자세히</button></div>
+                                    </div>
+                                </div>
+
+                                <!-- 자세히인 경우 -->
+                                <div class="dwp-table-file check-group">
+                                    <div class="dwp-table-head">
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell">
+                                                <div class="dwp-checkbox textless">
+                                                    <label>
+                                                        <input type="checkbox" class="dwp-check-all"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-cell">파일명</div>
+                                            <div class="dwp-cell">파일크기</div>
+                                            <div class="dwp-cell">첨부유형</div>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-table-body">
+                                        <!-- 첨부된 파일이 없을시 -->
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell no-file">
+                                                마우스로 파일을 끌어 넣으세요.
+                                            </div>
+                                        </div>
+
+                                        <!-- 첨부된 파일이 있을시 -->
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell">
+                                                <div class="dwp-checkbox textless">
+                                                    <label>
+                                                        <input type="checkbox" class="dwp-chk"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-cell">
+                                                <span class="attach_icon"><img src="../../assets/images/common/file-icon-image.png" align="absmiddle"></span>
+                                                file.doc
+                                                <a class="dwp-btn-del"><span class="dwp-icon-cancel"></span></a>
+                                            </div>
+                                            <div class="dwp-cell">18401.8mb</div>
+                                            <div class="dwp-cell">첨부유형</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell">
+                                                <div class="dwp-checkbox textless">
+                                                    <label>
+                                                        <input type="checkbox" class="dwp-chk"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-cell">file.doc</div>
+                                            <div class="dwp-cell">18401.8mb</div>
+                                            <div class="dwp-cell">첨부유형</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 미리보기 -->
+                <div class="dwp-contents-preview">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>

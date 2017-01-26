@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m">
+    <div class="inner-m">
+        <div class="lnb-area">
+            <a class="lnb-trigger"><img src="../../assets/images/common/gnb-menu.svg" alt=""></a>
+            <div class="lnb-wrap">
+                <div class="menu-area lnb-cont">
+                    <div class="menu-head">
+                        <a class="lnb-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+                        <div class="dwp-page-title">Title Name</div>
+                    </div>
+                    <ul class="menu-list">
+                        <li><a>한국타이어 소식</a></li>
+                        <li><a>봉사활동</a></li>
+                        <li><a>통근버스 노선도</a></li>
+                        <li><a>자유게시판</a></li>
+                        <li><a>설문조사 룸</a></li>
+                        <li><a>전화번호 검색</a></li>
+                        <li><a>행사 및 이벤트</a></li>
+                        <li><a>캘린더</a></li>
+                        <li><a>TPM 분임조 활동</a></li>
+                        <li><a>사원 할인혜택</a></li>
+                        <li><a>건전서클</a></li>
+                        <li><a>인사/복리후생</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-page-title">
+            급여명세서
+        </div>
+        <div class="header-btn-group">
+            <div class="header-group">
+                <a><img src="../../assets/images/common/gnb-alarm.svg" alt=""></a>
+            </div>
+            <div class="header-group">
+                <a><img src="../../assets/images/common/gnb-setting.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <div class="dwp-contents paystub-list-m">
+        <div class="section">
+            <div class="title">기간 내 결과</div>
+            <div class="dwp-calendar-form expanded">
+                <div class="dwp-input">
+                    <input type="date">
+                </div>
+                <span class="dwp-dash">-</span>
+                <div class="dwp-input">
+                    <input type="date">
+                </div>
+            </div>
+            <div class="dwp-btn expended confirm"><span>검색</span></div>
+        </div>
+        <div class="section">
+            <div class="aligner" data-top="xs" data-bottom="xs">
+                <div class="left point-color">
+                    * 최대 1년까지 조회가능합니다.<br />
+                    * 상세 내역을 확인하시려면 해당 행을 클릭 하세요.
+                </div>
+            </div>
+
+            <div class="dwp-table check-group">
+                <table>
+                    <colgroup>
+                        <col style="width: 90px">
+                        <col style="width: auto">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>지급일</th>
+                        <th>급여유형</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2016.11.21</td>
+                        <td><a>2016년 11월 정규급여</a></td>
+                    </tr>
+                    <tr>
+                        <td>2016.10.21</td>
+                        <td><a>2016년 10월 정기상여1</a></td>
+                    </tr>
+                    <tr>
+                        <td>2016.10.21</td>
+                        <td><a>2016년 10월 정규급여</a></td>
+                    </tr>
+                    <tr>
+                        <td>2016.09.21</td>
+                        <td><a>2016년 09월 정규급여</a></td>
+                    </tr>
+                    <tr>
+                        <td>2016.11.21</td>
+                        <td><a>2016년 11월 정규급여</a></td>
+                    </tr>
+                    <tr>
+                        <td>2016.11.21</td>
+                        <td><a>2016년 11월 정규급여</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+</body>
+</html>

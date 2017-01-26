@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.login-area .banner-slider').bxSlider({
+                auto: true,
+                controls: false
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="dwp-login2">
+    <div class="dwp-inner">
+        <a class="dwp-logo"><img src="../../assets/images/common/logo.svg" alt=""></a>
+        <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar"></div>
+        <div class="login-area">
+            <div class="banner-slider-wrap">
+                <div class="banner-slider">
+                    <div class="slider-item">
+                        <div class="thumb">
+                            <img src="../../assets/images/dummy/login1.jpg" alt="">
+                        </div>
+                        <div class="txt">
+                            <a>
+                                제목 텍스트가 들어가는 영역입니다. 제목 텍스
+                                트가 들어가는 영역입니다. 제목 텍스트가 들어가는 영역입니다. 제목 텍스
+                                트가 들어가는 영역입니다.
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="thumb">
+                            <img src="../../assets/images/dummy/login2.jpg" alt="">
+                        </div>
+                        <div class="txt">
+                            <a>
+                            제목 텍스트가 들어가는 영역입니다. 제목 텍스
+                            트가 들어가는 영역입니다. 제목 텍스트가 들어가는 영역입니다. 제목 텍스
+                            트가 들어가는 영역입니다.
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-form">
+                <div class="select-area">
+                    <div class="dwp-selectbox expended">
+                        <select>
+                            <option value="">언어선택</option>
+                            <option value="">옵션2</option>
+                            <option value="">옵션3</option>
+                        </select>
+                    </div>
+                    <!--<div class="dwp-selectbox expended">
+                        <select>
+                            <option value="">근무지역 선택</option>
+                            <option value="">옵션2</option>
+                            <option value="">옵션3</option>
+                        </select>
+                    </div>-->
+                </div>
+                <div class="input-area">
+                    <div class="dwp-input expended">
+                        <input type="text" placeholder="아이디">
+                        <!--<div class="dwp-error-msg">※ 양식에 맞지 않습니다.</div>-->
+                    </div>
+                    <div class="dwp-input expended">
+                        <input type="password" placeholder="비밀번호">
+                        <!--<div class="dwp-error-msg">※ 양식에 맞지 않습니다.</div>-->
+                    </div>
+                    <div class="save-id">
+                        <div class="dwp-checkbox">
+                            <label>
+                                <input type="checkbox" checked="checked"><span>아이디 저장</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <div class="dwp-btn confirm"><button type="button">로그인</button></div>
+                    <div class="dwp-btn"><button type="button">로그인<br />라이트 Ver.</button></div>
+                </div>
+                <div class="aligner btn-group" data-type="table" data-align="middle">
+                    <div class="left">
+                        <a>비밀번호 재설정</a>
+                    </div>
+                    <div class="right">
+                        <a>신문고 가기 &gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

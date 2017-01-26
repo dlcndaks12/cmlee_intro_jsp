@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            /* 담당자 추가 */
+            $(document).on("click", ".dwp-charger .add-row", function() {
+                var row = "";
+                row += '<tr>';
+                row +=    '<td>';
+                row +=        '<div class="dwp-input expended">';
+                row +=            '<input type="text" placeholder="이름">';
+                row +=        '</div>';
+                row +=    '</td>';
+                row +=    '<td>';
+                row +=        '<div class="dwp-input expended">';
+                row +=            '<input type="text" placeholder="직책">';
+                row +=        '</div>';
+                row +=    '</td>';
+                row +=    '<td>';
+                row +=        '<div class="dwp-input expended">';
+                row +=            '<input type="text" placeholder="부서">';
+                row +=        '</div>';
+                row +=    '</td>';
+                row +=    '<td>';
+                row +=        '<div class="dwp-input expended">';
+                row +=            '<input type="text" placeholder="전화번호">';
+                row +=        '</div>';
+                row +=    '</td>';
+                row +=    '<td><a class="btn-del"><img src="../../assets/images/common/icon-close.svg" alt=""></a></td>';
+                row += '</tr>';
+
+                console.log();
+
+                $(".dwp-charger .dwp-table tbody").append(row);
+            });
+
+            /* 담당자 row 삭제 */
+            $(document).on("click", ".dwp-charger .btn-del", function() {
+                $(this).closest("tr").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m write-form-header-m">
+    <div class="inner-m">
+        <div class="back"><a><img src="../../assets/images/common/btn-back.svg" alt=""></a></div>
+        <div class="dwp-page-title">
+            작성하기
+        </div>
+        <div class="confirm"><a>Confirm <img src="../../assets/images/common/btn-confirm.svg" alt=""></a></div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <div class="dwp-contents write-form-m">
+        <div class="dwp-writer">
+            <div class="subject">작성자</div>
+            <div class="writer-info">
+                <div class="name">장그래 / 사원</div>
+                <div class="dwp-selectbox lg">
+                    <select>
+                        <option value="">기업커뮤니케이션팀</option>
+                        <option value="">옵션2</option>
+                        <option value="">옵션3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-location">
+            <div class="subject">게시위치</div>
+            <div class="dwp-selectbox expended">
+                <select>
+                    <option value="">좌측메뉴명</option>
+                    <option value="">옵션2</option>
+                    <option value="">옵션3</option>
+                </select>
+            </div>
+        </div>
+        <div class="dwp-write-date">
+            <div class="subject">게시기간</div>
+            <div class="dwp-selectbox expended">
+                <select>
+                    <option value="">직접입력</option>
+                    <option value="">옵션2</option>
+                    <option value="">옵션3</option>
+                </select>
+            </div>
+            <div class="dwp-calendar-form">
+                <div class="dwp-input">
+                    <input type="date">
+                </div>
+                <span class="dwp-dash">-</span>
+                <div class="dwp-input">
+                    <input type="date">
+                </div>
+            </div>
+            <div class="dwp-write-target">
+                <div class="aligner">
+                    <div class="left">
+                        <div class="btn-plus"><img src="../../assets/images/common/icon-lnb-depth.svg" alt=""></div>
+                        <div class="title">게시대상</div>
+                    </div>
+                    <div class="right">
+                        <div class="icon"><img src="../../assets/images/common/icon-namepicker.svg" alt=""><span class="num">5</span></div>
+                    </div>
+                </div>
+
+                <div class="dwp-target-list">
+                    <div class="list">
+                        <div class="item">장그래</div>
+                        <div class="item">전지현</div>
+                        <div class="item">기업커뮤니케이션</div>
+                        <div class="item">비주얼커뮤니케이션</div>
+                        <div class="item">현빈</div>
+                    </div>
+                </div>
+
+                <div class="namepicker-list">
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                        <span class="name">장그래</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                        </span>
+                        <span class="name">전지현</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                        </span>
+                        <span class="name">현빈</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                        <span class="name">장그래</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                        </span>
+                        <span class="name">전지현</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                        </span>
+                        <span class="name">현빈</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                        <span class="name">장그래</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/common/default-team.svg" alt="">
+                        </span>
+                        <span class="name">A 부서</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                    <div class="namepicker-target">
+                        <span class="photo">
+                            <img src="../../assets/images/common/default-team.svg" alt="">
+                        </span>
+                        <span class="name">B 부서</span>
+                        <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dwp-charger">
+            <div class="aligner" data-type="table" data-bottom="xs">
+                <div class="left">
+                    <div class="subject">담당자</div>
+                </div>
+                <div class="right">
+                    <div class="dwp-btn icon add-row"><span><img src="../../assets/images/common/icon-lnb-depth.svg" alt="" ></span></div>
+                </div>
+            </div>
+            <div class="dwp-table check-group">
+                <table>
+                    <colgroup>
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 22%">
+                        <col style="width: 29%">
+                        <col style="width: 9%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="dwp-input expended">
+                                <input type="text" placeholder="이름">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dwp-input expended">
+                                <input type="text" placeholder="직책">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dwp-input expended">
+                                <input type="text" placeholder="부서">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dwp-input expended">
+                                <input type="text" placeholder="전화번호">
+                            </div>
+                        </td>
+                        <td><a class="btn-del"><img src="../../assets/images/common/icon-close.svg" alt=""></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dwp-categorize">
+            <div class="subject">분류</div>
+            <div class="dwp-selectbox expended">
+                <select>
+                    <option value="">분류선택</option>
+                    <option value="">옵션2</option>
+                    <option value="">옵션3</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="dwp-subject">
+            <div class="dwp-input expended">
+                <input type="text" placeholder="제목">
+            </div>
+        </div>
+
+        <div class="dwp-article">
+            <div class="dwp-textarea">
+                <textarea cols="30" rows="5" placeholder="본문을 입력해주세요"></textarea>
+            </div>
+
+            <div class="icon-util">
+                <div><img src="../../assets/images/common/icon-photo.svg" alt="" title="사진"></div>
+                <div><img src="../../assets/images/common/icon-video.svg" alt="" title="동영상"></div>
+            </div>
+        </div>
+
+
+        <div class="dwp-file">
+            <div class="aligner">
+                <div class="left">
+                    <div class="btn-plus"><img src="../../assets/images/common/icon-lnb-depth.svg" alt=""></div>
+                    <div class="title">파일첨부</div>
+                </div>
+                <div class="right">
+                    <div class="icon"><img src="../../assets/images/common/icon-file.svg" alt=""><span class="num">5</span> / 10</div>
+                </div>
+            </div>
+
+            <div class="file-list">
+                <div class="item">
+                    <div class="file">첨부한 파일의 제목입니다.jpg<span class="file-size">(2.88mb)</span></div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">첨부한 파일의 제목입니다.jpg<span class="file-size">(2.88mb)</span></div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">첨부한 파일의 제목입니다.jpg<span class="file-size">(2.88mb)</span></div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">첨부한 파일의 제목입니다.jpg<span class="file-size">(2.88mb)</span></div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">첨부한 파일의 제목입니다.jpg<span class="file-size">(2.88mb)</span></div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+            </div>
+
+            <div class="file-desc">
+                <div class="dwp-textarea">
+                    <textarea cols="30" rows="5" placeholder="본문을 입력해주세요"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="dwp-bookmark">
+            <div class="aligner">
+                <div class="left">
+                    <div class="btn-plus"><img src="../../assets/images/common/icon-lnb-depth.svg" alt=""></div>
+                    <div class="title">북마크 첨부</div>
+                </div>
+                <div class="right">
+                    <div class="icon"><img src="../../assets/images/common/icon-bookmark.svg" alt=""><span class="num">5</span></div>
+                </div>
+            </div>
+
+            <div class="bookmark-list">
+                <div class="item">
+                    <div class="file">북마크한 페이지 제목입니다.</div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">북마크한 페이지 제목입니다.</div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">북마크한 페이지 제목입니다.</div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">북마크한 페이지 제목입니다.</div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+                <div class="item">
+                    <div class="file">북마크한 페이지 제목입니다.</div>
+                    <div class="btn-close"><a><img src="../../assets/images/common/icon-close.svg" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+
+<!-- 상세화면 푸터 -->
+<!--<div class="dwp-footer-m dwp-detail-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/breadcrumbs-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-mark.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-link.svg" alt=""></a></div>
+        &lt;!&ndash; option-btn에 active클래스가 추가되면 하위 메뉴들이 나타납니다 &ndash;&gt;
+        <div class="util-btn option-btn">
+            <a><img src="../../assets/images/common/icon-more.svg" alt=""></a>
+            <div class="util-btn-option">
+                <a><img src="../../assets/images/common/icon-modify.svg" alt=""></a>
+                <a><img src="../../assets/images/common/icon-trash-m.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+</body>
+</html>

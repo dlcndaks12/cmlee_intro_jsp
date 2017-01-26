@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            /* 스크롤시 footer 보이게 하는 이벤트 걸기 */
+            onScrollForFooter(window);
+
+            $(".view-read").on("click", function( ) {
+                $(this).siblings(".timeline-desc").toggleClass("active");
+
+                if($(".timeline-desc").hasClass("active")) {
+                    $(this).children(".more").text("Close");
+                } else {
+                    $(this).children(".more").text("+ View More");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m">
+    <div class="inner-m">
+        <div class="lnb-area">
+            <a class="lnb-trigger"><img src="../../assets/images/common/gnb-menu.svg" alt=""></a>
+            <div class="lnb-wrap">
+                <div class="lnb-inner">
+                    <div class="lnb-scroll">
+                        <div class="user-info">
+                            <div class="photo-area">
+                                <img src="../../assets/images/dummy/profile-big.png" alt="" class="thumb">
+
+                            </div>
+                            <div class="name">Jang G-rae</div>
+                            <div class="dept">대리 / 비주얼커뮤니케이션팀</div>
+                        </div>
+                        <div class="dwp-lnb-m">
+                            <div class="dwp-lnb-depth2">
+                                <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                                <div class="dwp-lnb-item selected">
+                                    <a href="#" class="dwp-link">최근업데이트</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">공지사항</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">게시판</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">파일함</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">북마크</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">미디어갤러리</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">화상회의</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">Live Poll</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">임시저장</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logout-area">
+                        <a>Log out<img src="../../assets/images/common/icon-logout-w.svg" alt=""></a>
+                    </div>
+                    <a class="lnb-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-page-title">
+            Virtual Project Room
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <!-- Lnb -->
+    <!--<div class="dwp-2depth-nav">
+        <div class="nav-inner">
+            &lt;!&ndash; active 클래스 추가시 선택됩니다 &ndash;&gt;
+            <a class="active">진행</a>
+            <a>완료</a>
+            <a>초청</a>
+        </div>
+    </div>-->
+
+    <!-- active 클래스 추가시 보여집니다. -->
+    <div class="dwp-3depth-nav">
+        <div class="nav-inner">
+            <a>3depth</a>
+            <a>3depth</a>
+            <a>3depth</a>
+            <a>3depth</a>
+        </div>
+    </div>
+
+    <!-- 내용 -->
+    <div class="dwp-contents vpr-detail-m">
+        <div class="vpr-lnb-thumb">
+            <img src="../../assets/images/dummy/vpr-lnb-dummy.png" alt="">
+        </div>
+
+        <div class="vpr-write-form">
+            <div class="prj-name">Proactive Workstyle</div>
+            <!-- 검색바 -->
+            <div class="dwp-search-bar expanded">
+                <input type="text">
+                <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-search.svg" alt=""></button></div>
+            </div>
+            <!-- 업데이트 내용 -->
+            <div class="status-form">
+                <div class="subject">Status Update</div>
+                <div class="dwp-textarea">
+                    <textarea cols="30" rows="10" placeholder="내용을 입력해주세요."></textarea>
+                </div>
+                <div class="aligner" data-top="xs" data-bottom="xs">
+                    <div class="left">
+                        <div class="icon-util">
+                            <div><img src="../../assets/images/common/icon-photo.svg" alt="" title="사진"></div>
+                            <div><img src="../../assets/images/common/icon-video.svg" alt="" title="동영상"></div>
+                            <div><img src="../../assets/images/common/icon-file.svg" alt="" title="파일"></div>
+                            <div><img src="../../assets/images/common/icon-mark.svg" alt="" title="북마크"></div>
+                            <div><img src="../../assets/images/common/icon-todo.svg" alt="" title="게시"></div>
+                            <div><img src="../../assets/images/common/icon-calendar.svg" alt="" title="일정"></div>
+                            <div><img src="../../assets/images/common/icon-livepoll.svg" alt="" title="라이브폴"></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="dwp-btn"><span>Post</span></div>
+                    </div>
+                </div>
+
+                <!-- 동영상+사진 -->
+                <div class="media-area">
+                    <div class="subject-head">
+                        <div class="title">동영상<span class="separator">/</span>사진</div>
+                    </div>
+                    <div class="media-list">
+                        <div class="list-wrap">
+                            <div class="item">
+                                <img src="../../assets/images/dummy/vpr-img9.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img src="../../assets/images/dummy/vpr-img4.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img src="../../assets/images/dummy/vpr-img6.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 파일 -->
+                <div class="file-area">
+                    <div class="subject-head">
+                        <div class="title">파일</div>
+                    </div>
+                    <div class="list file">
+                        <div class="item">
+                            <div class="title">DWP_레거시_시스템_파악.xls</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 북마크 -->
+                <div class="bookmark-area">
+                    <div class="subject-head">
+                        <div class="title">북마크</div>
+                    </div>
+                    <div class="list bookmark">
+                        <div class="item">
+                            <div class="title">북마크되는 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게시글 -->
+                <div class="todo-area">
+                    <div class="subject-head">
+                        <div class="title">게시</div>
+                    </div>
+                    <div class="list todo">
+                        <div class="item">
+                            <div class="title">게시글 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">게시글 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 일정 -->
+                <div class="schedule-area">
+                    <div class="subject-head">
+                        <div class="title">일정</div>
+                    </div>
+                    <div class="list schedule">
+                        <div class="item">
+                            <div class="title">2016.09.24 일정 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">2016.09.24 일정 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">2016.09.24 일정 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 라이브폴 -->
+                <div class="livepoll-area">
+                    <div class="subject-head">
+                        <div class="title">라이브폴</div>
+                    </div>
+                    <div class="list livepoll">
+                        <div class="item">
+                            <div class="title">라이브폴 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">라이브폴 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">라이브폴 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">라이브폴 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                        <div class="item">
+                            <div class="title">라이브폴 내용입니다.</div>
+                            <div class="btn-cancel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-list">
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP 중간보고 2016년 9월 8일 10:00 ~ 11:00</a></div>
+                            <div class="desc">
+                                1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP 중간보고 2016년 9월 8일 10:00 ~ 11:00</a></div>
+                            <div class="desc">
+                                1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP 중간보고 2016년 9월 8일 10:00 ~ 11:00</a></div>
+                            <div class="desc">
+                                1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP 중간보고 2016년 9월 8일 10:00 ~ 11:00</a></div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP_분석설계_User_Story_전자결재 User Story 업데이트</a></div>
+                            <div class="file">
+                                <div class="file-name">
+                                    <div class="name">DWP_분석설계_User_Story_전자결재 User Story 업데이트</div>
+                                    <span>.xsl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">1시간전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="timeline-desc">
+                                현재 시점에서 검토 필요 사항 확인 바랍니다.
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                - 인픽스 제안서 수리 및 9월 개발 진행
+                            </div>
+                            <div class="view-read"><div class="more">+ View More</div></div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="aligner" data-align="middle" data-bottom="xs">
+                    <div class="left">
+                        <div class="dwp-user onlyname">
+                            <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                            <div class="profile-info">
+                                <div class="name">장그래</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="time">5분전</div>
+                    </div>
+                </div>
+                <div class="content-area">
+                    <div class="content">
+                        <div class="wrap">
+                            <div class="subject"><a>DWP 중간보고 2016년 9월 8일 10:00 ~ 11:00</a></div>
+                        </div>
+                    </div>
+                    <div class="team">기업커뮤니케이션팀</div>
+                </div>
+            </div>
+        </div>
+        <!-- more 버튼 -->
+        <div class="dwp-btn-more">
+            <a><img src="../../assets/images/common/loading.gif" alt=""></a>
+        </div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+</body>
+</html>

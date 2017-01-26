@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/common-alert.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        /* 좌우분할 */
+        function previewCol() {
+            $(".dwp-page-body").eq(0).removeClass("preview-row");
+            $(".dwp-page-body").eq(0).addClass("preview-col");
+            $(".dwp-contents-preview").eq(0).css("height", "");
+        }
+
+        /* 상하분할 */
+        function previewRow() {
+            $(".dwp-page-body").eq(0).removeClass("preview-col");
+            $(".dwp-page-body").eq(0).addClass("preview-row");
+            $(".dwp-contents-preview").eq(0).css("width", "");
+        }
+
+        /* 분할취소 */
+        function previewCancel() {
+            $(".dwp-page-body").eq(0).removeClass("preview-col");
+            $(".dwp-page-body").eq(0).removeClass("preview-row");
+            $(".dwp-contents-preview").eq(0).css({
+                width: "",
+                height: ""
+            });
+        }
+
+        $(document).ready(function() {
+
+            /* 좌우분할 */
+            $(".btn-preview-col").on("click", function() {
+                previewCol();
+            });
+
+            /* 상하분할 */
+            $(".btn-preview-row").on("click", function() {
+                previewRow();
+            });
+
+            /* 분할취소 */
+            $(".btn-preview-cancel").on("click", function() {
+                previewCancel();
+            });
+
+            /* tree 예제 */
+            $("#tree1").dynatree({
+                clickFolderMode: 1,
+                selectMode: 1,
+                checkbox: false,
+                children: [
+                    {title: "기본형"},
+                    {title: "Folder 2", isFolder: true,
+                        children: [
+                            {title: "Sub-item 2.1"},
+                            {title: "Sub-item 2.2"}
+                        ]
+                    },
+                    {title: "Item 3"}
+                ],
+                helper: "clone",
+                noLink: true
+                /*dnd: {
+                    /!* 폴더는 드래그 안되게 *!/
+                    onDragStart: function(node) {
+                        if(node.data.isFolder){
+                            return false;
+                        }
+                        return true;
+                    }
+                }*/
+            });
+
+            $("#tree2").dynatree({
+                clickFolderMode: 1,
+                checkbox:true,
+                children: [
+                    {title: "dwp-tree에 org-type 추가시 사람형으로 표시됨"},
+                    {title: "team 2", isFolder: true,
+                        children: [
+                            {title: "Sub-item 2.1"},
+                            {title: "Sub-item 2.2"}
+                        ]
+                    },
+                    {title: "Item 3"}
+                ],
+                helper: "clone",
+                /*dnd: {
+                    /!* 폴더는 드래그 안되게 *!/
+                    onDragStart: function(node) {
+                        if(node.data.isFolder){
+                            return false;
+                        }
+                        return true;
+                    }
+                }*/
+            });
+
+            /* custom alert 호출 예제 */
+            $(".btn-alert").on("click", function() {
+                dwpAlert("경고 메세지!");
+            });
+
+            /* custom confirm 호출 예제 */
+            $(".btn-confirm").on("click", function() {
+                dwpConfirm("정말 그렇게 하시겠습니까?", function(result){
+                    alert(result);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .dwp-table .dwp-table-row.head .dwp-cell:nth-child(5) {
+
+        }
+    </style>
+</head>
+<body>
+
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="dwp-container-wrap">
+    <div class="dwp-container">
+        <!-- LNB 영역 -->
+        <div class="dwp-nav">
+
+            <a href="#" class="dwp-trigger">메뉴 열기</a>
+            <div class="dwp-lnb-wrap">
+                <div class="dwp-menu-head">
+                    <div class="dwp-menu-title">1Depth Title</div>
+                    <button class="dwp-nav-btn"><img src="../../assets/images/common/icon-lnb-btn.svg" alt=""/>글쓰기</button>
+                </div>
+                <div class="dwp-lnb">
+                    <div class="dwp-lnb-depth2">
+
+                        <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                        <div class="dwp-lnb-item selected">
+                            <a href="#" class="dwp-link">타이틀 1</a>
+                            <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                        </div>
+                        <div class="dwp-lnb-depth3">
+                            <div class="dwp-lnb-item selected">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dwp-lnb-depth2">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">타이틀 2</a>
+                            <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                        </div>
+                        <div class="dwp-lnb-depth3">
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dwp-lnb-depth2">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">타이틀 3</a>
+                            <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                        </div>
+                        <div class="dwp-lnb-depth3">
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dwp-lnb-depth2">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">타이틀 4</a>
+                            <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                        </div>
+                        <div class="dwp-lnb-depth3">
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                            <div class="dwp-lnb-item">
+                                <a href="#" class="dwp-link">서브타이틀</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contents 영역 -->
+        <div class="dwp-contents">
+            <div class="dwp-wrapping">
+                <div class="dwp-page-heading">
+                    <div class="dwp-page-title">
+                        예제모음 페이지
+                    </div>
+                    <div class="dwp-breadcrumbs">
+                        <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"/></span>
+                        <span class="dwp-item">마이페이지</span>
+                        <span class="dwp-item">공지사항</span>
+                    </div>
+
+                    <div class="aligner" data-top="xs">
+                        <div class="left">
+                            <div class="dwp-btn-group">
+                                <div class="dwp-btn"><button type="button" class="btn-preview-col">좌우분할</button></div>
+                                <div class="dwp-btn"><button type="button" class="btn-preview-row">상하분할</button></div>
+                                <div class="dwp-btn"><button type="button" class="btn-preview-cancel">분할취소</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 미리보기 감싸는 영역 preview-col 클래스 추가시 좌우분할, preview-row 클래스 추가시 상하분할 -->
+                <div class="dwp-page-body">
+
+                    <!-- 내용영역 -->
+                    <div class="dwp-body-wrap write-form">
+                        <div class="dwp-contents-body">
+
+                            <!-- 내용 -->
+                            <div class="dwp-contents-article">
+                                <!--<div class="dwp-section">
+                                    <div class="dwp-tree-area">
+                                        <div class="dwp-tree-search-result">
+                                            <div class="result-item">
+                                                <span class="dynatree-icon"></span>
+                                                <a href="#" class="dynatree-title">tree 검색결과</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+
+                                <div class="dwp-section">
+
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-table-vertical">
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">교정표</div>
+                                            <div class="dwp-value rowspan">
+                                                <div class="dwp-row">
+                                                    <div class="dwp-value">
+                                                        <div class="dwp-user">
+                                                            <div class="profile-info">
+                                                                <div class="name">장그래</div>
+                                                                <div class="rank">사원</div>
+                                                                <div class="team">기업문화혁신팀</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dwp-user-util">
+                                                            <div class="date">2016.11.23</div>
+                                                        </div>
+
+                                                        <div data-top="xs">
+                                                            본문 내용 추가 합니다. 이것이 본문이다
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-row">
+                                                    <div class="dwp-value">
+                                                        <div class="dwp-user">
+                                                            <div class="profile-info">
+                                                                <div class="name">장그래</div>
+                                                                <div class="rank">사원</div>
+                                                                <div class="team">기업문화혁신팀</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dwp-user-util">
+                                                            <div class="date">2016.11.23</div>
+                                                        </div>
+
+                                                        <div data-top="xs">
+                                                            본문 내용 추가 합니다.<br> 이것이 본문이다
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-btn icon" title="게시판이동">
+                                        <span><img src="../../assets/images/common/icon-board-move.svg" alt=""></span>
+                                    </div>
+                                    <div class="dwp-btn icon" title="게시판운영자변경">
+                                        <span><img src="../../assets/images/common/icon-admin-change.svg" alt=""></span>
+                                    </div>
+                                    <div class="dwp-btn icon" title="복원">
+                                        <span><img src="../../assets/images/common/icon-restore.svg" alt=""></span>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner">
+                                        <div class="left">
+                                            <div class="dwp-btn btn-alert"><span>Alert 호출</span></div>
+                                            <div class="dwp-btn btn-confirm">Confirm 호출</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-btn"><span>span 버튼</span></div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>비밀번호 재설정</h3></div>
+                                    </div>
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 110px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>생년월일</th>
+                                                <td>
+                                                    <div class="dwp-input expended">
+                                                        <input type="password">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>핸드폰번호</th>
+                                                <td>
+                                                    <div class="dwp-input expended">
+                                                        <input type="password">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>이메일</th>
+                                                <td>
+                                                    <div class="dwp-input expended">
+                                                        <input type="password">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>PIN 번호</th>
+                                                <td>
+                                                    <div class="dwp-input expended">
+                                                        <input type="password">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="aligner" data-top="sm">
+                                        <div class="center">
+                                            <div class="dwp-btn">
+                                                <button type="button">확인</button>
+                                                <button type="button">취소</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>게시판 관리 UI</h3></div>
+                                    </div>
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 130px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-namepicker-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-add-item.svg" alt=""></button></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>게시판 관리 UI</h3></div>
+                                    </div>
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 130px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-table">
+                                                        <div class="dwp-table-inner">
+                                                            <div class="dwp-table-row head">
+                                                                <div class="dwp-cell check-cell">사용</div>
+                                                                <div class="dwp-cell">분류코드</div>
+                                                                <div class="dwp-cell">분류명</div>
+                                                                <div class="dwp-cell width-70">수정</div>
+                                                                <div class="dwp-cell width-70">삭제</div>
+                                                            </div>
+                                                            <div class="dwp-table-row">
+                                                                <div class="dwp-cell check-cell">
+                                                                    <div class="dwp-checkbox textless">
+                                                                        <label>
+                                                                            <input type="checkbox"><span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="dwp-cell">C1.010</div>
+                                                                <div class="dwp-cell">
+                                                                    <div class="dwp-input expended">
+                                                                        <input type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="dwp-cell width-70">
+                                                                    <div class="dwp-btn"><button type="button">수정</button></div>
+                                                                </div>
+                                                                <div class="dwp-cell width-70">
+                                                                    <div class="dwp-btn"><button type="button">삭제</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section tiny-type">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>상위 영역에 tiny-type 클래스 추가시</h3></div>
+                                    </div>
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 220px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-grouping">
+                                                        <div class="select-group">
+                                                            <div class="dwp-selectbox md">
+                                                                <select>
+                                                                    <option value="">분류선택</option>
+                                                                    <option value="">옵션1</option>
+                                                                    <option value="">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="dwp-input expended">
+                                                            <input type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-namepicker-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                    </div>
+
+                                                    <div class="namepicker-list">
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                                                        </span>
+                                                            <span class="name">현빈</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile.png" alt="">
+                                                        </span>
+                                                            <span class="name">장그래</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                                                        </span>
+                                                            <span class="name">전지현</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                                                        </span>
+                                                            <span class="name">현빈</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-input-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-input-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button">버튼입니다</button></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>
+                                                    <div class="dwp-grouping">
+                                                        <div class="select-group">
+                                                            <div class="dwp-selectbox md">
+                                                                <select>
+                                                                    <option value="">분류선택</option>
+                                                                    <option value="">옵션1</option>
+                                                                    <option value="">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="dwp-input expended">
+                                                            <div class="dwp-input-grouping">
+                                                                <div class="dwp-input"><input type="text"></div>
+                                                                <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>search 기본타입</h3></div>
+                                    </div>
+                                    <div class="aligner">
+                                        <div class="right">
+
+                                            <div class="dwp-search-grouping">
+                                                <div class="dwp-search-area">
+                                                    <div class="dwp-search-form">
+
+                                                        <div class="dwp-btn icon btn-back">
+                                                            <button type="button"><img src="../../assets/images/common/arrow-back.svg" alt=""></button>
+                                                        </div>
+
+                                                        <div class="dwp-selectbox sm">
+                                                            <select>
+                                                                <option value="">옵션1</option>
+                                                                <option value="">옵션2</option>
+                                                                <option value="">옵션3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-search.svg" alt=""></button></div>
+                                                <div class="dwp-btn-trigger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>search from to 타입</h3></div>
+                                    </div>
+                                    <div class="aligner">
+                                        <div class="right">
+                                            <div class="dwp-search-grouping">
+                                                <div class="dwp-search-area">
+                                                    <div class="dwp-search-form">
+
+                                                        <div class="dwp-btn icon btn-back">
+                                                            <button type="button"><img src="../../assets/images/common/arrow-back.svg" alt=""></button>
+                                                        </div>
+
+                                                        <div class="dwp-selectbox sm">
+                                                            <select>
+                                                                <option value="">옵션1</option>
+                                                                <option value="">옵션2</option>
+                                                                <option value="">옵션3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="dwp-calendar-form">
+                                                            <div class="dwp-input">
+                                                                <input type="text">
+                                                            </div>
+                                                            <span class="dwp-dash">-</span>
+                                                            <div class="dwp-input">
+                                                                <input type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-search.svg" alt=""></button></div>
+                                                <div class="dwp-btn-trigger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>grouping 관련 스타일들</h3></div>
+                                    </div>
+
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 220px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>.dwp-button-group</th>
+                                                <td>
+                                                    <div class="dwp-button-group">
+                                                        <div class="dwp-btn">
+                                                            <button type="button">버튼1</button>
+                                                        </div>
+                                                        <div class="dwp-btn">
+                                                            <button type="button">버튼2</button>
+                                                        </div>
+                                                        <div class="dwp-btn">
+                                                            <button type="button">버튼3</button>
+                                                        </div>
+                                                        <div class="dwp-btn">
+                                                            <button type="button">버튼4</button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>.dwp-grouping</th>
+                                                <td>
+                                                    <div class="dwp-grouping">
+                                                        <div class="select-group">
+                                                            <div class="dwp-selectbox md">
+                                                                <select>
+                                                                    <option value="">분류선택</option>
+                                                                    <option value="">옵션1</option>
+                                                                    <option value="">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="dwp-input expended">
+                                                            <input type="text" value=".dwp-grouping안에 좌우 정렬될 컴포넌트를 넣어주세요(좌우 간격은 5px입니다)">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>.dwp-namepicker-grouping<br />+ namepicker-list</th>
+                                                <td>
+                                                    <div class="dwp-namepicker-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                    </div>
+
+                                                    <div class="namepicker-list">
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                                                        </span>
+                                                            <span class="name">현빈</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile.png" alt="">
+                                                        </span>
+                                                            <span class="name">장그래</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                                                        </span>
+                                                            <span class="name">전지현</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                        <div class="namepicker-target">
+                                                        <span class="photo">
+                                                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                                                        </span>
+                                                            <span class="name">현빈</span>
+                                                            <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>.namepicker-list.empty</th>
+                                                <td>
+                                                    <div class="namepicker-list empty">
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>.dwp-input-grouping</th>
+                                                <td>
+                                                    <div class="dwp-input-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>.dwp-input-grouping</th>
+                                                <td>
+                                                    <div class="dwp-input-grouping">
+                                                        <div class="dwp-input"><input type="text"></div>
+                                                        <div class="dwp-btn"><button type="button">버튼입니다</button></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>.dwp-grouping<br/>&gt; dwp-input-grouping</th>
+                                                <td>
+                                                    <div class="dwp-grouping">
+                                                        <div class="select-group">
+                                                            <div class="dwp-selectbox md">
+                                                                <select>
+                                                                    <option value="">분류선택</option>
+                                                                    <option value="">옵션1</option>
+                                                                    <option value="">옵션2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="dwp-input expended">
+                                                            <div class="dwp-input-grouping">
+                                                                <div class="dwp-input"><input type="text"></div>
+                                                                <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>aligner (좌우 배치시 사용, data-top, data-bottom 옵션으로 위아래 margin 조절 가능)</h3></div>
+                                    </div>
+
+                                    <div class="dwp-table-vertical">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 180px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>기본타입</th>
+                                                <td>
+                                                    <div class="aligner">
+                                                        <div class="left">LEFT</div>
+                                                        <div class="center">CENTER</div>
+                                                        <div class="right">RIGHT</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>data-top="xs"<br />(margin-top: 10px)</th>
+                                                <td>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="left">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="center">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>data-top="sm"<br />(margin-top: 15px)</th>
+                                                <td>
+                                                    <div class="aligner" data-top="sm">
+                                                        <div class="left">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="center">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>data-top="md"<br />(margin-top: 20px)</th>
+                                                <td>
+                                                    <div class="aligner" data-top="md">
+                                                        <div class="left">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="center">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>data-top="lg"<br />(margin-top: 30px)</th>
+                                                <td>
+                                                    <div class="aligner" data-top="lg">
+                                                        <div class="left">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="center">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>data-top="xl"<br />(margin-top: 40px)</th>
+                                                <td>
+                                                    <div class="aligner" data-top="xl">
+                                                        <div class="left">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="center">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="right">
+                                                            <div class="dwp-btn">
+                                                                <button type="button">버튼</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>트리 검색시</h3></div>
+                                    </div>
+
+                                    <div class="dwp-tree-srch-result">
+                                        <div class="tree-item">기본형</div>
+                                        <div class="tree-item active">active 클래스 추가</div>
+                                        <div class="tree-item is-folder">is-folder 클래스 추가</div>
+                                        <div class="tree-item is-folder active">is-folder, active 클래스 추가</div>
+                                        <div class="tree-item org-type">org-type 클래스 추가</div>
+                                        <div class="tree-item org-type active">org-type, active 클래스 추가</div>
+                                        <div class="tree-item org-type is-folder">org-type, is-folder 클래스 추가</div>
+                                        <div class="tree-item org-type is-folder active">org-type, is-folder, active 클래스 추가</div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-tree-area">
+                                        <div class="dwp-tree">
+                                            <div id="tree1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-tree-area">
+                                        <!-- org-type 클래스 추가시 문서 아이콘으로 보여짐 -->
+                                        <div class="dwp-tree org-type">
+                                            <div id="tree2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>기본 게시판</h3></div>
+                                    </div>
+                                    <div class="dwp-table check-group">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 5%">
+                                                <col style="width: 11%">
+                                                <col style="width: 5%">
+                                                <col style="width: 55%">
+                                                <col style="width: 8%">
+                                                <col style="width: 8%">
+                                                <col style="width: 8%">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-check-all"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th>게시일</th>
+                                                <th></th>
+                                                <th>제목</th>
+                                                <th>작성자</th>
+                                                <th>좋아요</th>
+                                                <th>조회</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="dwp-notice">
+                                                <td>
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016.07.15</td>
+                                                <td><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></td>
+                                                <td>
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title"><span class="dwp-reply-tag"></span>한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다 한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                    </div>
+                                                </td>
+                                                <td>박유나</td>
+                                                <td>999</td>
+                                                <td>999</td>
+                                            </tr>
+                                            <tr class="dwp-notice">
+                                                <td>
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016.07.15</td>
+                                                <td><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></td>
+                                                <td>
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title">한국타이어 2016 공지사항입니다 한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                        <span class="dwp-new">N</span>
+                                                    </div>
+                                                </td>
+                                                <td>박유나</td>
+                                                <td>999</td>
+                                                <td>999</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016.07.15</td>
+                                                <td><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></td>
+                                                <td>
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title"><span class="dwp-reply-tag"></span>한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다  한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                        <span class="dwp-new">N</span>
+                                                    </div>
+                                                </td>
+                                                <td>박유나</td>
+                                                <td>999</td>
+                                                <td>999</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>기본 div형 게시판</h3></div>
+                                    </div>
+                                    <div class="dwp-table check-group">
+                                        <div class="dwp-table-inner">
+                                            <div class="dwp-table-row head">
+                                                <div class="dwp-cell check-cell">
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-check-all"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell date-cell">게시일</div>
+                                                <div class="dwp-cell file-cell"></div>
+                                                <div class="dwp-cell subject-cell">제목</div>
+                                                <div class="dwp-cell auth-cell">작성자</div>
+                                                <div class="dwp-cell like-cell">좋아요</div>
+                                                <div class="dwp-cell view-cell">조회</div>
+                                            </div>
+                                            <div class="dwp-table-row dwp-notice">
+                                                <div class="dwp-cell check-cell">
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell date-cell">2016.07.15</div>
+                                                <div class="dwp-cell file-cell"><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></div>
+                                                <div class="dwp-cell subject-cell">
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title">한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다 한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                        <span class="dwp-new">N</span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell auth-cell">박유나</div>
+                                                <div class="dwp-cell like-cell">999</div>
+                                                <div class="dwp-cell view-cell">999</div>
+                                            </div>
+                                            <div class="dwp-table-row dwp-notice">
+                                                <div class="dwp-cell check-cell">
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell date-cell">2016.07.15</div>
+                                                <div class="dwp-cell file-cell"><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></div>
+                                                <div class="dwp-cell subject-cell">
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title">한국타이어 2016 공지사항입니다 한국타이어 2016 공지사항입니다 한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell auth-cell">박유나</div>
+                                                <div class="dwp-cell like-cell">999</div>
+                                                <div class="dwp-cell view-cell">999</div>
+                                            </div>
+                                            <div class="dwp-table-row">
+                                                <div class="dwp-cell check-cell">
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell date-cell">2016.07.15</div>
+                                                <div class="dwp-cell file-cell"><a href="#"><img class="icon-file" src="../../assets/images/common/icon-file.svg" alt="첨부파일"></a></div>
+                                                <div class="dwp-cell subject-cell">
+                                                    <div class="dwp-subject">
+                                                        <span class="dwp-tag">분류</span>
+                                                        <a href="#" class="dwp-title">한국타이어 2016 공지사항입니다 한국타이어 2016사항입니다 한국타이어 2016 공지사항입니다 한국타이어</a>
+                                                        <a href="#" class="point-color">(20)</a>
+                                                        <span class="dwp-new">N</span>
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-cell auth-cell">박유나</div>
+                                                <div class="dwp-cell like-cell">999</div>
+                                                <div class="dwp-cell view-cell">999</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>기본 div형 게시판 넓이 옵션</h3></div>
+                                    </div>
+                                    <div class="dwp-table check-group">
+                                        <div class="dwp-table-inner">
+                                            <div class="dwp-table-row head">
+                                                <div class="dwp-cell width-50">width-50</div>
+                                                <div class="dwp-cell width-60">width-60</div>
+                                                <div class="dwp-cell width-70">width-70</div>
+                                                <div class="dwp-cell width-80">width-80</div>
+                                                <div class="dwp-cell width-90">width-90</div>
+                                                <div class="dwp-cell width-100">width-100</div>
+                                                <div class="dwp-cell width-auto">width-auto</div>
+                                            </div>
+                                            <div class="dwp-table-row">
+                                                <div class="dwp-cell width-50">내용</div>
+                                                <div class="dwp-cell width-60">내용</div>
+                                                <div class="dwp-cell width-70">내용</div>
+                                                <div class="dwp-cell width-80">내용</div>
+                                                <div class="dwp-cell width-90">내용</div>
+                                                <div class="dwp-cell width-100">내용</div>
+                                                <div class="dwp-cell width-auto">내용</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="aligner" data-bottom="xs">
+                                        <div class="left"><h3>기본 div형 게시판 넓이 옵션</h3></div>
+                                    </div>
+                                    <div class="dwp-table check-group">
+                                        <div class="dwp-table-inner">
+                                            <div class="dwp-table-row head">
+                                                <div class="dwp-cell width-auto">width-auto</div>
+                                                <div class="dwp-cell width-120">width-120</div>
+                                                <div class="dwp-cell width-140">width-140</div>
+                                                <div class="dwp-cell width-160">width-160</div>
+                                                <div class="dwp-cell width-180">width-180</div>
+                                                <div class="dwp-cell width-200">width-200</div>
+                                            </div>
+                                            <div class="dwp-table-row">
+                                                <div class="dwp-cell width-auto">내용</div>
+                                                <div class="dwp-cell width-120">내용</div>
+                                                <div class="dwp-cell width-140">내용</div>
+                                                <div class="dwp-cell width-160">내용</div>
+                                                <div class="dwp-cell width-180">내용</div>
+                                                <div class="dwp-cell width-200">내용</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="dwp-section">
+                                    <div class="dwp-table-vertical line-type form-type">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 130px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>좌우에 선있는 테이블</th>
+                                                <td>dwp-table-vertical에 form-type 클래스 추가하시면 됩니다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>title</th>
+                                                <td>value</td>
+                                            </tr>
+                                            <tr>
+                                                <td>value</td>
+                                                <td>value</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-table-vertical line-type">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width: 130px;">
+                                                <col>
+                                                <col style="width: 130px;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>table 태그형<br /> 선있는 테이블</th>
+                                                <td colspan="3">dwp-table-vertical에 line-type 클래스 추가하시면 됩니다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>title</th>
+                                                <td>value</td>
+                                            </tr>
+                                            <tr>
+                                                <th>title</th>
+                                                <td>value</td>
+                                                <th>title</th>
+                                                <td>value</td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2">title</th>
+                                                <th colspan="2">title</th>
+                                            </tr>
+                                            <tr>
+                                                <th rowspan="2">title</th>
+                                                <th>내용</th>
+                                                <td>제목</td>
+                                                <td>제목</td>
+                                            </tr>
+                                            <tr>
+                                                <th>제목</th>
+                                                <td>제목</td>
+                                                <td>제목</td>
+                                            </tr>
+                                            <tr>
+                                                <td>d</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="dwp-section">
+                                    <div class="dwp-table-vertical line-type">
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">선있는 테이블</div>
+                                            <div class="dwp-value">
+                                                dwp-table-vertical에 line-type 클래스 추가하시면 됩니다.
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">title</div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">title</div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                            <div class="dwp-title">title</div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">title</div>
+                                            <div class="dwp-title width-auto">width-auto 클래스 추가</div>
+                                            <div class="dwp-title width-auto">width-auto 클래스 추가</div>
+                                            <div class="dwp-title width-auto">width-auto 클래스 추가</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">title</div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                            <div class="dwp-value">
+                                                value
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dwp-section">
+                                    <div class="dwp-table-vertical">
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-left</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-left">좌측정렬</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-center</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-center">중앙정렬</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-right</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-right">우측정렬</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title dwp-left">
+                                                <div class="dwp-left">.dwp-left</div>
+                                            </div>
+                                            <div class="dwp-value">
+                                                title 좌측정렬
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">
+                                                <div class="dwp-center">
+                                                    .dwp-center
+                                                </div>
+                                            </div>
+                                            <div class="dwp-value">
+                                                title 중앙정렬
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">
+                                                <div class="dwp-right">
+                                                    .dwp-right
+                                                </div>
+                                            </div>
+                                            <div class="dwp-value">
+                                                title 우측정렬
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-btn strong</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-btn strong"><button type="button">강조</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-hanta</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-hanta">한국타이어 폰트입니다.</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-regular</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-regular">프로젝트에 적용되어있는 기본 두께입니다.(font-weight: 400;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-bold</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-bold">폰트를 Bold하게 만드는 두께입니다.(font-weight: 700;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-font-12</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-font-12">폰트 사이즈가 12px입니다.(font-size: 12px;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-font-13</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-font-13">폰트 사이즈가 13px입니다.(font-size: 13px;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-font-14</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-font-14">폰트 사이즈가 14px입니다.(font-size: 14px;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-font-15</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-font-15">폰트 사이즈가 15px입니다.(font-size: 15px;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-cursor</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-cursor">마우스를 올리면 커서가 변합니다.(cursor: pointer;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-light</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-light">글자색이 밝게 변합니다.(color: #999;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-dark</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-dark">글자색이 어둡게 변합니다.(color: #333;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-orange</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-orange">글자색이 포인트색으로 변합니다.(color: #ed6c00;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-white</div>
+                                            <div class="dwp-value" style="background-color: #555;">
+                                                <div class="dwp-white">글자색이 흰색으로 변합니다.(color: #fff;)</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-50</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-50" style="border: 1px solid #ddd; padding: 5px;">넓이가 50px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-100</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-100" style="border: 1px solid #ddd; padding: 5px;">넓이가 100px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-150</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-150" style="border: 1px solid #ddd; padding: 5px;">넓이가 150px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-200</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-200" style="border: 1px solid #ddd; padding: 5px;">넓이가 200px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-250</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-250" style="border: 1px solid #ddd; padding: 5px;">넓이가 250px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-300</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-300" style="border: 1px solid #ddd; padding: 5px;">넓이가 300px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-350</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-350" style="border: 1px solid #ddd; padding: 5px;">넓이가 350px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-400</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-400" style="border: 1px solid #ddd; padding: 5px;">넓이가 400px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-450</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-450" style="border: 1px solid #ddd; padding: 5px;">넓이가 450px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-500</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-500" style="border: 1px solid #ddd; padding: 5px;">넓이가 500px이 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-100per</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-100per" style="border: 1px solid #ddd; padding: 5px;">넓이가 100%가 됩니다</div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.dwp-ellipsis</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-ellipsis">
+                                                    텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.텍스트가 길어지면 말줄임처리가 됩니다.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">.rowspan</div>
+                                            <div class="dwp-value rowspan">
+                                                <div class="dwp-row">
+                                                    <div class="dwp-value">
+                                                        dwp-value 클래스에 rowspan 클래스를 추가하고 &lt; div class="dwp-row" &gt;로 원하는 행만큼 계속 추가할 수 있습니다.
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-row">
+                                                    <div class="dwp-value">
+                                                        dwp-value 클래스에 rowspan 클래스를 추가하고 &lt; div class="dwp-row" &gt;로 원하는 행만큼 계속 추가할 수 있습니다.
+                                                    </div>
+                                                </div>
+                                                <div class="dwp-row">
+                                                    <div class="dwp-value">
+                                                        dwp-value 클래스에 rowspan 클래스를 추가하고 &lt; div class="dwp-row" &gt;로 원하는 행만큼 계속 추가할 수 있습니다.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">버튼</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-btn"><button type="button">버튼</button></div>
+                                            </div>
+                                            <div class="dwp-title">버튼 비활성</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-btn"><button type="button" disabled="disabled">버튼</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">input</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-input expended">
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div class="dwp-title">input 비활성</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-input expended">
+                                                    <input type="text" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">셀렉트</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-selectbox">
+                                                    <select>
+                                                        <option value="">분류선택</option>
+                                                        <option value="">옵션1</option>
+                                                        <option value="">옵션2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-title">셀렉트 비활성</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-selectbox">
+                                                    <select readonly>
+                                                        <option value="">분류선택</option>
+                                                        <option value="">옵션1</option>
+                                                        <option value="">옵션2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">체크박스</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-selection-group">
+                                                    <div class="dwp-checkbox">
+                                                        <label>
+                                                            <input type="checkbox" checked="checked"><span>체크박스1</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-checkbox">
+                                                        <label>
+                                                            <input type="checkbox" readonly><span>체크박스2</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-checkbox">
+                                                        <label>
+                                                            <input type="checkbox"><span>체크박스3</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-checkbox">
+                                                        <label>
+                                                            <input type="checkbox"><span>체크박스4</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-checkbox">
+                                                        <label>
+                                                            <input type="checkbox"><span>체크박스5</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-title">빈 체크박스</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-selection-group">
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox" checked="checked"><span></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-checkbox textless">
+                                                        <label>
+                                                            <input type="checkbox"><span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">Radio 버튼</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-selection-group">
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1" checked="checked"><span>라디오1</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1" readonly="readonly"><span>라디오2</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1"><span>라디오3</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1"><span>라디오4</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1"><span>라디오5</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="dwp-radio">
+                                                        <label>
+                                                            <input type="radio" name="radio-group1"><span>라디오6</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-title">빈 Radio 버튼</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-radio textless">
+                                                    <label>
+                                                        <input type="radio" checked="checked"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">드롭다운</div>
+                                            <div class="dwp-value">
+                                                <div class="dwp-dropdown">
+                                                    <div class="dropdown-inner">
+                                                        <a class="main-btn">드롭다운</a>
+                                                        <a class="trigger"><img src="../../assets/images/common/arrow-down.svg" alt=""></a>
+                                                    </div>
+                                                    <ul class="dwp-option-list">
+                                                        <li><button type="button">옵션0</button></li>
+                                                        <li><button type="button">옵션1</button></li>
+                                                        <li><button type="button">옵션2</button></li>
+                                                        <li><button type="button">옵션3</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dwp-dropdown">
+                                                    <div class="dropdown-inner">
+                                                        <a class="main-btn"><img src="../../assets/images/common/icon-folder.svg" alt=""></a>
+                                                        <a class="trigger"><img src="../../assets/images/common/arrow-down.svg" alt=""></a>
+                                                    </div>
+                                                    <ul class="dwp-option-list">
+                                                        <li><button type="button">기업커뮤니테이션</button></li>
+                                                        <li><button type="button">옵션1</button></li>
+                                                        <li><button type="button">옵션2</button></li>
+                                                        <li><button type="button">옵션3</button></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dwp-dropdown right-type">
+                                                    <div class="dropdown-inner">
+                                                        <a class="main-btn">right type</a>
+                                                        <a class="trigger"><img src="../../assets/images/common/arrow-down.svg" alt=""></a>
+                                                    </div>
+                                                    <ul class="dwp-option-list">
+                                                        <li><button type="button">옵션0</button></li>
+                                                        <li><button type="button">옵션1</button></li>
+                                                        <li><button type="button">옵션2</button></li>
+                                                        <li><button type="button">옵션3</button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 미리보기 -->
+                    <div class="dwp-contents-preview">
+                        <div class="dwp-wrapping">
+                            <div class="empty-guide">
+                                <div class="inner">
+                                    <img src="../../assets/images/common/icon-doc.svg" alt="">
+                                    미리보기할 문서를 선택해 주십시오.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "기존 설문지 불러오기",
+                width: 736,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                modal: true,
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-research-load-dialog">
+            <div class="aligner" data-bottom="xs">
+                <div class="right">
+                    <div class="dwp-search-grouping">
+                        <div class="dwp-search-area">
+                            <div class="dwp-search-form">
+                                <div class="dwp-selectbox sm">
+                                    <select>
+                                        <option value="">전체</option>
+                                        <option value="">제목</option>
+                                        <option value="">작성자</option>
+                                        <option value="">작성부서</option>
+                                    </select>
+                                </div>
+                                <div class="dwp-input"><input type="text"></div>
+                            </div>
+                        </div>
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-search.svg" alt=""></button></div>
+                        <div class="dwp-btn-trigger"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dwp-table check-group">
+                <table>
+                    <colgroup>
+                        <col style="width: 5%">
+                        <col style="width: 40%">
+                        <col style="width: 10%">
+                        <col style="width: 20%">
+                        <col style="width: 15%">
+                        <col style="width: 10%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성부서</th>
+                        <th>작성일</th>
+                        <th>미리보기</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="dwp-radio textless">
+                                <label>
+                                    <input type="radio" name="radio-group"><span></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>제목입니다.</td>
+                        <td>장그래</td>
+                        <td>비쥬얼커뮤니케이션</td>
+                        <td>2016.06.05</td>
+                        <td><a class="btn-preview"><img src="../../assets/images/common/icon-preview.svg" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="dwp-radio textless">
+                                <label>
+                                    <input type="radio" name="radio-group"><span></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>제목입니다.</td>
+                        <td>장그래</td>
+                        <td>비쥬얼커뮤니케이션</td>
+                        <td>2016.06.05</td>
+                        <td><a class="btn-preview"><img src="../../assets/images/common/icon-preview.svg" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="dwp-radio textless">
+                                <label>
+                                    <input type="radio" name="radio-group"><span></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>제목입니다.</td>
+                        <td>장그래</td>
+                        <td>비쥬얼커뮤니케이션</td>
+                        <td>2016.06.05</td>
+                        <td><a class="btn-preview"><img src="../../assets/images/common/icon-preview.svg" alt=""></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="aligner" data-top="sm">
+                <div class="center">
+                    <div class="dwp-btn">
+                        <button type="button">확인</button>
+                        <button type="button">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

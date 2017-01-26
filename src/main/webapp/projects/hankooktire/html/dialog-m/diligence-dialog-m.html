@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "근태·지급 내역",
+
+                /* 모바일 dialog 에 추가해야되는 class */
+                dialogClass: 'mobile-dialog',
+
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-diligence-dialog-m">
+            <div class="diligence-list">
+                <div class="dwp-table">
+                    <table>
+                        <colgroup>
+                            <col style="width: 45%">
+                            <col style="width: 25%">
+                            <col style="width: 30%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>근태(시간)</th>
+                            <th>지급액(원)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>정상근무</td>
+                            <td>144.00</td>
+                            <td>1,032,300</td>
+                        </tr>
+                        <tr>
+                            <td>휴일</td>
+                            <td>96.00</td>
+                            <td>688,200</td>
+                        </tr>
+                        <tr>
+                            <td>야간조근무</td>
+                            <td>64.00</td>
+                            <td>265,676</td>
+                        </tr>
+                        <tr>
+                            <td>평일 연장근무</td>
+                            <td>32.00</td>
+                            <td>309,544</td>
+                        </tr>
+                        <tr>
+                            <td>평일 야간연장근무</td>
+                            <td>20.00</td>
+                            <td>392,005</td>
+                        </tr>
+                        <tr>
+                            <td>창립기념일 대체근무</td>
+                            <td>8.00</td>
+                            <td>300,515</td>
+                        </tr>
+                        <tr>
+                            <td>교육</td>
+                            <td>4.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>식대</td>
+                            <td></td>
+                            <td>10,080</td>
+                        </tr>
+                        <tr>
+                            <td>안전수당</td>
+                            <td>4.00</td>
+                            <td>10,080</td>
+                        </tr>
+                        <tr>
+                            <td>생산장려수당</td>
+                            <td></td>
+                            <td>10,080</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="total-title">지급총액(원)</div>
+                            </td>
+                            <td colspan="2">
+                                <div class="total"><span class="pay">3,519,846</span>원</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

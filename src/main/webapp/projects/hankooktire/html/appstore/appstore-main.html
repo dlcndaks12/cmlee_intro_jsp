@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".new-app-list .app-list").slick({
+                arrows: true,
+                dots: true,
+                autoplay: true
+            });
+
+            $(".common-app-list .app-list").slick({
+                arrows: true,
+                dots: true,
+                autoplay: true,
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+
+            $(document).on("click", ".cate-list > li",  function() {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="appstore-main-container">
+
+    <div class="appstore-main-inner">
+        <div class="dwp-appstore-main">
+            <div class="page-heading">
+                <div class="dwp-page-title">
+                    App Store
+                </div>
+                <div class="dwp-breadcrumbs">
+                    <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"></span>
+                    <span class="dwp-item">menu1</span>
+                    <span class="dwp-item">menu1-1</span>
+                </div>
+            </div>
+
+            <div class="app-intro">
+                <div class="new-app-list">
+                    <div class="sub-title">
+                        <span class="point-color">New</span> App
+                    </div>
+                    <div class="app-list">
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">디지털 라이브러리</div>
+                            <div class="app-desc">
+                                한국타이어 디자인가이드 및
+                                데이터 공유 서비스
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">디지털 라이브러리</div>
+                            <div class="app-desc">
+                                한국타이어 디자인가이드 및
+                                데이터 공유 서비스
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="common-app-list">
+                    <div class="sub-title">
+                        Common App
+                    </div>
+                    <div class="app-list">
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">메신저</div>
+                            <div class="app-desc">
+                                소셜 기반 통합 커뮤니케이션
+                                플랫폼
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">HankookTire Integrated Test Information System System System System System System</div>
+                            <div class="app-desc">
+                                시험 시스템 (실내시험, 실차마모 등
+                                모든 시험 의뢰, 접수, 결과 입력)
+                                모든 시험 의뢰, 접수, 결과 입력)
+                                모든 시험 의뢰, 접수, 결과 입력)
+                                모든 시험 의뢰, 접수, 결과 입력)
+                                모든 시험 의뢰, 접수, 결과 입력)
+                            </div>
+
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">한국 구매포털시스템 (HEPS)</div>
+                            <div class="app-desc">
+                                통합 전산구매시스템
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">메신저</div>
+                            <div class="app-desc">
+                                소셜 기반 통합 커뮤니케이션
+                                플랫폼
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">HankookTire Integrated Test Information System</div>
+                            <div class="app-desc">
+                                시험 시스템 (실내시험, 실차마모 등
+                                모든 시험 의뢰, 접수, 결과 입력)
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">
+                                <img src="../../assets/images/dummy/app-icon.png" alt="">
+                            </div>
+                            <div class="app-name">한국 구매포털시스템 (HEPS)</div>
+                            <div class="app-desc">
+                                통합 전산구매시스템
+                            </div>
+                            <div class="dwp-btn btn-detail"><button type="button">자세히 보기</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aligner" data-top="lg">
+                <div class="left">
+                    <div class="dwp-grouping">
+                        <div>
+                            <div class="dwp-selectbox md">
+                                <select>
+                                    <option value="">지역</option>
+                                    <option value="">옵션2</option>
+                                    <option value="">옵션3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dwp-selectbox md">
+                                <select>
+                                    <option value="">24개씩 보기</option>
+                                    <option value="">옵션2</option>
+                                    <option value="">옵션3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="dwp-search-grouping">
+                        <div class="dwp-search-area">
+                            <div class="dwp-search-form">
+                                <div class="dwp-selectbox sm">
+                                    <select>
+                                        <option value="">옵션1</option>
+                                        <option value="">옵션2</option>
+                                        <option value="">옵션3</option>
+                                    </select>
+                                </div>
+                                <div class="dwp-input"><input type="text"></div>
+                            </div>
+                        </div>
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-search.svg" alt=""></button></div>
+                        <div class="dwp-btn-trigger"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-categories">
+                <ul class="cate-list">
+                    <li class="active" title="전체">
+                        <div class="title">전체</div>
+                        <div class="num">40 Apps</div>
+                    </li>
+                    <li title="공통">
+                        <div class="title">공통</div>
+                        <div class="num">15 Apps</div>
+                    </li>
+                    <li title="물류">
+                        <div class="title">물류</div>
+                        <div class="num">11 Apps</div>
+                    </li>
+                    <li title="생산">
+                        <div class="title">생산</div>
+                        <div class="num">7 Apps</div>
+                    </li>
+                    <li>
+                        <div class="title">일반관리</div>
+                        <div class="num">4 Apps</div>
+                    </li>
+                    <li title="판매">
+                        <div class="title">판매</div>
+                        <div class="num">3 Apps</div>
+                    </li>
+                    <li title="R&amp;D">
+                        <div class="title">R&amp;D</div>
+                        <div class="num">1 Apps</div>
+                    </li>
+                    <li title="R&amp;D">
+                        <div class="title">R&amp;D</div>
+                        <div class="num">1 Apps</div>
+                    </li>
+                    <li title="R&amp;D">
+                        <div class="title">R&amp;D</div>
+                        <div class="num">1 Apps</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="app-list-area">
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area active">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">G.ERP 시스템</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download active"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">한국 인사관리시스템 (Hanel HR)</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">중국 한국타이어 홈페이지</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">모바일오피스 시스템</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">e-Learning Management System (CH)</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-app-item">
+                    <div class="item-inner">
+                        <div class="icon-area">
+                            <div class="icon"><img src="../../assets/images/app-icon/icon-calendar.svg" alt=""></div>
+                            <div class="icon-subject">Global IT HelpDesk 시스템 (IT SM 시스템)</div>
+                        </div>
+                        <div class="util-area">
+                            <div class="preview"><img src="../../assets/images/common/icon-portlet-preview.svg" alt=""></div>
+                            <div class="download"><img src="../../assets/images/common/icon-download.svg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dwp-pagination">
+                <div class="btn-prev-fist"><button type="button">처음페이지로</button></div>
+                <div class="btn-prev"><button type="button">이전</button></div>
+                <div class="num">
+                    <button type="button" class="active">1</button>
+                    <button type="button">2</button>
+                    <button type="button">3</button>
+                    <button type="button">4</button>
+                    <button type="button">5</button>
+                    <button type="button">6</button>
+                    <button type="button">7</button>
+                    <button type="button">8</button>
+                    <button type="button">9</button>
+                    <button type="button">10</button>
+                </div>
+                <div class="btn-next"><button type="button">다음</button></div>
+                <div class="btn-next-last"><button type="button">마지막페이지로</button></div>
+                <div class="total-page">총<em class="total-num">77</em><span>건</span></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>

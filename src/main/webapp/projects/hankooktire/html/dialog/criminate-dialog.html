@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "신고하기",
+                width: 420,
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-criminate-dialog">
+            <div class="dwp-criminate-inner">
+                <div class="subject-area">
+                    <div class="title">신고하기 제목입니다.신고하기 제목입니다.신고하기 제목입니다.신고하기 제목입니다.</div>
+                    <div class="dwp-user">
+                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                        <div class="profile-info">
+                            <div class="name">장그래</div>
+                            <div class="rank">사원</div>
+                            <div class="team">기업문화혁신팀</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="desc-area">
+                    <div class="subject">사유작성</div>
+                    <div class="desc-form">
+                        <textarea cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="aligner" data-type="table" data-top="md">
+                    <div class="center">
+                        <div class="dwp-grouping">
+                            <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                            <div class="dwp-btn cancel"><button type="button">취소</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

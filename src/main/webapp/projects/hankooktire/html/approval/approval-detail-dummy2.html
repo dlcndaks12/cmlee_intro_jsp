@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            /* 결재버튼 클릭시 결재레이어 열림 */
+            $(document).on("click", ".btn-open-consent", function() {
+                $(".dwp-approval-consent-wrap").addClass("active");
+                $(".dwp-approval-consent-wrap").css({
+                    top: ($(this).offset().top + 35) + "px",
+                    left: ($(this).offset().left - 111) + "px"
+                });
+
+                console.log($(".scroll-target").offset().top);
+                console.log($(".dwp-body-wrap").offset().top);
+
+                var target = (($(".scroll-target").offset().top + $(".dwp-body-wrap").scrollTop()) - $(".dwp-body-wrap").offset().top) - 325;
+
+                $(".dwp-body-wrap").stop().animate({scrollTop: target}, '500', 'swing', function() {
+
+                });
+            });
+
+            /* 결재레이어 닫기 */
+            $(document).on("click", ".dwp-approval-consent-wrap .close-consent", function() {
+                $(".dwp-approval-consent-wrap").removeClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="dwp-container">
+    <!-- LNB 영역 -->
+    <div class="dwp-nav">
+        <a href="#" class="dwp-trigger">메뉴 열기</a>
+        <div class="dwp-lnb-wrap">
+            <div class="dwp-menu-head">
+                <div class="dwp-menu-title">1Depth Title</div>
+                <button class="dwp-nav-btn"><img src="../../assets/images/common/icon-lnb-btn.svg" alt=""/>글쓰기</button>
+            </div>
+            <div class="dwp-lnb">
+                <div class="dwp-lnb-depth2">
+
+                    <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                    <div class="dwp-lnb-item selected">
+                        <a href="#" class="dwp-link">타이틀 1</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item selected">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 2</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 3</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dwp-lnb-depth2">
+                    <div class="dwp-lnb-item">
+                        <a href="#" class="dwp-link">타이틀 4</a>
+                        <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                    </div>
+                    <div class="dwp-lnb-depth3">
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                        <div class="dwp-lnb-item">
+                            <a href="#" class="dwp-link">서브타이틀</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contents 영역 -->
+    <div class="dwp-contents">
+        <div class="dwp-wrapping">
+            <div class="dwp-page-heading">
+                <div class="dwp-page-title">
+                    Page Title
+                </div>
+                <div class="dwp-breadcrumbs">
+                    <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"/></span>
+                    <span class="dwp-item">마이페이지</span>
+                    <span class="dwp-item">공지사항</span>
+                </div>
+
+                <div class="aligner" data-top="lg">
+                    <div class="left">
+                        <div class="dwp-btn-group">
+                            <div class="dwp-btn"><button type="button">합의요청/부결</button></div>
+                            <div class="dwp-btn"><button type="button" class="btn-open-consent">결재</button></div>
+                            <div class="dwp-btn"><button type="button">결재정보</button></div>
+                            <div class="dwp-btn"><button type="button">목록</button></div>
+                        </div>
+                    </div>
+                    <div class="right button">
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-bookmark.svg" alt=""></button></div>
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-link.svg" alt=""></button></div>
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-print.svg" alt=""></button></div>
+                        <div class="dwp-btn icon"><button type="button"><img src="../../assets/images/common/icon-blank.svg" alt=""></button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dwp-page-body">
+                <!-- 내용영역 -->
+                <div class="dwp-body-wrap approval-detail tiny-type">
+                    <div class="dwp-contents-body">
+
+                        <!-- 내용 -->
+                        <div class="dwp-contents-article">
+                            <!-- 결재 레이어 영역 -->
+                            <div class="dwp-approval-consent-wrap">
+                                <div class="dwp-consent-head">
+                                    결재
+                                    <button type="button" class="btn-close-consent close-consent">
+                                        <img src="../../assets/images/common/icon-close.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="dwp-approval-consent-dialog">
+                                    <div class="consent-wrap">
+                                        <div class="approval-info-area">
+                                            <div class="info-wrap">
+                                                <div class="info-section">
+                                                    <div class="row">
+                                                        <div class="key">결재자</div>
+                                                        <div class="value">
+                                                            <div class="dwp-user">
+                                                                <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                                <div class="profile-info">
+                                                                    <div class="name">장그래</div>
+                                                                    <div class="rank">사원</div>
+                                                                    <div class="team">기업문화혁신팀</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="key type">결재</div>
+                                                        <div class="value">
+                                                            <div class="date">2016.08.24</div>
+                                                            <div class="time">AM 08:00:55</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row opinion">
+                                                        <div class="key">결재의견</div>
+                                                        <div class="value ">
+                                                            본사출장자에 한하여 비용정산 가이드를 회신하여 본사에서 정확한 비용정산이 되도록 안내 바랍니다.<br />
+                                                            - 교육출장 기준 안내 필요 (예, 교통비 실비정산으로 G.생산혁신교육팀예산 사용)<br />
+                                                            - 증빙은 본 품으로 첨부하여 정산 등 안내
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="consent-area">
+                                            <div class="consent-form">
+                                                <div class="dwp-table-vertical">
+                                                    <div class="dwp-row">
+                                                        <div class="dwp-title">수행</div>
+                                                        <div class="dwp-value">
+                                                            <!-- 결재자인 경우 -->
+                                                            <div class="dwp-selection-group">
+                                                                <div class="dwp-radio">
+                                                                    <label>
+                                                                        <input type="radio" name="radio-group1" checked="checked"><span>결재</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="dwp-radio">
+                                                                    <label>
+                                                                        <input type="radio" name="radio-group1"><span>부결</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- 합의자인 경우 -->
+                                                            <!--
+                                                            <div class="dwp-radio">
+                                                                <label>
+                                                                    <input type="radio" name="radio-group1-1" checked="checked"><span>동의</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="dwp-radio">
+                                                                <label>
+                                                                    <input type="radio" name="radio-group1-1"><span>부동의</span>
+                                                                </label>
+                                                            </div>
+                                                            -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="dwp-row">
+                                                        <div class="dwp-title">의견</div>
+                                                        <div class="dwp-value">
+                                                            <div class="dwp-textarea">
+                                                                <textarea cols="30" rows="5"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="aligner" data-top="md">
+                                                    <div class="center">
+                                                        <div class="dwp-grouping">
+                                                            <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                                                            <div class="dwp-btn cancel"><button type="button" class="close-consent">취소</button></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- 결재란 -->
+                            <div class="dwp-section head-area close-area">
+                                <!-- 결재 리스트 -->
+                                <div class="close-area info-area">
+                                    <div class="dwp-table-vertical dwp-approval-list">
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">문서종류</div>
+                                            <div class="dwp-value">업무연락</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">문서번호</div>
+                                            <div class="dwp-value">57001138-C-2016-00070 </div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">기안일자</div>
+                                            <div class="dwp-value">2016.09.01</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">보존년한</div>
+                                            <div class="dwp-value">3년</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">기안부서</div>
+                                            <div class="dwp-value">디지털워크플레이스(DWP) 구축프로젝트</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">기안자</div>
+                                            <div class="dwp-value">이성효(Sub)  대리</div>
+                                        </div>
+                                        <div class="dwp-row">
+                                            <div class="dwp-title">문서보안</div>
+                                            <div class="dwp-value">
+                                                부서
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 결재란 -->
+                                <div class="sign-wrap">
+                                    <div class="dwp-sign-area">
+                                        <div class="sign-zone">
+                                            <div class="part">담당</div>
+                                            <div class="sign">Approval</div>
+                                            <div class="date">2016.09.01</div>
+                                        </div>
+                                        <div class="sign-zone">
+                                            <div class="part">팀장</div>
+                                            <div class="sign"></div>
+                                            <div class="date">2016.09.01</div>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-consent-area">
+                                        <div class="independence-zone">
+                                            <div class="part">지주 합의자</div>
+                                            <div class="sign">
+                                                <div class="row">
+                                                    <div class="agree">동의</div>
+                                                    <div class="dept">HR담당</div>
+                                                    <div class="position">담당임원</div>
+                                                    <div class="name">최창희</div>
+                                                    <div class="date">2016.09.01</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="business-zone">
+                                            <div class="part">사업 합의자</div>
+                                            <div class="sign">
+                                                <div class="row">
+                                                    <div class="agree"></div>
+                                                    <div class="dept"></div>
+                                                    <div class="position"></div>
+                                                    <div class="name"></div>
+                                                    <div class="date"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="agree"></div>
+                                                    <div class="dept"></div>
+                                                    <div class="position"></div>
+                                                    <div class="name"></div>
+                                                    <div class="date"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dwp-section close-area">
+                                <div class="dwp-table-vertical">
+                                    <div class="dwp-row">
+                                        <div class="dwp-title">수신부서</div>
+                                        <div class="dwp-value">
+                                            em)G.서비스팀,em)G.정보팀
+                                        </div>
+                                    </div>
+                                    <div class="dwp-row">
+                                        <div class="dwp-title">공유자</div>
+                                        <div class="dwp-value">
+                                            정문영/팀장/한)문화홍보팀,김영우/담당/디지털워크플레이스(DWP) 구축프로젝트,이주영/담당/한)문화홍보팀,이준석(Sub)/담당/디지털워크플레이스(DWP) 구축프로젝트,안기철/담당(T)/em)관리정보팀,이재혁/팀장/HR PI Project,이상승/팀장/인재경영팀
+                                        </div>
+                                    </div>
+                                    <div class="dwp-row">
+                                        <div class="dwp-title">열람자</div>
+                                        <div class="dwp-value">
+                                            권혁진/담당임원/기업커뮤니케이션담당
+                                        </div>
+                                    </div>
+                                    <div class="dwp-row scroll-target">
+                                        <div class="dwp-title">제목</div>
+                                        <div class="dwp-value">
+                                            생산기능직 모바일 앱 HR 기능 개발을 위한 업무 지원 요청
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 본문 -->
+                            <div class="dwp-section">
+                                <div class="view-article">
+                                    귀 팀의 업무협조에 항상 감사드립니다.<br/>
+                                    생산기능직 사원들의 커뮤니케이션 활성화 및 편의 도모를 위하여 생산기능직 사원 대상 모바일 앱을 기획 설계를
+                                    진행하고 있습니다.<br/>
+                                    <br/>
+                                    해당 앱을 통해 구성원에게 회사생활에 필요한 편리성을 제공하고 회사의 메시지를 실시간으로 전 사원에게 전달
+                                    시켜 소속감을 증진시키고자 합니다.<br/>
+                                    <br/>
+                                    아래와 같이 생산기능직 모바일 앱에 대해 개발 요청을 드리오니 업무협조 부탁 드립니다.<br/>
+                                    <br/>
+                                    - 아        래-<br/>
+                                    <br/>
+
+                                    1. 생산기능직 커뮤니케이션 모바일 앱 구축 개요<br/>
+
+                                    (1) 구축 목표<br/>
+
+                                    - 구성원 커뮤니케이션 활성화<br/>
+
+                                    - 회사생활에 필요한 편리한 기능 제공<br/>
+
+                                    - 회사의 메시지를 실시간으로 전 사원에게 일괄적으로 전달, 소속감을 증진<br/>
+                                    <br/>
+                                    (2) 구축 방향성<br/>
+
+                                    - 생산기능직 사원이 한국타이어인으로서의 아이덴티티 인식<br/>
+
+                                    - 최신 UI/UX 적용 및 편의기능 제공 통해 모바일 앱 이용률 제고, 커뮤니케이션 증진<br/>
+
+                                    - 근무 외 시간에도 앱 내에서 유의미한 콘텐츠를 제공/소비 유도<br/>
+                                    <br/>
+                                    (3) 구축 일정<br/>
+                                    <img src="../../assets/images/dummy/approval-content1.png" alt=""><br/>
+                                    <br/>
+                                    <br/>
+                                    2. 요청 사항 : 생산기능직 커뮤니케이션 모바일 앱 기능 中 HR 관련 기능 개발에 대한 업무 지원 요청<br/>
+
+                                    (1) HR 관련 기능: 급여/근태정보 제공<br/>
+
+                                    (2) 업무 지원 세부 내용<br/>
+                                    <img src="../../assets/images/dummy/approval-content2.png" alt=""><br/>
+                                    <br/>
+                                    ※ 참고사항: 생산기능직 모바일 앱 관련 노동조합 의견<br/>
+
+                                    (1) 전체적으로 모바일 앱 콘텐츠에 찬성 의견<br/>
+
+                                    (2) [중점요구] 모바일 앱에 HR 기능을 넣어 줄 것<br/>
+
+                                    - 급여명세서, 근태확인, 연수원 신청 여부 등 (반영 완료)<br/>
+
+                                    - 결혼, 출산 등 사원 개인 정보 변동 시 모바일 앱에서 본인이 개인정보를 업데이트 할 수 있는 기능 (검토 예정)<br/>
+                                    <br/>
+                                    <br/>
+                                    3. 첨부파일: 생산기능직 모바일 앱 급여급태 개발 지원 요청 사항 --- 1부.   "끝"
+
+
+                                </div>
+
+                                <!-- 파일첨부 -->
+                                <div class="dwp-file-list">
+                                    <div class="dwp-file">
+                                        <a href="#"><img src="../../assets/images/common/file-icon-excel.png" alt="">생산직 모바일 앱_급여근태개발 지원요청사항_20160831.xls (11kb)</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- 문서첨부 -->
+                            <div class="dwp-section">
+                                <div class="dwp-table-file check-group doc-type">
+                                    <div class="dwp-table-head">
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell">문서종류</div>
+                                            <div class="dwp-cell">문서번호</div>
+                                            <div class="dwp-cell">제목</div>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-table-body">
+                                        <div class="dwp-row">
+                                            <div class="dwp-cell no-docs">첨부된 문서가 없습니다.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 에디터 및 양식 영역 -->
+                            <div class="dwp-section">
+                                <div>
+                                    <!--  에디터에 쓴 글이 나타나는 영역-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 미리보기 -->
+                <div class="dwp-contents-preview">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>

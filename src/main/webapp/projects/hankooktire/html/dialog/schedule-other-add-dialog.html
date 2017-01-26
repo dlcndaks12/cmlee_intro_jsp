@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "환경설정",
+                width: 420,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-schedule-other-add-dialog">
+            <div class="dwp-tabs">
+                <ul>
+                    <li><a href="#dwp-admin-share-content">권한공유자</a></li>
+                    <li><a href="#dwp-group-content">알림설정</a></li>
+                </ul>
+                <div class="dwp-admin-share-content" id="dwp-admin-share-content">
+                    <div class="dwp-namepicker-grouping">
+                        <div class="dwp-input"><input type="text"></div>
+                        <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+                    </div>
+
+                    <div class="aligner" data-top="sm" data-bottom="sm">
+                        <div class="left">
+                            <div class="dwp-grouping">
+                                <div class="dwp-btn"><button type="button">추가</button></div>
+                                <div class="dwp-btn"><button type="button">삭제</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dwp-table">
+                        <table>
+                            <colgroup>
+                                <col style="width: 10%">
+                                <col style="width: 20%">
+                                <col style="width: 20%">
+                                <col style="width: 50%">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">전지현</div>
+                                </td>
+                                <td>대리</td>
+                                <td>
+                                    <div class="dep">전략기획팀</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">전지현</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">전략기획팀</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">전지현</div>
+                                </td>
+                                <td>대리</td>
+                                <td>
+                                    <div class="dep">전략기획팀</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">전지현</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">전략기획팀</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="dwp-checkbox textless">
+                                        <label>
+                                            <input type="checkbox" class="dwp-chk"><span></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="name">장그래</div>
+                                </td>
+                                <td>사원</td>
+                                <td>
+                                    <div class="dep">DWP 구축 TFT</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dwp-group-content" id="dwp-group-content">
+                    <div class="dwp-selection-group">
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" checked="checked"><span>알림설정</span>
+                            </label>
+                        </div>
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1"><span>알림해제</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="aligner" data-top="md">
+                    <div class="center">
+                        <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

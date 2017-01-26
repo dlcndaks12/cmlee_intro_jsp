@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "결재정보",
+                width: 736,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                modal: true,
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-approval-info-dialog">
+            <div class="info-wrap">
+                <div class="info-section">
+                    <div class="row head">
+                        <div class="key point-color">
+                            결재
+                        </div>
+                        <div class="value">
+                            <div class="info-area">
+                                <div class="dwp-user">
+                                    <div class="profile-info">
+                                        <div class="name">Hermawan Adi Susanto</div>
+                                        <div class="rank">Assistant Manager</div>
+                                        <div class="team">IP)Manufacturing Team 1</div>
+                                    </div>
+                                </div>
+
+                                <div class="date-info-list">
+                                    <div class="date-info">
+                                        결재 :
+                                        <span class="date">2016.08.24</span>
+                                        <span class="time">AM 08:00:55</span>
+                                    </div>
+                                    <div class="date-info">
+                                        합의요청 :
+                                        <div class="date">2016.08.24</div>
+                                        <div class="time">AM 08:00:55</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="key">결재의견</div>
+                        <div class="value ">
+                            결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="key">합의요청의견</div>
+                        <div class="value ">
+                            결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="key"></div>
+                        <div class="value no-padding">
+                            <div class="row head">
+                                <div class="key">
+                                    <div class="point-color">합의</div>
+                                </div>
+                                <div class="value">
+                                    <div class="info-area">
+                                        <div class="dwp-user">
+                                            <div class="profile-info">
+                                                <div class="name">Hermawan Adi Susanto</div>
+                                                <div class="rank">Assistant Manager</div>
+                                                <div class="team">IP)Manufacturing Team 1</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="date-info-list">
+                                            <div class="date-info">
+                                                <span class="date">2016.08.24</span>
+                                                <span class="time">AM 08:00:55</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="key">합의의견</div>
+                                <div class="value">
+                                    합의 의견이 보여지는 영역입니다. 합의 의견이 보여지는 영역입니다.합의 의견이 보여지는
+                                    영역입니다. 합의 의견이 보여지는 영역입니다. 합의 의견이 보여지는 영역입니다. 합의 의견
+                                    이 보여지는 영역입니다.
+                                </div>
+                            </div>
+                            <div class="row head">
+                                <div class="key">
+                                    <div class="point-color">합의</div>
+                                </div>
+                                <div class="value">
+                                    <div class="info-area">
+                                        <div class="dwp-user">
+                                            <div class="profile-info">
+                                                <div class="name">김태평</div>
+                                                <div class="rank">팀장</div>
+                                                <div class="team">경영혁신팀</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="date-info-list">
+                                            <div class="date-info">
+                                                <span class="date">2016.08.24</span>
+                                                <span class="time">AM 08:00:55</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="row head">
+                        <div class="key">
+                            결재자
+                        </div>
+                        <div class="value">
+                            <div class="info-area">
+                                <div class="dwp-user">
+                                    <div class="profile-info">
+                                        <div class="name">장그래</div>
+                                        <div class="rank">사원</div>
+                                        <div class="team">기업문화혁신팀</div>
+                                    </div>
+                                </div>
+
+                                <div class="date-info-list">
+                                    <div class="date-info">
+                                        <div class="date">2016.08.24</div>
+                                        <div class="time">AM 08:00:55</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="row head">
+                        <div class="key point-color">
+                            결재
+                        </div>
+                        <div class="value">
+                            <div class="info-area">
+                                <div class="dwp-user">
+                                    <div class="profile-info">
+                                        <div class="name">Hermawan Adi Susanto</div>
+                                        <div class="rank">Assistant Manager</div>
+                                        <div class="team">IP)Manufacturing Team 1</div>
+                                    </div>
+                                </div>
+
+                                <div class="date-info-list">
+                                    <div class="date-info">
+                                        결재 :
+                                        <span class="date">2016.08.24</span>
+                                        <span class="time">AM 08:00:55</span>
+                                    </div>
+                                    <div class="date-info">
+                                        합의요청 :
+                                        <div class="date">2016.08.24</div>
+                                        <div class="time">AM 08:00:55</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="key">결재의견</div>
+                        <div class="value ">
+                            결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

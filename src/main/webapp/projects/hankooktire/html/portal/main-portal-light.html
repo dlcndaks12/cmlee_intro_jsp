@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>DWP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script> 
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+
+    <script>
+        function closeVisual() {
+            $(".main-visual-toggler").addClass("active");
+            $('.dwp-main-visual').addClass('fold');
+            $(".slider-tabs .slider-tab").removeClass("active");
+            $('.dwp-main-visual .slider').slick('slickUnfilter');
+            $('.dwp-main-visual .slider').slick("slickPause");
+        }
+
+        function openVisual() {
+            $(".main-visual-toggler").removeClass("active");
+            $('.dwp-main-visual').removeClass('fold');
+            $('.dwp-main-visual .slider').slick("slickPlay");
+        }
+
+        /* visual 탭 필터링 */
+        function filteringVisual(filtered) {
+            if (filtered == "all") {
+                $('.dwp-main-visual .slider').slick('slickUnfilter');
+            } else if (filtered == "ceo") {
+                $('.dwp-main-visual .slider').slick('slickUnfilter');
+                $('.dwp-main-visual .slider').slick('slickFilter', '.ceo');
+            } else if (filtered == "strategy") {
+                $('.dwp-main-visual .slider').slick('slickUnfilter');
+                $('.dwp-main-visual .slider').slick('slickFilter', '.strategy');
+            } else if (filtered == "culture") {
+                $('.dwp-main-visual .slider').slick('slickUnfilter');
+                $('.dwp-main-visual .slider').slick('slickFilter', '.culture');
+            }
+        }
+
+        $(document).ready(function() {
+            /* 포틀릿 설정 팝업 */
+            /*$("#portlet-setting-dialog").dialog({
+             title: "환경설정",
+             width: 736,
+             hegiht: 505,
+
+             /!* 기본옵션 *!/
+             modal: true,
+             draggable: false,
+             hide: { effect: "fade", duration: 300 },
+             show: { effect: "fade", duration: 300 },
+             resizable: false,
+             open: function() {
+             $('.ui-widget-overlay').on('click', function() {
+             $('#dialog').dialog('close');
+             })
+             }
+             });
+             $(".portlet-list-area").mCustomScrollbar({
+             theme: "dark-3"
+             });*/
+
+            /* light 포틀릿 앞면 */
+            $(".front-wrap").on("click", function () {
+                $(this).fadeOut(1500);
+
+            });
+
+            $(".front-wrap .dwp-btn").on("click", function (e) {
+                e.stopPropagation();
+
+            });
+
+            /* visual 영역 탭 클릭시 */
+            $(".visual-tabs .visual-tab a").on("click", function() {
+                var idx = $(this).parent().index();
+
+                $(this).parent().addClass("active").siblings().removeClass("active");
+                $(".tab-contents .tab-content").eq(idx).addClass("active").siblings().removeClass("active");
+            });
+
+            /* 퀵메뉴 여닫기 */
+            $('.portlet-list-toggler').on('click', function(e) {
+                $(this).parent().toggleClass('active');
+
+                e.preventDefault();
+            });
+
+            /* visual 여닫기 */
+            $('.main-visual-toggler a').on('click', function(e) {
+                if($(this).parent().hasClass("active")) {
+                    openVisual();
+                } else {
+                    closeVisual();
+                }
+                e.preventDefault();
+            });
+
+            /* 롤링형 포틀릿 */
+            $(".dwp-portlet .slider-view").each(function() {
+                if(!$(this).hasClass("slick-slider")) {
+                    $(".dwp-portlet .slider-view").slick({
+                        autoplay: true,
+                        autoplaySpeed: 5000,
+                        dots: true,
+                        pauseOnHover: true
+                    });
+                }
+            });
+
+            /* drag & drop 관련 */
+            $(".sortable-quick").sortable({
+                connectWith: ".sortable",
+                placeholder: "portlet-placeholder",
+                start: function(e, ui){
+                    ui.placeholder.height(ui.item.height() - 2);
+                },
+                change: function(e,ui){
+                    ui.item.width('auto').height('auto').addClass('hover');
+                    ui.placeholder.height(81);
+                },
+                stop: function(e,ui){
+                    ui.item.removeClass('hover');
+                }
+            });
+
+            $(".sortable").sortable({
+                connectWith: ".sortable, .sortable-quick",
+                handle: ".portlet-head",
+                placeholder: "portlet-placeholder",
+                scroll: true,
+                cursorAt: {
+                    left: 30
+                },
+                start: function(e, ui) {
+                    ui.item.width('auto').height('auto').addClass('hover');
+                    ui.placeholder.height(ui.item.height() - 2);
+                },
+                change: function(e, ui) {
+                },
+                stop: function(e, ui) {
+                    ui.item.removeClass('hover');
+                }
+            });
+        });
+    </script>
+</head>
+<body class="show-banner light-page">
+
+<!-- banner -->
+<!-- body에 'show-banner' 클래스 추가시 보여짐 -->
+<div class="dwp-head-banner">
+    <div class="dwp-status point-color">[공지사항 알림]</div>
+    <div class="article">
+        <div class="ellipsis">
+            <a>공지사항의 내용이 표시되는 영역입니다. 공지사항의 내용이 표시되는 영역입니다.</a>
+        </div>
+    </div>
+    <div class="close-area">
+        <a class="btn-close-day">오늘하루 열지않기</a>
+        <a class="btn-close"><img src="../../assets/images/common/icon-close-w.svg" alt=""></a>
+    </div>
+</div>
+
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="dwp-main-portal-light">
+    <div class="dwp-main-visual">
+        <div class="inner">
+            <div class="visual-tabs">
+                <div class="visual-tab tab-ceo-message active">
+                    <a data-type="ceo">
+                        <div class="txt">CEO Message</div>
+                    </a>
+                </div>
+                <div class="visual-tab tab-strategy">
+                    <a data-type="strategy">
+                        <div class="txt">Strategy</div>
+                    </a>
+                </div>
+                <div class="visual-tab tab-proactive-culture">
+                    <a data-type="culture">
+                        <div class="txt">Proactive Culture</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tab-contents">
+                <div class="tab-content tab-ceo-message active">
+                    <div class="msg-list">
+                        <div class="item">
+                            <div class="title">Innovation of Working Style.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">Driving Emotion Beyond Mobility.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">We are innovation. We create possibilities.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content tab-strategy">
+                    <div class="msg-list">
+                        <div class="item">
+                            <div class="title">Innovation of Working Style.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">Driving Emotion Beyond Mobility.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">We are innovation. We create possibilities.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content tab-proactive-culture">
+                    <div class="msg-list">
+                        <div class="item">
+                            <div class="title">Innovation of Working Style.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">Driving Emotion Beyond Mobility.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="title">We are innovation. We create possibilities.</div>
+                            <div class="read-more">
+                                <a>
+                                    Read More
+                                    <span class="lines">
+                                        <span class="line1"></span>
+                                        <span class="line2"></span>
+                                        <span class="line3"></span>
+                                        <span class="line4"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-visual-toggler">
+                <a>메인 비주얼 여닫기</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="dwp-portlet-list">
+        <a class="portlet-list-toggler">
+            <div class="dot">포틀릿 목록 여닫기</div>
+        </a>
+        <div class="dwp-portlet-setting">
+            <img src="../../assets/images/app-icon/icon-setting-w.svg" class="icon" alt="">
+            포틀릿 설정
+        </div>
+        <div class="sortable-quick">
+            <div class="component-control">
+                <div class="dwp-portlet dwp-portlet-mail">
+                    <div class="fold">
+                        <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                        전자결재
+                    </div>
+                    <div class="unfold">
+                        <div class="portlet-head">
+                            <div class="portlet-heading">제목</div>
+                            <div class="portlet-util">
+                                <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-control">
+                <div class="dwp-portlet dwp-portlet-mail">
+                    <div class="fold">
+                        <img src="../../assets/images/main/portlet-calendar.svg" class="icon" alt="">
+                        일정
+                    </div>
+                    <div class="unfold">
+                        <div class="portlet-head">
+                            <div class="portlet-heading">제목</div>
+                            <div class="portlet-util">
+                                <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-control">
+                <div class="dwp-portlet dwp-portlet-mail">
+                    <div class="fold">
+                        <img src="../../assets/images/main/portlet-occasion.svg" class="icon" alt="">
+                        경조사
+                    </div>
+                    <div class="unfold">
+                        <div class="portlet-head">
+                            <div class="portlet-heading">제목</div>
+                            <div class="portlet-util">
+                                <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-control">
+                <div class="dwp-portlet dwp-portlet-mail">
+                    <div class="fold">
+                        <img src="../../assets/images/main/portlet-inquiry.svg" class="icon" alt="">
+                        월급조회
+                    </div>
+                    <div class="unfold">
+                        <div class="portlet-head">
+                            <div class="portlet-heading">제목</div>
+                            <div class="portlet-util">
+                                <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-control">
+                <div class="dwp-portlet dwp-portlet-mail">
+                    <div class="fold">
+                        <img src="../../assets/images/main/portlet-menu.svg" class="icon" alt="">
+                        식당메뉴
+                    </div>
+                    <div class="unfold">
+                        <div class="portlet-head">
+                            <div class="portlet-heading">제목</div>
+                            <div class="portlet-util">
+                                <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dwp-portlet-area">
+        <div class="dwp-portlet-zone">
+            <div class="sortable">
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <!-- 앞면 -->
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">Mail</div>
+                                    <div class="dwp-btn active"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">Mail</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-setting.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-mail long-type">
+                                    <div class="scrolling-area">
+                                        <div class="thumb-list">
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/mail-img1.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">전지현</div>
+                                                        <div class="detail">상반기 한국타이어 공채 관련제작물 시안 요청건 접수</div>
+                                                    </a>
+                                                    <div class="time">AM 12:41</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star active">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/mail-img2.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">현빈</div>
+                                                        <div class="detail">한국타이어 2016 글로벌 신입사원 오리엔테이션 일정 변경</div>
+                                                    </a>
+                                                    <div class="time">AM 11:37</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img3.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">정우성</div>
+                                                        <div class="detail">드림위드 대학생 봉사단과 함께 벽화 그리기 봉사활동 시작.</div>
+                                                    </a>
+                                                    <div class="time">AM 11:30</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img4.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">김연아</div>
+                                                        <div class="detail">한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.</div>
+                                                    </a>
+                                                    <div class="time">PM 09:23</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star active">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img5.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">행복한 경영</div>
+                                                        <div class="detail">오늘 배우기를 멈추면, 내일 지도력을 읽게 된다.</div>
+                                                    </a>
+                                                    <div class="time">PM 02:50</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img5.png" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">행복한 경영</div>
+                                                        <div class="detail">오늘 배우기를 멈추면, 내일 지도력을 읽게 된다.</div>
+                                                    </a>
+                                                    <div class="time">PM 02:50</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="bookmark">북마크</a>
+                                                            <a class="star">중요</a>
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">Facebook</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">Facebook</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-facebook">
+                                    <img src="../../assets/images/dummy/portlet-facebook.png" alt="Facebook 위젯이 삽입 될 영역"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sortable">
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">HANKOOK Tire On</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">HANKOOK Tire On</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-hankooktireon">
+                                    <div class="slider-view">
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권 기술의 리더십으로 美 모터스포츠 대회 석권 기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart active">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">봉사활동</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">봉사활동</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-life">
+                                    <div class="slider-view">
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권 기술의 리더십으로 美 모터스포츠 대회 석권 기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart active">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-item">
+                                            <div class="thumb"><img src="../../assets/images/dummy/portlet-hto.jpg" alt=""/></div>
+                                            <div class="info">
+                                                <div class="subject">기술의 리더십으로 美 모터스포츠 대회 석권</div>
+                                                <div class="aligner" data-top="xs">
+                                                    <div class="left">
+                                                        <a class="heart">99</a>
+                                                        <a class="reply">99</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">YouTube</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">YouTube</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-youtube">
+                                    <iframe width="304" height="304" src="https://www.youtube.com/embed/cLwTkkYh738" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sortable">
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">Status Update</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">Status Update</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-statusupdate long-type">
+                                    <div class="scrolling-area">
+                                        <div class="thumb-list">
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/mail-img1.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">전지현</div>
+                                                        <div class="detail">상반기 한국타이어 공채 관련제작물 시안 요청건 접수</div>
+                                                    </a>
+                                                    <div class="time">AM 12:41</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/mail-img2.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">현빈</div>
+                                                        <div class="detail">한국타이어 2016 글로벌 신입사원 오리엔테이션 일정 변경</div>
+                                                    </a>
+                                                    <div class="time">AM 11:37</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img3.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">정우성</div>
+                                                        <div class="detail">드림위드 대학생 봉사단과 함께 벽화 그리기 봉사활동 시작.</div>
+                                                    </a>
+                                                    <div class="time">AM 11:30</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="name">김연아</div>
+                                                        <div class="detail">한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.</div>
+                                                    </a>
+                                                    <div class="time">PM 09:23</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img5.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">행복한 경영</div>
+                                                        <div class="detail">오늘 배우기를 멈추면, 내일 지도력을 읽게 된다.</div>
+                                                    </a>
+                                                    <div class="time">PM 02:50</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a class="desc">
+                                                        <img src="../../assets/images/dummy/mail-img5.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a>
+                                                        <div class="name">행복한 경영</div>
+                                                        <div class="detail">오늘 배우기를 멈추면, 내일 지도력을 읽게 된다.</div>
+                                                    </a>
+                                                    <div class="time">PM 02:50</div>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="right">
+                                                            <a class="trash">삭제</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="component-control">
+                    <div class="dwp-portlet">
+                        <!-- 퀵메뉴에 들어 갔을때 나타나는 아이콘형 -->
+                        <div class="fold">
+                            <img src="../../assets/images/main/portlet-approval.svg" class="icon" alt="">
+                            아이콘
+                        </div>
+                        <!-- 펼쳐진 기본형태 -->
+                        <div class="unfold">
+                            <div class="front-wrap">
+                                <div class="front-portlet">
+                                    <div class="portlet-title">Blog</div>
+                                    <div class="dwp-btn"><button type="button">Go</button></div>
+                                </div>
+                            </div>
+
+                            <div class="portlet-head">
+                                <div class="portlet-heading">Blog</div>
+                                <div class="portlet-util">
+                                    <a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-zoom.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-go.svg" alt=""></a>
+                                    <a><img src="../../assets/images/common/icon-setting.svg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="dwp-portlet-blog">
+                                    <div class="scrolling-area">
+                                        <div class="thumb-list">
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/img-ceo.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="detail">상반기 한국타이어 공채 관련제작물 시안 요청건 접수</div>
+                                                    </a>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="left">
+                                                            <a>2016.07.15</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/img-ceo.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="detail">상반기 한국타이어 공채 관련제작물 시안 요청건 접수</div>
+                                                    </a>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="left">
+                                                            <a>2016.07.15</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="img">
+                                                    <a>
+                                                        <img src="../../assets/images/dummy/img-ceo.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <a class="desc">
+                                                        <div class="detail">상반기 한국타이어 공채 관련제작물 시안 요청건 접수</div>
+                                                    </a>
+                                                    <div class="aligner" data-top="xs">
+                                                        <div class="left">
+                                                            <a>2016.07.15</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="dwp-footer">
+    <div class="inner">
+        <a><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>
+</body>
+</html>

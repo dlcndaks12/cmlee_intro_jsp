@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "",
+
+                /* 모바일 dialog 에 추가해야되는 class */
+                dialogClass: 'mobile-dialog no-overflow',
+
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-approval-dialog-m">
+            <div class="confirm"><img src="../../assets/images/common/btn-confirm.svg" alt=""></div>
+
+            <div class="form-item">
+                <div class="key point-color">수행</div>
+                <div class="value">결재</div>
+            </div>
+            <div class="form-item">
+                <div class="key point-color">평가</div>
+                <div class="value">
+                    <div class="radio-group">
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" checked="checked"><span>S</span>
+                            </label>
+                        </div>
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" ><span>A</span>
+                            </label>
+                        </div>
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" ><span>B</span>
+                            </label>
+                        </div>
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" ><span>C</span>
+                            </label>
+                        </div>
+                        <div class="dwp-radio">
+                            <label>
+                                <input type="radio" name="radio-group1" ><span>D</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="write-area">
+                <div class="dwp-textarea">
+                    <textarea cols="30" rows="10" placeholder="본문내용을 입력해주세요."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

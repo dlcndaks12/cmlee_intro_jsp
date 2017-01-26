@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            /* 스크롤시 footer 보이게 하는 이벤트 걸기 */
+            onScrollForFooter(window);
+
+            /* 좌우 스와이프로 메뉴보기 */
+            $(".mail-list-m .item").swipe({
+                allowPageScroll: "vertical",
+                threshold: 50,
+                swipe:function(event, direction, distance, duration, fingerCount, fingerData) {/*
+                    $(this).text("You swiped " + direction );*/
+
+                    if(direction == "left") {
+                        $(this).addClass("right");
+
+                        if($(this).hasClass("left")) {
+                            $(this).removeClass("left right");
+                        }
+
+                        if($(this).hasClass('right')) {
+                            $(this).siblings().removeClass('left right');
+                        }
+
+                    } else if (direction == "right") {
+                        $(this).addClass("left");
+
+                        if($(this).hasClass("right")) {
+                            $(this).removeClass("left right");
+                            $(this).find(".option-more").removeClass("active");
+                        }
+
+                        if($(this).hasClass('left')) {
+                            $(this).siblings().removeClass('left right');
+                        }
+                    }
+                }
+            });
+
+            /* 읽음표시 전환 */
+            $(".mail-list-m .read").on("click", function() {
+                $(this).toggleClass("active");
+                var txt = $(this).children(".title").text();
+
+                if ($(this).hasClass("active")) {
+                    $(this).children(".title").text("읽음");
+                } else {
+                    $(this).children(".title").text("읽지않음");
+                }
+            });
+
+            /* more버튼 눌렀을 때 하위메뉴 노출함수 */
+            $(".option-more .title").on("click", function() {
+                $(this).parent().toggleClass("active").closest(".item").siblings().find(".option-more").removeClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m">
+    <div class="inner-m">
+        <div class="lnb-area">
+            <a class="lnb-trigger"><img src="../../assets/images/common/gnb-menu.svg" alt=""></a>
+            <div class="lnb-wrap">
+                <div class="lnb-inner">
+                    <div class="lnb-scroll">
+                        <div class="user-info">
+                            <div class="photo-area">
+                                <img src="../../assets/images/dummy/profile-big.png" alt="" class="thumb">
+                            </div>
+                            <div class="name">Jang G-rae</div>
+                            <!--<div class="dept">대리 / 비주얼커뮤니케이션팀</div>-->
+                            <div class="email">koreatire@koreatire.co.kr</div>
+                            <div class="lnb-btn-group">
+                                <div><span class="nav-btn write">메일작성</span></div>
+                                <div><span class="nav-btn">임시보관함</span></div>
+                            </div>
+                        </div>
+                        <div class="dwp-lnb-m">
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-util-area">
+                                    <div class="dwp-mail-util-area">
+                                        <div class="dwp-size">
+                                            <span>용량</span> <span class="state-size" data-linkcnt="alldoc">0MB</span> / 200MB
+                                        </div>
+                                        <div class="dwp-mail-util">
+                                            <div class="util-read">
+                                                <a>
+                                                    <span class="title" style="margin-right: 10px;">안읽음</span>
+                                                    <span class="count"><span>0</span></span>
+                                                </a>
+                                            </div>
+                                            <div class="util-mark">
+                                                <a>
+                                                    <span class="title" style="margin-right: 10px;">중요</span>
+                                                    <span class="icon"></span>
+                                                </a>
+                                            </div>
+                                            <!--<div class="util-attach">
+                                                <a>
+                                                    <div class="icon"></div>
+                                                    <div class="title" data-xlang="LC_TEXT" data-xlang-code="mail.title.pcsave">PC저장</div>
+                                                </a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                                <div class="dwp-lnb-item selected">
+                                    <a href="#" class="dwp-link">전체메일함</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">받은메일함</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">내부메일수신 <span class="num">99</span></a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">외부메일수신 <span class="num">99</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">메일발신함</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">메일쓰레드</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">PC저장</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">영구보관함</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">생성한영구보관함명1</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">생성한영구보관함명2</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">예약메일함</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">스팸메일함<span class="num">99</span></a>
+                                    <a href="#" class="dwp-trash-remove">삭제</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">메일폐기함<span class="num">99</span></a>
+                                    <a href="#" class="dwp-trash-remove">삭제</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">개인주소록</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">도구</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">부재중설정</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">메일함관리</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">Rule설정</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">메일템플릿</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">환경설정</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logout-area">
+                        <div>용량<span class="size">2.16GB</span>/ 5GB</div>
+                        <a>Log out<img src="../../assets/images/common/icon-logout-w.svg" alt=""></a>
+                    </div>
+                    <a class="lnb-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-page-title">
+            메일
+        </div>
+        <div class="header-btn-group">
+            <div class="header-group">
+                <div class="search-trigger">
+                    <a class="search-btn"><img src="../../assets/images/common/icon-search.svg" alt=""></a>
+                    <div class="search-form-m">
+                        <div class="inner">
+                            <a class="btn-back"><img src="../../assets/images/common/arrow-back.svg" alt=""></a>
+                            <div class="input-area">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <a class="btn-go"><img src="../../assets/images/common/gnb-search.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-group">
+                <!-- view-trigger에 active 클래스가 붙으면 옵션이 나타납니다 -->
+                <div class="view-trigger">
+                    <a><img src="../../assets/images/common/icon-align-view.svg" alt=""></a>
+                    <div class="view-option">
+                        <div class="option-list">
+                            <a>시간 내림차순</a>
+                            <a>크기 오름차순</a>
+                            <a>크기 내림차순</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+
+    <div class="dwp-list mail-list-m">
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영박주영박주영박주영박주영박주영박주영박주영박주영박주영박주영</div>
+                    </div>
+                    <div class="right">
+                        <span class="icon"><img src="../../assets/images/common/icon-file.svg" alt=""></span>
+                        <span class="date">2016.09.12</span>
+                    </div>
+                </div>
+                <!-- 읽음처리된 제목은 active클래스를 주세요 -->
+                <div class="title active">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영박주영박주영박주영박주영박주영박주영박주영박주영박주영박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="read">
+                <div class="title">읽지않음</div>
+            </div>
+            <a>
+                <div class="aligner" data-type="table" data-align="middle">
+                    <div class="left">
+                        <div class="name">박주영</div>
+                    </div>
+                    <div class="right">2016.09.12</div>
+                </div>
+                <div class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</div>
+                <div class="desc">
+                    내용입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.내용미리보기입니다.
+                </div>
+                <div class="file-size">13.87kb</div>
+            </a>
+            <div class="option-area">
+                <div class="options">
+                    <div class="option-mark">
+                        <div class="title">중요</div>
+                    </div>
+                    <div class="option-del">
+                        <div class="title">삭제</div>
+                    </div>
+                    <div class="option-more">
+                        <div class="title">More</div>
+                        <div class="view-more">
+                            <div class="more-list">
+                                <a>전달</a>
+                                <a>회신</a>
+                                <a>전체회신</a>
+                                <a>보관</a>
+                                <a>삭제</a>
+                                <a>재전송</a>
+                                <a>스팸등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dwp-pagination">
+        <div class="btn-prev-fist"><button type="button">처음페이지로</button></div>
+        <div class="btn-prev"><button type="button">이전</button></div>
+        <div class="num">
+            <button type="button" class="active">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">4</button>
+            <button type="button">5</button>
+        </div>
+        <div class="btn-next"><button type="button">다음</button></div>
+        <div class="btn-next-last"><button type="button">마지막페이지로</button></div>
+        <div class="total-page">총<em class="total-num">77</em><span>건</span></div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+    <a class="btn-write-m"><img src="../../assets/images/common/btn-write-m.png" alt=""></a>
+</div>
+
+<!-- 상세화면 푸터 -->
+<!--<div class="dwp-footer-m dwp-detail-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/breadcrumbs-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-mark.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-link.svg" alt=""></a></div>
+        &lt;!&ndash; option-btn에 active클래스가 추가되면 하위 메뉴들이 나타납니다 &ndash;&gt;
+        <div class="util-btn option-btn">
+            <a><img src="../../assets/images/common/icon-more.svg" alt=""></a>
+            <div class="util-btn-option">
+                <a><img src="../../assets/images/common/icon-modify.svg" alt=""></a>
+                <a><img src="../../assets/images/common/icon-trash-m.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>-->
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "신규메일",
+                width: 420,
+                dialogClass: 'no-overflow',
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+
+            $(".gnb-form-area").mCustomScrollbar({
+                theme:"dark-3"
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-gnb-mail-dialog">
+            <div class="counting">(<span class="point-color">12</span>)</div>
+
+            <div class="gnb-form-area">
+                <div class="item">
+                    <div class="profile-wrap">
+                        <div class="photo">
+                            <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-wrap">
+                        <div class="name">김연아</div>
+                        <div class="desc">
+                            한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.
+                        </div>
+                    </div>
+                    <div class="options-wrap">
+                        <div class="time">PM 09:23</div>
+                        <div class="util">
+                            <div class="file"></div>
+                            <div class="bookmark active"></div>
+                            <div class="trash"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="profile-wrap">
+                        <div class="photo">
+                            <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-wrap">
+                        <div class="name">김연아</div>
+                        <div class="desc">
+                            한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.
+                        </div>
+                    </div>
+                    <div class="options-wrap">
+                        <div class="time">PM 09:23</div>
+                        <div class="util">
+                            <div class="file"></div>
+                            <div class="bookmark"></div>
+                            <div class="trash"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="profile-wrap">
+                        <div class="photo">
+                            <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-wrap">
+                        <div class="name">김연아</div>
+                        <div class="desc">
+                            한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.
+                        </div>
+                    </div>
+                    <div class="options-wrap">
+                        <div class="time">PM 09:23</div>
+                        <div class="util">
+                            <div class="file"></div>
+                            <div class="bookmark"></div>
+                            <div class="trash"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="profile-wrap">
+                        <div class="photo">
+                            <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-wrap">
+                        <div class="name">김연아</div>
+                        <div class="desc">
+                            한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.
+                        </div>
+                    </div>
+                    <div class="options-wrap">
+                        <div class="time">PM 09:23</div>
+                        <div class="util">
+                            <div class="file"></div>
+                            <div class="bookmark"></div>
+                            <div class="trash"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="profile-wrap">
+                        <div class="photo">
+                            <img src="../../assets/images/dummy/mail-img4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-wrap">
+                        <div class="name">김연아</div>
+                        <div class="desc">
+                            한국타이어 이벤트 팝업 게시일자에 관한 문의 드립니다.
+                        </div>
+                    </div>
+                    <div class="options-wrap">
+                        <div class="time">PM 09:23</div>
+                        <div class="util">
+                            <div class="file"></div>
+                            <div class="bookmark"></div>
+                            <div class="trash"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aligner" data-top="sm">
+                <div class="center">
+                    <div class="dwp-btn"><button type="button">메일쓰기</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

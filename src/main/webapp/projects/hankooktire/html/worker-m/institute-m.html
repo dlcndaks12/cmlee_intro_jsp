@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".toggle-heading .toggler").on("click", function () {
+                $(this).parent().toggleClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m worker-main-header-m">
+    <div class="inner-m">
+        <div class="lnb-area">
+            <a class="lnb-trigger"><img src="../../assets/images/common/gnb-menu.svg" alt=""></a>
+            <div class="lnb-wrap">
+                <div class="lnb-inner">
+                    <div class="lnb-scroll">
+                        <div class="user-info">
+                            <div class="photo-area">
+                                <img src="../../assets/images/dummy/profile-big.png" alt="" class="thumb">
+
+                            </div>
+                            <div class="name">Jang G-rae</div>
+                            <div class="dept">대리 / 비주얼커뮤니케이션팀</div>
+                        </div>
+                        <div class="dwp-lnb-m">
+                            <div class="dwp-lnb-depth2">
+                                <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                                <div class="dwp-lnb-item selected">
+                                    <a href="#" class="dwp-link">한국타이어 소식</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">봉사활동</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">통근버스 노선도</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">자유게시판</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">설문조사 룸</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">전화번호 검색</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">행사 및 이벤트</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">캘린더</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">TPM 분임조 활동</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">사원 할인혜택</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">건전서클</a>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">인사/복리후생</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logout-area">
+                        <a>Log out<img src="../../assets/images/common/icon-logout-w.svg" alt=""></a>
+                    </div>
+                    <a class="lnb-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-page-title">
+            연수원 신청
+        </div>
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <!-- Lnb -->
+    <div class="dwp-2depth-nav">
+        <div class="nav-inner">
+            <!-- active 클래스 추가시 선택됩니다 -->
+            <a class="active">이용요금안내</a>
+            <a>예약</a>
+            <a>조회/수정</a>
+        </div>
+    </div>
+
+    <!-- active 클래스 추가시 보여집니다. -->
+    <div class="dwp-3depth-nav">
+        <div class="nav-inner">
+            <a>3depth</a>
+            <a>3depth</a>
+            <a>3depth</a>
+            <a>3depth</a>
+        </div>
+    </div>
+
+    <!-- 내용 -->
+    <div class="dwp-contents institute-m">
+        <div class="visual-slider">
+            <div class="slide">
+                <div class="heading">사원가족</div>
+                <div class="section">
+                    <div class="row">
+                        <div class="key">
+                            <div class="title">식대</div>
+                        </div>
+                        <div class="value">
+                            <div class="info">3,000원(1식)</div>
+                            <div class="guide">* 바비큐식은 1,000원 추가(1식)</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">
+                            <div class="title">숙박비</div>
+                        </div>
+                        <div class="value">
+                            <div class="info">
+                                <div>16평(4인) : 15,000원(1박)</div>
+                                <div>26평(6인) : 22,000원(1박)</div>
+                            </div>
+                            <div class="guide">* 기준인원 초과 시 1인당 3,000원씩 추가</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">
+                            <div class="title">바비큐장</div>
+                        </div>
+                        <div class="value">
+                            <div class="info">2,000원</div>
+                            <div class="guide">※ 1회당 2시간 사용 가능</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="key">
+                            <div class="title">기타 부대시설</div>
+                        </div>
+                        <div class="value">
+                            <div class="info">무료</div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <ul class="list">
+                            <li class="item">4세 미만은 식대 및 숙박비 제외</li>
+                            <li class="item">7~8월에는 식대 인당 1,000원, 숙박비 무료</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <!-- 동의서확인 -->
+                <div class="first-wrap">
+                    <div class="subject-area">
+                        <div class="subject"><img src="../../assets/images/common-m/icon-confirm.svg" alt="">동의서 확인</div>
+                        <div class="tabs">
+                            <ul class="tab">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="heading">한국타이어 아카데미하우스 이용약관</div>
+                        <div class="section">
+                            <ul class="academy-list">
+                                <li><span class="num">1</span>연수원 內 전 지역이 금연구역이므로, 연수원 內에서는 절대로 담배를 피우지 않겠습니다.</li>
+                                <li><span class="num">2</span>정해신 식사시간과 Check Out 시간을 준수하며, 발생한 쓰레기는 숙소동 출입구 앞 쓰레기통에 분리수거 하도록 하겠습니다.</li>
+                                <li><span class="num">3</span>연수원 근무자의 안내와 협조에 적극 따르겠습니다.</li>
+                                <li class="point"><span class="num">4</span>화재예방을 위해 연수원 內에서는 휴대용 가스버너 및 전열기구 등을 이용한 일체의 취사행위를 하지 않겠습니다.</li>
+                                <li><span class="num">5</span>연수원 안으로 애완동물을 데리고 오지 않겠습니다.</li>
+                            </ul>
+                            <div class="sign-info">
+                                본인과 동반가족은 상기 사항을 반드시 준수하겠으며, 이를 준수하지 않을 경우 이용제한 등의 어떠한 조치도 감수할 것을 서약합니다.
+                            </div>
+                            <div class="sign">
+                                <div class="dwp-checkbox textless">
+                                    <label>
+                                        <input type="checkbox"><span></span>
+                                    </label>
+                                </div>
+                                <div class="desc">연수원 이용 내용을 확인하였으며, 이에 동의합니다.</div>
+                            </div>
+                            <div class="dwp-btn expended"><span>확인</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 정보입력 -->
+                <div class="second-wrap">
+                    <div class="subject-area">
+                        <div class="subject"><img src="../../assets/images/common-m/icon-write-info.svg" alt="">정보입력</div>
+                        <div class="tabs">
+                            <ul class="tab">
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="heading">개인정보</div>
+                        <div class="section">
+                            <div class="item">
+                                <div class="title">사업장명</div>
+                                <div class="value">
+                                    <div class="dwp-selection-group">
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group1" checked="checked"><span>대전공장</span>
+                                            </label>
+                                        </div>
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group1"><span>금산공장</span>
+                                            </label>
+                                        </div>
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group1"><span>연구소</span>
+                                            </label>
+                                        </div>
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group1"><span>본사</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">부서명</div>
+                                <div class="value">
+                                    <div class="dwp-input expended"><input type="text" placeholder="부서명을 입력해주세요"></div>
+                                </div>
+                                <div class="guide">※ 자회사/협력업체일 경우 회사명 기입</div>
+                            </div>
+                            <div class="item">
+                                <div class="title">성명</div>
+                                <div class="value">
+                                    <div class="dwp-input expended"><input type="text" placeholder="성명을 입력해주세요"></div>
+                                </div>
+                                <div class="guide">※ 오토캠핑장 신청자는 "성명(캠핑장)" 기입 <br> ex) 김오토(캠핑장)</div>
+                            </div>
+                            <div class="item">
+                                <div class="title">휴대전화</div>
+                                <div class="value">
+                                    <div class="dwp-form">
+                                        <div>
+                                            <div class="dwp-selectbox expended">
+                                                <select>
+                                                    <option value="">선택</option>
+                                                    <option value="">010</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div>
+                                            <div class="dwp-input expended">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div>
+                                            <div class="dwp-input expended">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">자택전화</div>
+                                <div class="value">
+                                    <div class="dwp-form">
+                                        <div>
+                                            <div class="dwp-selectbox expended">
+                                                <select>
+                                                    <option value="">선택</option>
+                                                    <option value="">010</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div>
+                                            <div class="dwp-input expended">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div>
+                                            <div class="dwp-input expended">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">이메일</div>
+                                <div class="value">
+                                    <div class="dwp-form">
+                                        <div>
+                                            <div class="dwp-input expended">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="separator md">@</div>
+                                        <div>
+                                            <div class="dwp-selectbox expended">
+                                                <select>
+                                                    <option value="">선택</option>
+                                                    <option value="">00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">차량번호</div>
+                                <div class="value">
+                                    <div class="dwp-input expended"><input type="text" placeholder="차량번호를 입력해주세요"></div>
+                                    <div class="guide">※ 뒷번호 4자리</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heading">이용내역</div>
+                        <div class="section">
+                            <div class="item">
+                                <div class="title">이용기간</div>
+                                <div class="value">
+                                    <div class="dwp-calendar-form">
+                                        <div class="dwp-input">
+                                            <input type="date">
+                                        </div>
+                                        <span class="dwp-dash">-</span>
+                                        <div class="dwp-input">
+                                            <input type="date">
+                                        </div>
+                                    </div>
+                                    <div class="guide">
+                                        <div class="strong">※ 30일 이내만 신청 가능합니다.<br>(선착순 마감, 7~8월은 신청자 추첨을 통해 이용)</div>
+                                        <ul>
+                                            <li>10월 1주차까지 예약마감(추석연휴 운영안함)</li>
+                                            <li>금요일 체크인 시간: 오후 5시 이후</li>
+                                            <li>캠핑장 1사이트 크기: 7.5m x 6m</li>
+                                            <li>문의사항: 041-750-5811~5</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">입실시간</div>
+                                <div class="value">
+                                    <div class="dwp-selectbox expended">
+                                        <select>
+                                            <option value="">선택</option>
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                    <div class="guide">
+                                        <div class="strong">※ 입실 가능 시간</div>
+                                        <ul>
+                                            <li>금요일 or 공휴일 1일전: 오후 5시부터 입실 가능</li>
+                                            <li>토요일: 오후 2시부터 입실 가능</li>
+                                            <li>7~8월: 오후 3시부터 입실 가능</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">이용인원</div>
+                                <div class="value">
+                                    <div class="persons-area">
+                                        <div class="row">
+                                            <div class="key">총 이용인원</div>
+                                            <div class="value">
+                                                <div class="dwp-selectbox expended">
+                                                    <select>
+                                                        <option value="">명</option>
+                                                        <option value="">00</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="key">4세 미만</div>
+                                            <div class="value">
+                                                <div class="dwp-selectbox expended">
+                                                    <select>
+                                                        <option value="">명</option>
+                                                        <option value="">00</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="guide">
+                                        ※ 총 인원에 4세 미만 인원포함, 1가족당 15명 이하 이용가능
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">식사횟수</div>
+                                <div class="value">
+                                    <div class="meal-area">
+                                        <div class="thead">
+                                            <div class="space"></div>
+                                            <div class="ths">
+                                                <ul>
+                                                    <li>조식</li>
+                                                    <li>중식</li>
+                                                    <li>석식</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="key">
+                                                <span class="day">1</span>일차
+                                            </div>
+                                            <div class="tds">
+                                                <ul>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="key">
+                                                <span class="day">2</span>일차
+                                            </div>
+                                            <div class="tds">
+                                                <ul>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="key">
+                                                <span class="day">3</span>일차
+                                            </div>
+                                            <div class="tds">
+                                                <ul>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dwp-selectbox expended">
+                                                            <select>
+                                                                <option value="">식</option>
+                                                                <option value="">9</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="guide">
+                                        ※ 4세 미만은 식사 인원수에서 제외<br/>
+                                        ※ 식대계산: 총 식사인원 X 3,000원<br/>
+                                        ※ 조식(07:30~08:30), 중식(12:00~13:00), 석식(18:00~19:00)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="title">바비큐장 사용여부</div>
+                                <div class="value">
+                                    <div class="dwp-selection-group">
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group2" checked="checked"><span>사용함</span>
+                                            </label>
+                                        </div>
+                                        <div class="dwp-radio">
+                                            <label>
+                                                <input type="radio" name="radio-group2"><span>사용안함</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-grouping">
+                                        <div>
+                                            <div class="dwp-calendar-form">
+                                                <div class="dwp-input">
+                                                    <input type="date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="dwp-selectbox md">
+                                                <select>
+                                                    <option value="">08:30</option>
+                                                    <option value="">09:00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dwp-selectbox expended">
+                                        <select>
+                                            <option value="">식</option>
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                    <div class="guide">
+                                        ※ 최대 12명 이내<br>
+                                        ※ 사용료: 2,000원 부과, 바비큐식 1,000원/식<br>
+                                        ※ 바비큐식: 버너,불판,밥,국,김치만 제공<br>
+                                        ※ 고기,식기류 등은 개인 지참
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="guide-info">
+                                <ul>
+                                    <li>본 금액은 식사와 바비큐장에 대한 예상 비용입니다.<br/>(숙박비 제외)</li>
+                                    <li>
+                                        식사 횟수 변경시 <span class="strong">식사일 기준 5일 전까지 통보</span>하셔야 하며,
+                                        그 이후에는 <span class="strong">변경 여부와 관계없이 신청수량만큼 청구됨</span>을 양해해주시기 바랍니다.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dwp-btn confirm"><span>작성</span></div>
+                        </div>
+                   </div>
+                </div>
+
+                <!-- 완료 및 확인 -->
+                <div class="third-wrap">
+                    <div class="subject-area">
+                        <div class="subject"><img src="../../assets/images/common-m/icon-done.svg" alt="">완료 및 확인</div>
+                        <div class="tabs">
+                            <ul class="tab">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="total-heading">
+                            <div class="total-head">총 예상비용</div>
+                            <div class="total">1,000,000원</div>
+                        </div>
+                        <div class="section">
+                            <div class="grouping">
+                                <div class="group">
+                                    <div class="subject">개인정보</div>
+                                    <div class="info-row">
+                                        <div class="key">사업장명</div>
+                                        <div class="value">대전공장</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">부서장명</div>
+                                        <div class="value">총무팀</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">성명</div>
+                                        <div class="value">김영우/오토캠핑장</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">휴대전화</div>
+                                        <div class="value">010-1234-5678</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">자택전화</div>
+                                        <div class="value">02-1234-5678</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">이메일</div>
+                                        <div class="value">abcdefg123@gmail.com</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">차량번호</div>
+                                        <div class="value">1234</div>
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <div class="subject">이용내역</div>
+                                    <div class="info-row">
+                                        <div class="key">이용기간</div>
+                                        <div class="value">2016.10.16 - 2016.10.20</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">입실예정일</div>
+                                        <div class="value">총 <span class="strong">10</span>명 / 4세미만 <span class="strong">2</span>명</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">
+                                            식사횟수<br>
+                                            <span>(조식,중식,석식 순)</span>
+                                        </div>
+                                        <div class="value">
+                                            <div class="item">
+                                                <div class="day">1일차</div>
+                                                <ul>
+                                                    <li>1</li>
+                                                    <li>3</li>
+                                                    <li>10</li>
+                                                </ul>
+                                            </div>
+                                            <div class="item">
+                                                <div class="day">2일차</div>
+                                                <ul>
+                                                    <li>17</li>
+                                                    <li>20</li>
+                                                    <li>13</li>
+                                                </ul>
+                                            </div>
+                                            <div class="item">
+                                                <div class="day">3일차</div>
+                                                <ul>
+                                                    <li>123</li>
+                                                    <li>100</li>
+                                                    <li>90</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">바비큐장사용여부</div>
+                                        <div class="value"><div class="strong">Y</div></div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">입실예정일</div>
+                                        <div class="value">2016.10.16 - 2016.10.20</div>
+                                    </div>
+                                    <div class="info-row">
+                                        <div class="key">이용인원</div>
+                                        <div class="value">13:00<span class="slice">/</span>바비큐 <span class="strong">20</span>식</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <div><div class="dwp-btn confirm expended"><span>예약</span></div></div>
+                                <div><div class="dwp-btn expended"><span>취소</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="heading">신청서 조회/수정</div>
+                <div class="section">
+                    <div class="title">사번</div>
+                    <div class="dwp-input expended"><input type="text" placeholder="사번을 입력해주세요."></div>
+                    <div class="dwp-btn confirm"><span>조회</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+</body>
+</html>

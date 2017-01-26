@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "오래된 일정 정리하기",
+                width: 420,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="dialog" title="Basic dialog" >
+    <div class="dwp-schedule-clear-dialog">
+        <div class="form-area">
+            <div class="cal-select">
+                <div class="dwp-selectbox">
+                    <select>
+                        <option value="">캘린더 선택</option>
+                        <option value="">캘린더1 선택</option>
+                        <option value="">캘린더2 선택</option>
+                    </select>
+                </div>
+                캘린더의
+            </div>
+            <div class="date-select">
+                <!-- 입력 선택일때 input-type에 active를 붙여주세요 -->
+                <div class="input-type">
+                    <div class="dwp-input md"><input type="text" placeholder="2016.10.24"></div>
+                    일정을 삭제합니다.
+                </div>
+
+                <!-- From to로 선택일떄 fromto-type에 active를 붙여주세요 -->
+                <div class="fromto-type active">
+                    <div class="dwp-calendar-form">
+                        <div class="dwp-input">
+                            <input type="text" placeholder="2016.10.24">
+                        </div>
+                        <span class="dwp-dash">-</span>
+                        <div class="dwp-input">
+                            <input type="text" placeholder="2016.10.25">
+                        </div>
+                    </div>
+                    일정을 삭제합니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-area">
+            단, 반복일정, 공유/구독 캘린더의 일정과 할 일, 기념일은 삭제되지 않습니다.
+        </div>
+
+        <div class="aligner" data-top="md" data-type="table">
+            <div class="center">
+                <div class="dwp-grouping">
+                    <div class="dwp-btn lg"><button type="button">확인</button></div>
+                    <div class="dwp-btn lg"><button type="button">취소</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "라이브폴 답변",
+                width: 736,
+
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-vpr-livepoll-result-dialog">
+            <div class="question-area">
+                <div class="question-box">
+                    <div class="subject">질문입니다.질문입니다.질문입니다.질문입니다.질문입니다.질문입니다.질문입니다.질문입니까?</div>
+                </div>
+
+                <div class="auth-info">
+                    <div class="aligner" data-type="table" data-align="middle" data-top="md" data-bottom="xs">
+                        <div class="left">
+                            <div class="dwp-user">
+                                <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                <div class="profile-info">
+                                    <div class="name">김영우</div>
+                                    <div class="rank">대리</div>
+                                    <div class="team">기업문화혁신팀</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <span class="date">2016.07.15 오후 08:00</span>
+                            <span class="view">조회 : <span class="point-color">999</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-area">
+                <div class="aligner" data-top="xs">
+                    <div class="left">
+                        <div class="info-area">
+                            투표기간 : 2016.08.01~.2016.08.31 (<span class="state">진행중</span>, <span class="num">7명</span> 참여)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-area">
+                    <div class="item">
+                        <div class="answer-item"><span class="num">1</span>선택지1입니다.</div>
+                        <div class="dwp-progress-bar">
+                            <div class="bar" data-state="50" data-count="4"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="answer-item"><span class="num">2</span>선택지2입니다.</div>
+                        <div class="dwp-progress-bar">
+                            <div class="bar" data-state="25" data-count="2"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="answer-item"><span class="num">3</span>선택지3입니다.</div>
+                        <div class="dwp-progress-bar">
+                            <div class="bar" data-state="12.5" data-count="1"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="answer-item"><span class="num">4</span>선택지4입니다.</div>
+                        <div class="dwp-progress-bar">
+                            <div class="bar" data-state="12.5" data-count="1"></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="answer-item"><span class="num">5</span>선택지5입니다.</div>
+                        <div class="dwp-progress-bar">
+                            <div class="bar" data-state="0" data-count="0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aligner">
+                <div class="center">
+                    <div class="dwp-btn confirm"><button type="button">선택하기</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

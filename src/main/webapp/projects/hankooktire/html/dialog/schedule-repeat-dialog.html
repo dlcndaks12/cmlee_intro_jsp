@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "반복",
+                width: 420,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="dialog" title="Basic dialog" >
+    <div class="dwp-schedule-repeat-dialog">
+        <div class="section">
+            <div class="key">
+                <div class="title">반복빈도</div>
+            </div>
+            <div class="value">
+                <div class="dwp-selectbox lg">
+                    <select>
+                        <option value="">매일</option>
+                        <option value="">옵션2</option>
+                        <option value="">옵션3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="key">
+                <div class="title">반복주기</div>
+            </div>
+            <div class="value">
+                <!-- 반복되는 타입에 맞춰서 active 클래스를 주세요 -->
+                <div class="dwp-grouping repeat-day active">
+                    <div class="dwp-selectbox sm">
+                        <select>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                    <div>일</div>
+                </div>
+                <div class="dwp-grouping repeat-week">
+                    <div class="dwp-selectbox sm">
+                        <select>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                    <div>주</div>
+                </div>
+                <div class="dwp-grouping repeat-month">
+                    <div class="dwp-selectbox sm">
+                        <select>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                    <div>개월</div>
+                </div>
+                <div class="dwp-grouping repeat-year">
+                    <div class="dwp-selectbox sm">
+                        <select>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                    <div>년</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- section에 active 클래스를 붙이면 감춰집니다. -->
+        <div class="section active">
+            <div class="key">
+                <div class="title">반복일</div>
+            </div>
+            <div class="value">
+                <div class="dwp-selection-group">
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>일</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>월</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>화</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>수</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>목</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>금</span>
+                        </label>
+                    </div>
+                    <div class="dwp-checkbox">
+                        <label>
+                            <input type="checkbox"><span>토</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="key">
+                <div class="title">반복 마감일</div>
+            </div>
+            <div class="value">
+                <div class="dwp-selection-group">
+                    <div class="dwp-radio">
+                        <label>
+                            <input type="radio" name="radio-group1" checked="checked"><span>일</span>
+                        </label>
+                    </div>
+                    <div class="dwp-radio">
+                        <label>
+                            <input type="radio" name="radio-group1"><span>요일</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="key">
+                <div class="title">시작날짜</div>
+            </div>
+            <div class="value">
+                <div class="dwp-calendar-form">
+                    <div class="dwp-input">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="key">
+                <div class="title">종료일</div>
+            </div>
+            <div class="value">
+                <div class="dwp-calendar-form">
+                    <div class="dwp-input">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="key">
+                <div class="title">요약</div>
+            </div>
+            <div class="value">
+                <div class="summary">매주 화요일</div>
+            </div>
+        </div>
+
+        <div class="aligner" data-top="md" data-type="table">
+            <div class="center">
+                <div class="dwp-grouping">
+                    <div class="dwp-btn confirm"><button type="button">설정</button></div>
+                    <div class="dwp-btn cancel"><button type="button">취소</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

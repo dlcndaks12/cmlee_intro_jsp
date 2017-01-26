@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+        em {
+            font-style: normal;
+        }
+        table {
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show;
+            width: 100%;
+        }
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+            background-color: #fff;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+            font-family: "Malgun Gothic", Arial, Tahoma, "Microsoft Yahei", 微软雅黑, sans-serif;
+            -webkit-text-size-adjust: none;
+        }
+        input, [type="text"], [type="password"], [type="date"], textarea {
+            -webkit-appearance: none;
+            appearance: none;
+            -webkit-border-radius: 0;
+        }
+        [type="text"], [type="date"], [type="password"], [type="checkbox"] + label, [type="radio"] + label, textarea, select, button, body .ui-widget button, body .ui-widget input {
+            color: #666;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 1.5;
+            font-family: "Malgun Gothic", Arial, Tahoma, "Microsoft Yahei", 微软雅黑, sans-serif;
+            vertical-align: middle;
+            outline: 0;
+        }
+        .aligner:not([data-type="table"]) {
+            text-align: center;
+        }
+        .aligner:not([data-type="table"]):before, .aligner:not([data-type="table"]):after {
+            content: " ";
+            display: table;
+        }
+        .aligner:not([data-type="table"]):after {
+            clear: both;
+        }
+        .aligner[data-type="table"] {
+            display: table;
+            width: 100%;
+        }
+        .aligner[data-type="table"] > div {
+            display: table-cell;
+            float: none;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .aligner[data-type="table"] > div:first-child {
+            text-align: left;
+        }
+        .aligner[data-type="table"] > div:last-child {
+            text-align: right;
+        }
+        .aligner[data-type="table"] > div.center {
+            text-align: center;
+        }
+        .aligner .left {
+            float: left;
+        }
+        .aligner .left.button .dwp-btn + .dwp-btn,
+        .aligner .left.button .dwp-btn + .dwp-btn-circle,
+        .aligner .left.button .dwp-btn-circle + .dwp-btn,
+        .aligner .left.button .dwp-btn-circle + .dwp-btn-circle {
+            margin-left: 3px;
+        }
+        .aligner .right {
+            float: right;
+        }
+        .aligner .right.button .dwp-btn + .dwp-btn,
+        .aligner .right.button .dwp-btn + .dwp-btn-circle,
+        .aligner .right.button .dwp-btn-circle + .dwp-btn,
+        .aligner .right.button .dwp-btn-circle + .dwp-btn-circle {
+            margin-left: 3px;
+        }
+        .aligner .center {
+            display: inline-block;
+            text-align: center;
+        }
+        .aligner .center.button .dwp-btn + .dwp-btn,
+        .aligner .center.button .dwp-btn + .dwp-btn-circle,
+        .aligner .center.button .dwp-btn-circle + .dwp-btn,
+        .aligner .center.button .dwp-btn-circle + .dwp-btn-circle {
+            margin-left: 3px;
+        }
+        .aligner .center .dwp-grouping {
+            margin: 0 auto;
+        }
+        .aligner[data-align="top"] > div {
+            vertical-align: top;
+        }
+        .aligner[data-align="middle"] > div {
+            vertical-align: middle;
+        }
+        .aligner[data-align="bottom"] > div {
+            vertical-align: bottom;
+        }
+        .aligner[data-top="xs"] {
+            margin-top: 10px;
+        }
+        .aligner[data-top="sm"] {
+            margin-top: 15px;
+        }
+        .aligner[data-top="md"] {
+            margin-top: 20px;
+        }
+        .aligner[data-bottom="xs"] {
+            margin-bottom: 10px;
+        }
+        .aligner[data-bottom="sm"] {
+            margin-bottom: 15px;
+        }
+        .aligner[data-bottom="md"] {
+            margin-bottom: 20px;
+        }
+        .dwp-btn {
+            display: inline-block;
+        }
+        .dwp-btn.lg > button
+        > span {
+            display: inline-block;
+            height: 40px;
+            padding: 9px 15px 10px;
+        }
+        .dwp-btn.sm > button,
+        .dwp-btn.sm > span {
+            display: inline-block;
+            height: 24px;
+            padding: 1px 9px 2px;
+        }
+        .dwp-btn.expended {
+            display: block;
+            width: 100%;
+        }
+        .dwp-btn.expended button {
+            width: 100%;
+        }
+        .dwp-btn.expended span {
+            display: inline-block;
+            width: 100%;
+        }
+        .dwp-btn > span {
+            display: inline-block;
+            height: 34px;
+            padding: 6px 13px 7px;
+            border: 1px solid #cfcfcf;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            cursor: pointer;
+            color: #666;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 1.5;
+            font-family: "Malgun Gothic", Arial, Tahoma, "Microsoft Yahei", 微软雅黑, sans-serif;
+            vertical-align: middle;
+            outline: 0;
+            text-align: center;
+        }
+        .dwp-btn > span:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+        }
+        .dwp-btn > span:disabled {
+            color: #999;
+            box-shadow: none;
+            font-weight: 400;
+        }
+        .dwp-btn > span:disabled:hover {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        .dwp-btn > button {
+            height: 34px;
+            padding: 6px 13px 7px;
+            border: 1px solid #cfcfcf;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .dwp-btn > button:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+        }
+        .dwp-btn > button:disabled {
+            color: #999;
+            box-shadow: none;
+            font-weight: 400;
+        }
+        .dwp-btn > button:disabled:hover {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        .dwp-login .dwp-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 752px;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+        .dwp-login .login-area {
+            display: table;
+            width: 100%;
+        }
+        .dwp-login .login-area .banner-slider-wrap {
+            display: table-cell;
+            width: 465px;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-wrapper {
+            position: relative;
+        }
+        .dwp-login .login-area .banner-slider-wrap .slider-item .txt {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 16px 28px 26px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .dwp-login .login-area .banner-slider-wrap .slider-item .txt a {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            height: 60px;
+            color: #fff;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls {
+            position: absolute;
+            left: 50%;
+            bottom: 15px;
+            transform: translateX(-50%);
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-pager {
+            overflow: hidden;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-pager .bx-pager-item {
+            float: left;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-pager .bx-pager-item + .bx-pager-item {
+            margin-left: 14px;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-pager .bx-pager-item a {
+            display: block;
+            overflow: hidden;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #cfcfcf;
+            text-indent: -9999px;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-pager .bx-pager-item a.active {
+            background-color: #ed6c00;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-controls-direction a {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        .dwp-login .login-area .banner-slider-wrap .bx-controls .bx-controls-direction .bx-prev {
+            display: block;
+            background: url('../../assets/images/common/icon-left.svg') no-repeat;
+            background-size: 20px 20px;
+        }
+        .dwp-login .login-area .login-form {
+            display: table-cell;
+            padding: 8px 26px 0;
+            vertical-align: middle;
+        }
+        .dwp-login .login-area .login-form .dwp-logo {
+            display: block;
+            margin-bottom: 17px;
+        }
+        .dwp-login .login-area .login-form .dwp-logo img {
+            height: 32px;
+        }
+        .dwp-login .login-area .login-form .select-area .dwp-selectbox + .dwp-selectbox {
+            margin-top: 8px;
+        }
+        .dwp-login .login-area .login-form .input-area {
+            margin-top: 13px;
+            padding-top: 13px;
+            border-top: 1px solid #ddd;
+        }
+        .dwp-login .login-area .login-form .input-area .dwp-input + .dwp-input {
+            margin-top: 8px;
+            margin-bottom: 7px;
+        }
+        .dwp-login .login-area .login-form .btn-area {
+            margin-top: 16px;
+        }
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm {
+            width: 100%;
+        }
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm button,
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm span {
+            width: 100%;
+            border: 0;
+            background-color: #ed6c00;
+            color: #fff;
+        }
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm + .dwp-btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm + .dwp-btn button,
+        .dwp-login .login-area .login-form .btn-area .dwp-btn.confirm + .dwp-btn span {
+            width: 100%;
+        }
+        .dwp-login .login-area .login-form .aligner {
+            font-size: 12px;
+        }
+        .dwp-login .login-area .login-form .icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+        .login-msg-detail-mask {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all .4s;
+        }
+        .login-msg-detail-mask.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .login-msg-detail-mask .login-msg-detail {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 465px;
+            transform: translate(-50%, -50%);
+        }
+        .login-msg-detail-mask .login-msg-detail .close-msg-detail {
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            font-size: 0;
+        }
+        .login-msg-detail-mask .login-msg-detail .close-msg-detail img {
+            width: 18px;
+            height: 18px;
+        }
+        .login-msg-detail-mask .login-msg-detail .txt {
+            border: 1px solid #ed6c00;
+            padding: 30px 30px 26px;
+            background: #fff;
+        }
+        .login-msg-detail-mask .login-msg-detail .txt .title {
+            color: #333;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .login-msg-detail-mask .login-msg-detail .txt .desc {
+            margin-top: 30px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .dwp-checkbox {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .dwp-checkbox.textless {
+            font-size: 0;
+        }
+        .dwp-checkbox.textless label {
+            min-width: 20px;
+        }
+        .dwp-checkbox.textless label span {
+            padding-left: 0;
+        }
+        .dwp-checkbox label {
+            display: inline-block;
+            position: relative;
+        }
+        .dwp-checkbox label input[type="checkbox"] {
+            position: absolute;
+            left: -9999px;
+        }
+        .dwp-checkbox label input[type="checkbox"]:checked + span::after {
+            background: url('../../assets/images/common/btn-checkbox.png') no-repeat;
+        }
+        .dwp-checkbox label input[type="checkbox"]:disabled + span::before {
+            background-color: #f5f5f5;
+        }
+        .dwp-checkbox label input[type="checkbox"][readonly] + span::before {
+            background-color: #f5f5f5;
+        }
+        .dwp-checkbox label span {
+            display: inline-block;
+            height: 20px;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+        .dwp-checkbox label span::before {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #cfcfcf;
+            background-color: #fff;
+            transform: translateY(-50%);
+        }
+        .dwp-checkbox label span::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            transform: translateY(-50%);
+        }
+
+        .dwp-selectbox {
+            position: relative;
+            display: inline-block;
+        }
+        .dwp-selectbox select {
+            width: 100%;
+            height: 34px;
+            padding: 5px 20px 5px 13px;
+            border: 1px solid #cfcfcf;
+            border-radius: 0;
+            outline: 0;
+            background: #fff url('../../assets/images/common/arrow-down.svg') no-repeat right 10px center;
+            background-size: 10px 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .dwp-selectbox select::-ms-expand {
+            display: none;
+        }
+        .dwp-selectbox select:focus {
+            border: 1px solid #999;
+        }
+        .dwp-selectbox select:disabled {
+            background-color: #f5f5f5;
+        }
+        .dwp-selectbox select[readonly] {
+            background-color: #f5f5f5;
+        }
+        .dwp-selectbox.expended {
+            width: 100%;
+        }
+        .dwp-input {
+            display: inline-block;
+            width: 210px;
+        }
+        .dwp-input input {
+            width: 100%;
+            height: 34px;
+            padding: 6px 13px 7px;
+            border: 1px solid #cfcfcf;
+            outline: 0;
+            background-color: #fff;
+        }
+        .dwp-input input:focus {
+            border: 1px solid #999;
+        }
+        .dwp-input input:disabled {
+            background-color: #f5f5f5;
+        }
+        .dwp-input input:read-only {
+            background-color: #f5f5f5;
+        }
+        .dwp-input.expended {
+            width: 100%;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('.login-area .banner-slider').bxSlider({
+                auto: true,
+                controls: false
+            });
+
+            /* 메시지 상세 팝업 관련 event */
+            $(document).on("click", ".banner-slider-wrap .txt a", function() {
+                $(".login-msg-detail-mask").addClass("active");
+            });
+            $(document).on("click", ".login-msg-detail .close-msg-detail", function() {
+                $(".login-msg-detail-mask").removeClass("active");
+            });
+            $(document).on("click", ".login-msg-detail-mask", function() {
+                $(".login-msg-detail-mask").removeClass("active");
+            });
+            $(document).on("click", ".login-msg-detail", function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="dwp-login">
+    <div class="dwp-inner">
+        <div class="login-area">
+            <div class="banner-slider-wrap">
+                <div class="banner-slider">
+                    <div class="slider-item">
+                        <div class="thumb">
+                            <img src="../../assets/images/dummy/login-banner1.jpg" alt="">
+                        </div>
+                        <div class="txt">
+                            <a>
+                                레알 마드리드 글로벌 마케팅 파트너십 <br> '도전'과 '혁신'을 전하다.
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="thumb">
+                            <img src="../../assets/images/dummy/login-banner2.jpg" alt="">
+                        </div>
+                        <div class="txt">
+                            <a>
+                                세계 최고 드리프트 대회 <br> '2016 포뮬라 드리프트' 1위 질주
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-form">
+                <a class="dwp-logo"><img src="../../assets/images/common/logo.svg" alt=""></a>
+                <div class="select-area">
+                    <div class="dwp-selectbox expended">
+                        <select>
+                            <option value="">언어선택</option>
+                            <option value="">한국어</option>
+                            <option value="">中國語</option>
+                            <option value="">English</option>
+                            <option value="">Magyar</option>
+                            <option value="">Bahasa Indonesia</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <div class="dwp-input expended">
+                        <input type="text" placeholder="아이디">
+                    </div>
+                    <div class="dwp-input expended">
+                        <input type="password" placeholder="비밀번호">
+                    </div>
+                    <div class="aligner" data-type="table" data-align="middle">
+                        <div class="left">
+                            <div class="dwp-checkbox">
+                                <label>
+                                    <input type="checkbox" checked="checked"><span>아이디 저장</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <a>비밀번호 재설정</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <div class="dwp-btn confirm"><button type="button">로그인</button></div>
+                    <div class="dwp-btn"><button type="button">라이트 Ver. 로그인</button></div>
+                </div>
+                <div class="aligner" data-top="xs">
+                    <div class="left">
+                        <a><img src="../../assets/images/common/icon-messenger.svg" alt="" class="icon">메신저 다운로드</a>
+                    </div>
+                    <div class="right">
+                        <a>신문고</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메시지 상세 팝업 -->
+    <div class="login-msg-detail-mask">
+        <div class="login-msg-detail">
+            <a class="close-msg-detail"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            <div class="txt">
+                <div class="title">
+                    레알 마드리드 글로벌 마케팅 파트너십 <br> '도전'과 '혁신'을 전하다.
+                </div>
+                <div class="desc">
+                    우리회사는 지난달 31일, 스페인의 명문구단인 레알 마드리드의 홈
+                    구장인 스페인 산티아고 베르나베우 경기장에서 레알 마드 리드와
+                    글로벌 마케팅 파트너십 조인식을 가졌습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

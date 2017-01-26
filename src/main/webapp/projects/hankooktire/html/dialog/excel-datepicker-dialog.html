@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "기간지정",
+                width: 398,
+
+                /* 기본옵션 */
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog">
+        <div class="dwp-excel-datepicker-dialog">
+            <div class="aligner" data-bottom="xs">
+                <div class="left">
+                    <div class="dwp-btn"><button type="button">전월</button></div>
+                    <div class="dwp-btn"><button type="button">당월</button></div>
+                    <div class="dwp-btn"><button type="button">1분기</button></div>
+                    <div class="dwp-btn"><button type="button">2분기</button></div>
+                    <div class="dwp-btn"><button type="button">3분기</button></div>
+                    <div class="dwp-btn"><button type="button">4분기</button></div>
+                </div>
+            </div>
+
+            <div class="excel-datepicker-inner">
+                <div class="dwp-calendar-form">
+                    <div class="dwp-input">
+                        <input type="text">
+                    </div>
+                    <span class="dwp-dash">-</span>
+                    <div class="dwp-input">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="aligner" data-type="table" data-top="md">
+                <div class="center">
+                    <div class="dwp-btn icon-type"><button type="button"><img src="../../assets/images/common/btn-excel.png" alt="">엑셀다운로드</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog({
+                title: "북마크 공유하기",
+                width: 736,
+
+                /* 기본옵션 */
+                modal: true,
+                draggable: false,
+                hide: { effect: "fade", duration: 300 },
+                show: { effect: "fade", duration: 300 },
+                resizable: false,
+                open: function() {
+                    $('.ui-widget-overlay').on('click', function() {
+                        $('#dialog').dialog('close');
+                    })
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="dialog" title="Basic dialog" >
+    <div class="bookmark-share-dialog">
+        <div class="dialog-section">
+            <div class="sub-title">다른 사용자(팀)에 북마크 공유</div>
+            <div class="dwp-namepicker-grouping">
+                <div class="dwp-input"><input type="text"></div>
+                <div class="dwp-btn"><button type="button"><img src="../../assets/images/common/icon-namepicker.svg" alt=""></button></div>
+            </div>
+            <div class="bookmark-share-list">
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                    <span class="name">장그래</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                        </span>
+                    <span class="name">전지현</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                        </span>
+                    <span class="name">현빈</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                    <span class="name">장그래</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                        </span>
+                    <span class="name">전지현</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                        </span>
+                    <span class="name">현빈</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile.png" alt="">
+                        </span>
+                    <span class="name">장그래</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile2.png" alt="">
+                        </span>
+                    <span class="name">전지현</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+                <div class="share-target">
+                        <span class="photo">
+                            <img src="../../assets/images/dummy/profile3.png" alt="">
+                        </span>
+                    <span class="name">현빈</span>
+                    <a href="#" class="btn-cancel"><img src="../../assets/images/common/btn-cancel.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-section">
+            <div class="sub-title">Virtual Project룸 / CoP 북마크에 공유</div>
+            <div class="bookmark-share-list room">
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Virtual Project 01</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room2.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Virtual Project 02</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room3.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Virtual Project 03</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Virtual Project 04</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room2.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Virtual Project 05</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room3.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Cop 01</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-room">
+                    <div class="dwp-inner">
+                        <img src="../../assets/images/dummy/project-room3.png" alt="">
+                        <div class="room-title">
+                            <div class="txt">Cop 02</div>
+                        </div>
+                        <div class="dwp-checkbox textless">
+                            <label>
+                                <input type="checkbox" checked="checked"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aligner" data-top="md" data-type="table">
+            <div class="center">
+                <div class="dwp-grouping">
+                    <div class="dwp-btn confirm"><button type="button">확인</button></div>
+                    <div class="dwp-btn cancel"><button type="button">취소</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

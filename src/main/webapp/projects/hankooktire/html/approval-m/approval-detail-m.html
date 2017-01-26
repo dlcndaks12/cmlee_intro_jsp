@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", ".approval-option .more-btn", function() {
+                $(this).closest(".approval-option").toggleClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- header-m -->
+<header class="dwp-header-m">
+    <div class="inner-m">
+        <div class="lnb-area">
+            <a class="lnb-trigger"><img src="../../assets/images/common/gnb-menu.svg" alt=""></a>
+            <div class="lnb-wrap">
+                <div class="lnb-inner">
+                    <div class="lnb-scroll">
+                        <div class="user-info">
+                            <div class="photo-area">
+                                <img src="../../assets/images/dummy/profile-big.png" alt="" class="thumb">
+
+                            </div>
+                            <div class="name">Jang G-rae</div>
+                            <div class="dept">대리 / 비주얼커뮤니케이션팀</div>
+                        </div>
+                        <div class="dwp-lnb-m">
+                            <div class="dwp-lnb-depth2">
+                                <!-- dwp-lnb-item 에 selected 클래스를 추가하시면 글자색상이 변경됩니다. -->
+                                <div class="dwp-lnb-item selected">
+                                    <a href="#" class="dwp-link">진행함</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item selected">
+                                        <a href="#" class="dwp-link">결재할문서 <span class="num">10</span></a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">접수함문서 <span class="num">5</span></a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">미결함 <span class="num">1</span></a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">공유함 <span class="num">32</span></a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">결재예정문서 <span class="num">8</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">완료함</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">나의완료함</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">모든완료함</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">공유함</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dwp-lnb-depth2">
+                                <div class="dwp-lnb-item">
+                                    <a href="#" class="dwp-link">결재게시</a>
+                                    <a href="#" class="dwp-depth-open">메뉴펼치기</a>
+                                </div>
+                                <div class="dwp-lnb-depth3">
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">결재게시</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">공지문서</a>
+                                    </div>
+                                    <div class="dwp-lnb-item">
+                                        <a href="#" class="dwp-link">공지만료문서</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logout-area">
+                        <a>Log out<img src="../../assets/images/common/icon-logout-w.svg" alt=""></a>
+                    </div>
+                    <a class="lnb-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="dwp-page-title">
+            페이지 제목
+        </div>
+        <!--<div class="search-trigger">
+            <a class="search-btn"><img src="../../assets/images/common/icon-search.svg" alt=""></a>
+            <div class="search-form-m">
+                <div class="inner">
+                    <a class="btn-back"><img src="../../assets/images/common/arrow-back.svg" alt=""></a>
+                    <div class="input-area">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <a class="btn-go"><img src="../../assets/images/common/gnb-search.svg" alt=""></a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</header>
+
+<!-- container-m -->
+<div class="dwp-container-m">
+    <div class="dwp-contents approval-detail-m">
+        <div class="dwp-detail-view">
+            <div class="view-head">
+                <div class="aligner" data-bottom="xs">
+                    <div class="left">
+                        품의서
+                    </div>
+                    <div class="right point-color">
+                        합의대기중 11 / 20
+                    </div>
+                </div>
+                <div class="dwp-subject">
+                    결재해 주세요 결재해 주세요
+                </div>
+                <div class="view-info">
+                    <div class="dwp-user">
+                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                        <div class="profile-info">
+                            <div class="name">장그래</div>
+                            <div class="rank">사원</div>
+                            <div class="team">기업문화혁신팀</div>
+                            <div class="date">2016.07.15 오후 08:00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-org">
+                    <div class="dwp-btn expended"><button type="button">원문보기</button></div>
+                </div>
+            </div>
+
+            <!-- approval-option 에 active 클래스 추가시 상세내용이 보여집니다. -->
+            <div class="approval-option">
+                <div class="head">
+                    결재정보
+                    <span class="num point-color">3</span>
+                    <a class="more-btn">여닫기</a>
+                </div>
+                <div class="body">
+                    <div class="info-wrap">
+                        <div class="info-section">
+                            <div class="row head">
+                                <div class="key point-color">
+                                    결재
+                                </div>
+                                <div class="value">
+                                    <div class="info-area">
+                                        <div class="dwp-user">
+                                            <div class="profile-info">
+                                                <div class="name">Hermawan Adi Susanto</div>
+                                                <div class="rank">Assistant Manager</div>
+                                                <div class="team">IP)Manufacturing Team 1</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="date-info-list">
+                                            <div class="date-info">
+                                                결재 :
+                                                <span class="date">2016.08.24</span>
+                                                <span class="time">AM 08:00:55</span>
+                                            </div>
+                                            <div class="date-info">
+                                                합의요청 :
+                                                <div class="date">2016.08.24</div>
+                                                <div class="time">AM 08:00:55</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="key">결재의견</div>
+                                <div class="value ">
+                                    결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="key">합의요청의견</div>
+                                <div class="value ">
+                                    결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="key"></div>
+                                <div class="value no-padding">
+                                    <div class="row head">
+                                        <div class="key">
+                                            <div class="point-color">합의</div>
+                                        </div>
+                                        <div class="value">
+                                            <div class="info-area">
+                                                <div class="dwp-user">
+                                                    <div class="profile-info">
+                                                        <div class="name">Hermawan Adi Susanto</div>
+                                                        <div class="rank">Assistant Manager</div>
+                                                        <div class="team">IP)Manufacturing Team 1</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="date-info-list">
+                                                    <div class="date-info">
+                                                        <span class="date">2016.08.24</span>
+                                                        <span class="time">AM 08:00:55</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="key">합의의견</div>
+                                        <div class="value">
+                                            합의 의견이 보여지는 영역입니다. 합의 의견이 보여지는 영역입니다.합의 의견이 보여지는
+                                            영역입니다. 합의 의견이 보여지는 영역입니다. 합의 의견이 보여지는 영역입니다. 합의 의견
+                                            이 보여지는 영역입니다.
+                                        </div>
+                                    </div>
+                                    <div class="row head">
+                                        <div class="key">
+                                            <div class="point-color">합의</div>
+                                        </div>
+                                        <div class="value">
+                                            <div class="info-area">
+                                                <div class="dwp-user">
+                                                    <div class="profile-info">
+                                                        <div class="name">김태평</div>
+                                                        <div class="rank">팀장</div>
+                                                        <div class="team">경영혁신팀</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="date-info-list">
+                                                    <div class="date-info">
+                                                        <span class="date">2016.08.24</span>
+                                                        <span class="time">AM 08:00:55</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <div class="row head">
+                                <div class="key">
+                                    결재자
+                                </div>
+                                <div class="value">
+                                    <div class="info-area">
+                                        <div class="dwp-user">
+                                            <div class="profile-info">
+                                                <div class="name">장그래</div>
+                                                <div class="rank">사원</div>
+                                                <div class="team">기업문화혁신팀</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="date-info-list">
+                                            <div class="date-info">
+                                                <div class="date">2016.08.24</div>
+                                                <div class="time">AM 08:00:55</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <div class="row head">
+                                <div class="key point-color">
+                                    결재
+                                </div>
+                                <div class="value">
+                                    <div class="info-area">
+                                        <div class="dwp-user">
+                                            <div class="profile-info">
+                                                <div class="name">Hermawan Adi Susanto</div>
+                                                <div class="rank">Assistant Manager</div>
+                                                <div class="team">IP)Manufacturing Team 1</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="date-info-list">
+                                            <div class="date-info">
+                                                결재 :
+                                                <span class="date">2016.08.24</span>
+                                                <span class="time">AM 08:00:55</span>
+                                            </div>
+                                            <div class="date-info">
+                                                합의요청 :
+                                                <div class="date">2016.08.24</div>
+                                                <div class="time">AM 08:00:55</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="key">결재의견</div>
+                                <div class="value ">
+                                    결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.결제의견입니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="approval-option">
+                <div class="head">
+                    첨부문서
+                    <span class="num point-color">3</span>
+                    <a class="more-btn">여닫기</a>
+                </div>
+                <div class="body">
+                    <div class="doc-list">
+                        <div class="doc-item">결재게시 / 00006501-D-2016-00008 / 2017년 비용계획 가이드라인 배포</div>
+                        <div class="doc-item">결재게시 / 00006501-D-2016-00008 / 2017년 비용계획 가이드라인 배포</div>
+                        <div class="doc-item">결재게시 / 00006501-D-2016-00008 / 2017년 비용계획 가이드라인 배포</div>
+                    </div>
+                </div>
+            </div>
+            <div class="approval-option">
+                <div class="head">
+                    첨부파일
+                    <span class="num point-color">3</span>
+                    <a class="more-btn">여닫기</a>
+                </div>
+                <div class="body">
+                    <div class="dwp-file-list">
+                        <div class="dwp-file">
+                            <a href="#"><img src="../../assets/images/common/file-icon-word.png" alt="">사업신청서.hwp (51.12kb)</a>
+                        </div>
+                        <div class="dwp-file">
+                            <a href="#"><img src="../../assets/images/common/file-icon-excel.png" alt="">첨부파일명.xls (55.12kb)</a>
+                        </div>
+                        <div class="dwp-file">
+                            <a href="#"><img src="../../assets/images/common/file-icon-pdf.png" alt="">첨부파일명.pdf (1.12mb)</a>
+                        </div>
+                        <div class="dwp-file">
+                            <a href="#"><img src="../../assets/images/common/file-icon-text.png" alt="">첨부파일명.txt (51.12kb)</a>
+                        </div>
+                        <div class="dwp-file">
+                            <a href="#"><img src="../../assets/images/common/file-icon-ppt.png" alt="">첨부파일명.ppt (514.12kb)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="approval-btn-group">
+                <div class="dwp-btn"><button type="button">결재</button></div>
+                <div class="dwp-btn"><button type="button">부결</button></div>
+                <div class="dwp-btn"><button type="button">전결</button></div>
+            </div>
+            <div class="approval-btn-group double">
+                <div class="dwp-btn"><button type="button">동의</button></div>
+                <div class="dwp-btn"><button type="button">부동의</button></div>
+            </div>
+            <div class="approval-btn-group double">
+                <div class="dwp-btn"><button type="button">합의</button></div>
+                <div class="dwp-btn"><button type="button">부결</button></div>
+            </div>
+            <div class="approval-btn-group single">
+                <div class="dwp-btn"><button type="button">합의</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer-m -->
+<div class="dwp-footer-m active">
+    <div class="util-btn-list">
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-left.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-right.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-refresh.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-home.svg" alt=""></a></div>
+        <div class="util-btn"><a><img src="../../assets/images/common/icon-top.svg" alt=""></a></div>
+    </div>
+</div>
+</body>
+</html>

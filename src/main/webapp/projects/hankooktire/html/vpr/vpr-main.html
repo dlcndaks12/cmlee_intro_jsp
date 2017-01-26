@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>DWP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../assets/css/components-style.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages.css"/>
+    <link rel="stylesheet" href="../../assets/css/pages-m.css"/>
+
+    <script src="../../assets/lib/jquery/jquery-2.2.4.js"></script>
+    <script src="../../assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../assets/lib/slick/slick.min.js"></script>
+    <script src="../../assets/lib/bxSlider/jquery.bxslider.min.js"></script>
+    <script src="../../assets/lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../assets/js/common-style.js"></script>
+    <script src="../../assets/js/sub-layout.js"></script>
+    <script src="../../assets/js/common-dialog.js"></script>
+    <script src="../../assets/js/dynatree/jquery.dynatree.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<!-- header -->
+<header class="dwp-header">
+    <div class="dwp-bar"><img src="../../assets/images/common/hankook-gnb-bg.gif" alt="" class="dwp-header-bar" /></div>
+    <div class="dwp-head">
+        <div class="dwp-gnb">
+            <a class="dwp-gnb-trigger">메뉴 열기</a>
+            <div class="dwp-gnb-menu">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a>메뉴메뉴</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴2</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>메뉴3</a>
+                            <ul>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                                <li><a>하위메뉴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div id="hover-board" class=""></div>
+                </div>
+            </div>
+        </div>
+        <h1 class="dwp-logo">
+            <a class="dwp-home">
+                hankook tire, driving emotion
+            </a>
+        </h1>
+        <div class="dwp-search-area">
+            <div class="srch-input">
+                <div class="dwp-input">
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="dwp-btn"><button type="button">검색</button></div>
+            </div>
+
+            <!-- 빠른검색 영역, 'active' class 추가시 보여집니다. -->
+            <div class="quick-srch-area">
+                <div class="inner">
+                    <div class="srch-section user-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">사용자</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="user-list">
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo-wrap"><img src="../../assets/images/common/default-person.png" alt=""></div>
+                                <div class="info-wrap">
+                                    <div class="name">장그래  <span class="eng">Grae Jang</span></div>
+                                    <div class="dept">대리 / 비주얼커뮤니케이션팀 / 마케팅본부</div>
+                                    <div class="email">hankooktire@mail.com</div>
+                                    <div class="tel">+82 2 2186 0178 / +82 10 2048 5532</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section dept-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">부서</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="dept-list">
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a>경영기획본부  &gt;  기업커뮤니케이션  &gt;  디지털워크플레이스(DWP) 구축프로젝트<img src="../../assets/images/common/icon-share.svg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="srch-section app-area">
+                        <div class="aligner" data-type="table" data-align="middle" data-bottom="xs">
+                            <div class="left sub-title">App</div>
+                            <div class="right">
+                                <a class="btn-more"><img src="../../assets/images/common/icon-lnb-depth.svg" alt="">More</a>
+                            </div>
+                        </div>
+                        <ul class="app-list">
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="app-item">
+                                    <img src="../../assets/images/app-icon/icon-approval.svg" alt="">
+                                    <div class="app-name">전자결재</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn-quick-close"><img src="../../assets/images/common/icon-close.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="dwp-icon-menu">
+            <a class="dwp-menu-trigger">메뉴열기</a>
+            <div class="dwp-icon-wrap">
+                <a class="dwp-menu-mail" data-count="12">메일</a>
+                <a class="dwp-menu-alarm" data-count="0">알림</a>
+                <a class="dwp-menu-doc" data-count="456">문서</a>
+                <a class="dwp-menu-apps" data-count="N">앱</a>
+                <a class="dwp-menu-setting" data-count="">설정</a>
+            </div>
+        </div>
+        <div class="dwp-profile">
+            <a class="dwp-photo"><img src="../../assets/images/dummy/profile.png" alt=""/></a>
+            <div class="dwp-name-wrap">
+                <span class="dwp-name">Grae Jang</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- container -->
+<div class="vpr-main-container">
+
+    <div class="dwp-vpr-main">
+        <div class="page-heading">
+            <div class="dwp-page-title">
+                Virtual Project Room
+            </div>
+            <div class="dwp-breadcrumbs">
+                <span class="dwp-item"><img src="../../assets/images/common/breadcrumbs-home.svg" alt="홈"></span>
+                <span class="dwp-item">menu1</span>
+                <span class="dwp-item">menu1-1</span>
+            </div>
+        </div>
+
+        <div class="vpr-content">
+            <div class="dwp-tabs-simple lnb-type">
+                <ul>
+                    <li><a href="#dwp-tabs-vpr-ing">진행중</a></li>
+                    <li><a href="#dwp-tabs-vpr-fin">완료</a></li>
+                    <li><a href="#dwp-tabs-vpr-inv">초청받음</a></li>
+                </ul>
+
+                <div class="dwp-tabs-vpr-ing" id="dwp-tabs-vpr-ing">
+                    <div class="section-wrap">
+                        <div class="card-area">
+                            <div class="aligner" data-bottom="md">
+                                <div class="left">
+                                    <div class="subject">진행중인 VPR<span class="num">10</span></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button">새로운 VPR 생성</button></div>
+                                </div>
+                            </div>
+                            <div class="card-list">
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img1.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털워크플레이스(DWP) 구축 프로젝트 구축 프로젝트</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img2.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업커뮤니케이션</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img3.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">전자문서 보안 등급 개선 TF</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img4.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">경영혁신팀</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img5.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP Comm. 콘텐츠제작</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img6.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP 변화관리</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img7.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">테크노돔 준공식</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img8.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">Proactive Concert</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img9.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업문화 혁신</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img10.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털 혁신방향성 수립</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item add-item">
+                                    <a>
+                                        <div class="title">새로운 VPR 생성</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-area">
+                            <div class="aligner" data-bottom="md">
+                                <div class="left">
+                                    <div class="subject">Activity Stream</div>
+                                </div>
+                            </div>
+
+                            <div class="activity-list">
+                                <div class="list-wrap">
+                                    <div class="list">
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">2분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dwp-acts-desc">
+                                                현재 시점에서 검토 필요 사항 확인 바랍니다.
+                                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                                1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                - 인픽스 제안서 수리 및 9월 개발 진행
+                                            </div>
+                                            <div class="dwp-view-read"><div class="more">+ View More</div></div>
+                                            <div class="team">디지털워크플레이스 구축 TFT팀</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">팀장</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1시간전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dwp-acts-title">한국동그라미파트너스 오픈행사 초안</div>
+                                            <div class="dwp-acts-desc">
+                                                1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다.
+                                            </div>
+                                            <div class="dwp-acts-media">
+                                                <img src="../../assets/images/dummy/vpr-media.png" alt="">
+                                            </div>
+                                            <div class="team">기업커뮤니케이션팀</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">대리</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">5분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dwp-acts-title">전자결재 User Story 업데이트</div>
+                                            <div class="dwp-acts-desc">
+                                                유관부서 회의 후 협의내용 유저스토리에 추가 반영
+                                                했습니다. 메일 내용을 PDF파일로 변환하여 결재하시기 바랍니다.
+                                            </div>
+                                            <div class="dwp-acts-file">DWP_분석설계_User_Story_전자결재 User Story 업데이트.xsl</div>
+                                            <div class="team">기업커뮤니케이션팀</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dwp-acts-title"><a>[참고자료] UI/UX 디자인 트렌드</a></div>
+                                            <div class="team">기업커뮤니케이션팀</div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1분전</div>
+                                                </div>
+                                            </div>
+                                            <div class="dwp-acts-title"><a>[참고자료] UI/UX 디자인 트렌드</a></div>
+                                            <div class="team">기업커뮤니케이션팀</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dwp-tabs-vpr-fin" id="dwp-tabs-vpr-fin">
+                    <div class="section-wrap">
+                        <div class="card-area">
+                            <div class="aligner" data-bottom="md">
+                                <div class="left">
+                                    <div class="subject">진행중인 VPR<span class="num">10</span></div>
+                                </div>
+                                <div class="right">
+                                    <div class="dwp-btn"><button type="button">새로운 VPR 생성</button></div>
+                                </div>
+                            </div>
+                            <div class="card-list">
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img1.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털워크플레이스(DWP) 구축 프로젝트 구축 프로젝트</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img2.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업커뮤니케이션</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img3.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">전자문서 보안 등급 개선 TF</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img4.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">경영혁신팀</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img5.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP Comm. 콘텐츠제작</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img6.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP 변화관리</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img7.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">테크노돔 준공식</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img8.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">Proactive Concert</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img9.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업문화 혁신</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img10.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털 혁신방향성 수립</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item add-item">
+                                    <a>
+                                        <div class="title">새로운 VPR 생성</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-area">
+                            <div class="aligner" data-bottom="md">
+                                <div class="left">
+                                    <div class="subject">Activity Stream</div>
+                                </div>
+                            </div>
+
+                            <div class="activity-list">
+                                <div class="list-wrap">
+                                    <div class="list">
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">2분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-area">
+
+                                                <div class="content">
+                                                    <div class="wrap">
+                                                        <div class="timeline-desc">
+                                                            현재 시점에서 검토 필요 사항 확인 바랍니다.
+                                                            1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                            - 인픽스 제안서 수리 및 9월 개발 진행
+                                                            1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                            - 인픽스 제안서 수리 및 9월 개발 진행
+                                                            1. 콘텐츠 대행 업체 선정 및 콘텐츠 개발
+                                                            - 인픽스 제안서 수리 및 9월 개발 진행
+                                                        </div>
+                                                        <div class="view-read"><div class="more">+ View More</div></div>
+                                                    </div>
+                                                </div>
+                                                <div class="team">디지털워크플레이스 구축 TFT팀</div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">팀장</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1시간전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-area">
+
+                                                <div class="content">
+                                                    <div class="wrap">
+                                                        <div class="subject"><a>한국동그라미파트너스 오픈행사 초안</a></div>
+                                                        <div class="desc">
+                                                            1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다. 1차 편집 초안입니다. 검토 후 피드백 바랍니다.
+                                                        </div>
+                                                        <div class="media">
+                                                            <img src="../../assets/images/dummy/vpr-media.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="team">기업커뮤니케이션팀</div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">대리</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">5분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-area">
+
+                                                <div class="content">
+                                                    <div class="wrap">
+                                                        <div class="subject"><a>전자결재 User Story 업데이트</a></div>
+                                                        <div class="desc">
+                                                            유관부서 회의 후 협의내용 유저스토리에 추가 반영
+                                                            했습니다. 메일 내용을 PDF파일로 변환하여 결재하시기 바랍니다.
+                                                        </div>
+                                                        <div class="file">
+                                                            <div class="file-name">
+                                                                <div class="name">DWP_분석설계_User_Story_전자결재 User Story 업데이트</div>
+                                                                <span>.xsl</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="team">기업커뮤니케이션팀</div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-area">
+
+                                                <div class="content">
+                                                    <div class="wrap">
+                                                        <div class="subject"><a>[참고자료] UI/UX 디자인 트렌드</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="team">기업커뮤니케이션팀</div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="aligner" data-type="table" data-align="middle" data-bottom="sm">
+                                                <div class="left">
+                                                    <div class="dwp-user">
+                                                        <div class="profile"><img src="../../assets/images/dummy/profile.png" alt=""></div>
+                                                        <div class="profile-info">
+                                                            <div class="name">장그래</div>
+                                                            <div class="rank">사원</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right">
+                                                    <div class="time">1분전</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-area">
+
+                                                <div class="content">
+                                                    <div class="wrap">
+                                                        <div class="subject"><a>[참고자료] UI/UX 디자인 트렌드</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="team">기업커뮤니케이션팀</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dwp-tabs-vpr-inv" id="dwp-tabs-vpr-inv">
+                    <div class="section-wrap">
+                        <div class="card-area">
+                            <div class="aligner" data-bottom="md">
+                                <div class="left">
+                                    <div class="subject">초청받은 VPR<span class="num">10</span></div>
+                                </div>
+                            </div>
+                            <div class="card-list">
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img1.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털워크플레이스(DWP) 구축 프로젝트 구축 프로젝트</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img2.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업커뮤니케이션</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img3.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">전자문서 보안 등급 개선 TF</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img4.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">경영혁신팀</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img5.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP Comm. 콘텐츠제작</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img6.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">DWP 변화관리</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img7.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">테크노돔 준공식</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img8.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">Proactive Concert</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img9.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">기업문화 혁신</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a>
+                                        <div class="thumb">
+                                            <img src="../../assets/images/dummy/vpr-img10.png" alt="">
+                                        </div>
+                                        <div class="title-wrap">
+                                            <div class="title">디지털 혁신방향성 수립</div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <div class="dwp-btn strong"><span>가입</span></div>
+                                            <div class="dwp-btn"><span>거절</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<!--<div class="dwp-footer">
+    <div class="inner">
+        <a href="#"><img src="../../assets/images/common/footer-logo.png" alt=""/></a>
+    </div>
+</div>-->
+</body>
+</html>
