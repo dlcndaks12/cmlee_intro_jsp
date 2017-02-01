@@ -95,14 +95,14 @@
 	                                <div class="value">1991.04.01</div>
 	                            </li>
 	                            <li>
-	                                <div class="key">전화번호</div>
-	                                <div class="value">010-2969-3013</div>
-	                            </li>
-	                            <li>
 	                                <div class="key">이메일</div>
 	                                <div class="value">dlcndaks12@naver.com</div>
 	                            </li>
 	                        </ul>
+	
+	                        <div class="section">
+	                        	
+	                        </div>
 	
 	                        <div class="section">
 	                            <div class="sub-title">퍼블리싱 프로젝트</div>
