@@ -10,6 +10,7 @@
 <script type="text/javascript" src="/resources/js/lib/jquery-3.1.1.min.js" ></script>
 <script type="text/javascript" src="/resources/js/lib/jquery-ui.min.js" ></script>
 <script type="text/javascript" src="/resources/js/lib/slick.min.js" ></script>
+<script type="text/javascript" src="/resources/js/lib/circle-progress.js" ></script>
 <script type="text/javascript" src="/resources/js/lib/jquery.mCustomScrollbar.concat.min.js" ></script>
 <script type="text/javascript" src="/resources/js/core.js" ></script>
 <script type="text/javascript" src="/resources/js/layout.js" ></script>
