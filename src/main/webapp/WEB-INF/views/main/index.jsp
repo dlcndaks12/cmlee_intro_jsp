@@ -217,8 +217,6 @@
 			            </a> 
 			        </div>
 	            </div>
-	            
-	            <div class="section-title"><span>PORTFOLIO</span></div>
 		
 		        <ul class="card-container">
 		            <li>

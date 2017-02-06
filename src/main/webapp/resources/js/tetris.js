@@ -46,6 +46,7 @@ function init() {
 function ingGame() {
     current.move(2);
     render(current);
+    ingCnt++;
 }
 
 function startGame() {
@@ -73,23 +74,22 @@ function renderNext(nextItem) {
 }
 
 function levelUp() {
-    ingCnt++;
-    if (ingCnt == 30) {
+    if (ingCnt == 60) {
         interval = 450;
         clearInterval(refreshInterval);
         refreshInterval = setInterval(ingGame, interval);
     }
-    if (ingCnt == 60) {
+    if (ingCnt == 120) {
         interval = 400;
         clearInterval(refreshInterval);
         refreshInterval = setInterval(ingGame, interval);
     }
-    if (ingCnt == 90) {
+    if (ingCnt == 180) {
         interval = 350;
         clearInterval(refreshInterval);
         refreshInterval = setInterval(ingGame, interval);
     }
-    if (ingCnt == 120) {
+    if (ingCnt == 240) {
         interval = 300;
         clearInterval(refreshInterval);
         refreshInterval = setInterval(ingGame, interval);
