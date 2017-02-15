@@ -468,6 +468,17 @@
 	                        </span>
 		                </a>
 		            </li>
+		            <li>
+		                <a target="_blank" href="http://www.museum.seoul.kr/www/NR_index.do?sso=ok">
+		                    <span class="thumb"><img src="resources/images/history.jpg" alt=""></span>
+		                    <span class="desc">
+		                    	서울역사박물관 유지보수
+			                </span>
+	                        <span class="tag-list">
+	                            <span class="tag pub">퍼블리싱</span>
+	                        </span>
+		                </a>
+		            </li>
 		        </ul>
         	</div>
 	    </div>
