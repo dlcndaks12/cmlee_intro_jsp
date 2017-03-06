@@ -479,6 +479,17 @@
 	                        </span>
 		                </a>
 		            </li>
+		            <li>
+		                <a target="_blank" href="http://www.suwon.go.kr/web/fifa/index.do">
+		                    <span class="thumb"><img src="resources/images/u-20.jpg" alt=""></span>
+		                    <span class="desc">
+		                    	수원 FIFA U-20 월드컵 홈페이지 구축
+			                </span>
+	                        <span class="tag-list">
+	                            <span class="tag pub">퍼블리싱</span>
+	                        </span>
+		                </a>
+		            </li>
 		        </ul>
         	</div>
 	    </div>
