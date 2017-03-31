@@ -6,11 +6,13 @@
     	INSERT INTO tetris (  id
     						 ,score
     						 ,rgsdt
+    						 ,ip_address
     						 )
     				  VALUES (
     				  		  #{id}
     				  		 ,#{score}
     				  		 ,NOW()
+    				  		 ,#{ipAddress}
     				  		 )
     </insert>
     

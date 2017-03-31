@@ -3,6 +3,8 @@ package com.lcm.web.tetris.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +36,10 @@ public class TetrisController {
 	
 	@RequestMapping(value = "/tetris/score.do", method = RequestMethod.POST)
 	public String insertScore(@RequestParam HashMap<String, Object> param
+							 ,HttpServletRequest request
 							 ,Model model) {
 
+		param.put("ipAddress", request.getRemoteAddr().toString());
 		int result = tetrisService.insertScore(param);
 		
 		model.addAttribute("result", result);

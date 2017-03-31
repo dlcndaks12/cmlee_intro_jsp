@@ -10,4 +10,5 @@ public class Tetris {
 	private String id;
 	private int score;
 	private Date rgsdt;
+	private String ipAddress;
 }
