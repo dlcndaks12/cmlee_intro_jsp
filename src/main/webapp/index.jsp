@@ -1,4 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 
-<jsp:forward page="/main.do" />
+<jsp:forward page="/tetris.do" />
