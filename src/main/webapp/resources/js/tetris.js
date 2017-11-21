@@ -26,6 +26,8 @@ function init() {
     fixItem = [];
     ingCnt = 0;
     score = 0;
+    interval = 300;
+    clearInterval(refreshInterval);
 }
 
 function getRandom() {
