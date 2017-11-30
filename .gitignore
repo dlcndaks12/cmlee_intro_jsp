@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
-src/main/resources/application.yml
+src/main/resources/config/spring/context-datasource.xml
 
 ### STS ###
 .apt_generated
