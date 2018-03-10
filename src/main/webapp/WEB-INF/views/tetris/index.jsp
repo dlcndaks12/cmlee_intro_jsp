@@ -83,7 +83,7 @@
     <script>
     	function refreshRank() {
     		$.ajax({
-	            url : '/tetris/score.do',
+	            url : '/score.do',
 	            type : 'get',
 	            dataType : 'json',
 	            success : function(data) {
@@ -116,7 +116,7 @@
     		var score = $('.gameover .score .num').text();
     		
     		$.ajax({
-	            url : '/tetris/score.do',
+	            url : '/score.do',
 	            type : 'post',
 	            dataType : 'json',
 	            data : {
@@ -128,7 +128,9 @@
 	              		$('.save-wrap').removeClass('active');
 	              		$('.gameover .save').hide();
 	              		
-	              		refreshRank();
+	              		alert('저장 되었습니다.');
+	              		location.reload();
+	              		// refreshRank();
 	              	}
 	            },
 	            error: function () {

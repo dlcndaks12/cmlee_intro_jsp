@@ -34,7 +34,7 @@ public class TetrisController {
 		return "tetris/index";
 	}
 	
-	@RequestMapping(value = "/tetris/score.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/score.do", method = RequestMethod.POST)
 	public String insertScore(@RequestParam HashMap<String, Object> param
 							 ,HttpServletRequest request
 							 ,Model model) {
@@ -47,7 +47,7 @@ public class TetrisController {
 		return "jsonView";
 	}
 	
-	@RequestMapping(value = "/tetris/score.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/score.do", method = RequestMethod.GET)
 	public String getScore(@RequestParam HashMap<String, Object> param
 							 ,Model model) {
 		

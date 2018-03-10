@@ -6,7 +6,7 @@
      
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://13.230.66.20/cmlee_db?autoReconnect=true"/>
+        <property name="url" value="jdbc:mysql://45.32.35.122/cmlee_db?autoReconnect=true"/>
         <property name="username" value="cmlee"/>
         <property name="password" value="dldmswk!12"/>
         <property name="validationQuery" value="SELECT 1" />
